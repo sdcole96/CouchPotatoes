@@ -16,10 +16,6 @@ public class playerController : MonoBehaviour {
 	{
 		var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
 		var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-		Debug.Log ("Horizontal: " + x);
-		Debug.Log ("Horizontal: " + z);
-
-		transform.Rotate(0, 0, 0);
 		transform.Translate(x, 0, z);
 
 		if(Input.GetKeyUp(KeyCode.Space))
