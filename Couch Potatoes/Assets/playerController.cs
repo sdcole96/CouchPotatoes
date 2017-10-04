@@ -5,10 +5,14 @@ using UnityEngine;
 public class playerController : MonoBehaviour {
 
 	public float speed = 3.0f;
-	public float jumpForce = 10.0f;
+	public int jumpForce = 300;
+	public float gravity;
+	public Rigidbody rb;
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+	{
+		Physics.gravity = new Vector3(0, gravity, 0);
+		rb = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
@@ -18,7 +22,7 @@ public class playerController : MonoBehaviour {
 		var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
 		transform.Translate(x, 0, z);
 
-		if(Input.GetKeyUp(KeyCode.Space))
+		if(Input.GetKeyDown(KeyCode.Space))
 		{ 
 			jump();
 		} 
@@ -26,6 +30,6 @@ public class playerController : MonoBehaviour {
 
 	public void jump()
 	{
-		
+		rb.AddForce (new Vector3 (0, jumpForce, 0));
 	}
 }
