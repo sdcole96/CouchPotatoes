@@ -8,6 +8,8 @@ public class playerController : MonoBehaviour {
 	public int jumpForce = 300;
 	public float gravity;
 	public Rigidbody rb;
+	public bool isGrounded = true;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -22,14 +24,34 @@ public class playerController : MonoBehaviour {
 		var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
 		transform.Translate(x, 0, z);
 
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetKeyDown(KeyCode.Joystick1Button16)||Input.GetKeyDown(KeyCode.Joystick1Button0))
 		{ 
-			jump();
+			if (isGrounded)
+			{
+				jump ();
+			}
 		} 
 	}
 
 	public void jump()
 	{
 		rb.AddForce (new Vector3 (0, jumpForce, 0));
+	}
+
+	//Detects floor collision
+	public void OnCollisionEnter(Collision c)
+	{
+		if(c.gameObject.tag == "Floor")
+		{
+			isGrounded = true;
+		}
+	}
+
+	//consider when character is jumping .. it will exit collision.
+	public void OnCollisionExit(Collision c){
+		if(c.gameObject.tag == "Floor")
+		{
+			isGrounded = false;
+		}
 	}
 }
