@@ -47,6 +47,11 @@ public class playerController : MonoBehaviour {
 		}
 	}
 
+	public void OnCollisionStay(Collision c)
+	{
+		isGrounded = true;
+	}
+
 	//consider when character is jumping .. it will exit collision.
 	public void OnCollisionExit(Collision c){
 		if(c.gameObject.tag == "Floor")
