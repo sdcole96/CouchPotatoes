@@ -24,7 +24,7 @@ public class playerController : MonoBehaviour {
 		var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
 		transform.Translate(x, 0, z);
 
-		if(Input.GetKeyDown(KeyCode.Joystick1Button16)||Input.GetKeyDown(KeyCode.Joystick1Button0))
+		if(Input.GetKeyDown(KeyCode.Joystick1Button16)||Input.GetKeyDown(KeyCode.Joystick1Button0)||Input.GetKeyDown(KeyCode.Space))
 		{ 
 			if (isGrounded)
 			{
