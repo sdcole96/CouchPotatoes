@@ -9,6 +9,7 @@ public class playerController : MonoBehaviour {
 	public float gravity;
 	public Rigidbody rb;
 	public float distToGround;
+	public int force = 500000;
 
 	// Use this for initialization
 	void Start () 
@@ -34,34 +35,29 @@ public class playerController : MonoBehaviour {
 		} 
 	}
 
+	public void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Player" && Input.GetMouseButtonDown(0)) 
+		{
+			other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.up * force);
+			Debug.Log ("PUNCH");
+		}
+	}
+		
+	public void OnTriggerStay(Collider other)
+	{
+		if (other.tag == "Player" && Input.GetMouseButtonDown(0)) 
+		{
+			other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.up * force);
+			Debug.Log ("PUNCH");
+		}
+	}
+		
 	public void jump()
 	{
 		rb.AddForce (new Vector3 (0, jumpForce, 0));
 	}
-
-	//Detects floor collision
-	public void OnCollisionEnter(Collision c)
-	{
-		Debug.Log (c.gameObject.tag);
-		if(c.gameObject.tag == "Floor")
-		{
-			//isGrounded = true;
-		}
-	}
-
-	public void OnCollisionStay(Collision c)
-	{
-		//isGrounded = true;
-	}
-
-	//consider when character is jumping .. it will exit collision.
-	public void OnCollisionExit(Collision c){
-		if(c.gameObject.tag == "Floor")
-		{
-			//isGrounded = false;
-		}
-	}
-
+		
 	public bool isGrounded()
 	{
 		return Physics.Raycast(transform.position, - Vector3.up, 1);
