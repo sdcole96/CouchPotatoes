@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46234173}
   m_Layer: 0
-  m_Name: Parent (12)
+  m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219383295}
   m_Layer: 0
-  m_Name: Parent (6)
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,7 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362303099}
   m_Layer: 0
-  m_Name: Parent (11)
+  m_Name: 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,7 +623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388182426}
   m_Layer: 0
-  m_Name: Parent (9)
+  m_Name: 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -652,7 +652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 418830737}
   m_Layer: 0
-  m_Name: Parent (5)
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,7 +1082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 663577044}
   m_Layer: 0
-  m_Name: Parent (2)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1288,7 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833821827}
   m_Layer: 0
-  m_Name: Parent (1)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   jumpForce: 400
   gravity: -15
   rb: {fileID: 0}
-  isGrounded: 1
+  distToGround: 0
 --- !u!4 &985554058
 Transform:
   m_ObjectHideFlags: 0
@@ -1580,7 +1580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1178663760}
   m_Layer: 0
-  m_Name: Parent (3)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1945,7 +1945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1381921476}
   m_Layer: 0
-  m_Name: Parent (8)
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2f62c8d0b304879b57bdcd867a8b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 5
+  seconds: 1
   i: 0
 --- !u!1 &1442529401
 GameObject:
@@ -2144,7 +2144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1478283155}
   m_Layer: 0
-  m_Name: Parent
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2173,7 +2173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580741423}
   m_Layer: 0
-  m_Name: Parent (14)
+  m_Name: 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2426,7 +2426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1697620795}
   m_Layer: 0
-  m_Name: Parent (13)
+  m_Name: 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2520,7 +2520,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 24362377f44904c15b4391bbfa65589e, type: 2}
+  - {fileID: 2100000, guid: b2963635359c54a3eb81aed30ea8e13e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2567,7 +2567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749751266}
   m_Layer: 0
-  m_Name: Parent (15)
+  m_Name: 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2865,7 +2865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1853317597}
   m_Layer: 0
-  m_Name: Parent (7)
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2894,7 +2894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1951468153}
   m_Layer: 0
-  m_Name: Parent (4)
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3176,7 +3176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101384178}
   m_Layer: 0
-  m_Name: Parent (10)
+  m_Name: 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

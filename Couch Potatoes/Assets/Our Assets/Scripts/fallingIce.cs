@@ -25,7 +25,7 @@ public class fallingIce : MonoBehaviour {
 	private IEnumerator dropIce(float waitTime)
 	{
 		int childCount = transform.childCount;
-		while (childCount > 1) 
+		while (childCount > 2) 
 		{
 			yield return new WaitForSeconds (waitTime);
 
