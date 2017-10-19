@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour {
 	public Rigidbody rb;
 	public float distToGround;
 	public int force = 500000;
-	public bool isMac = false;
 
 	public int playerNum = -1;
 	public XboxController gamepad = new XboxController ();
@@ -24,7 +23,7 @@ public class playerController : MonoBehaviour {
 		gamepad.playerNum = playerNum;
 		if (Application.platform == RuntimePlatform.OSXPlayer) 
 		{
-			//isMac = true;
+			gamepad.isMac = true;
 		}
 	}
 	

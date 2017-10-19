@@ -9,8 +9,11 @@ public class Target : MonoBehaviour
 	public float rotationAngle = -90.0f;
 	public bool hit = false;
 
+	public int pointValue;
+
 	public GameObject pole;
 	public GameObject target;
+
 	public float originalY = 180f;
 	public float originalZ = 0f;
 
@@ -18,19 +21,13 @@ public class Target : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//originalY = target.transform.rotation.y;
-		//originalZ = target.transform.rotation.z;
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		pole.transform.Translate (Vector3.left * Time.deltaTime);
-		
-		if (Input.GetKeyDown(KeyCode.Space)) 
-		{
-			hit = true;
-		}
 
 		if (hit) 
 		{
