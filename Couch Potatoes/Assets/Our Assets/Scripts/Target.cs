@@ -5,7 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour 
 {
 	// speed and angle
-	public float rotationSpeed = 1.0f;
+	public float rotationSpeed = 2.0f;
 	public float rotationAngle = -90.0f;
 	public bool hit = false;
 
@@ -16,6 +16,8 @@ public class Target : MonoBehaviour
 
 	public float originalY = 180f;
 	public float originalZ = 0f;
+	public float speed = 1f;
+	public bool goRight = false;
 
 
 	// Use this for initialization
@@ -27,7 +29,13 @@ public class Target : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		pole.transform.Translate (Vector3.left * Time.deltaTime);
+		if (goRight) {
+			pole.transform.Translate (Vector3.right * Time.deltaTime * speed);
+		}
+		else
+		{
+			pole.transform.Translate (Vector3.left * Time.deltaTime * speed);
+		}
 
 		if (hit) 
 		{
