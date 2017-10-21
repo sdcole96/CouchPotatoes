@@ -329,7 +329,7 @@ MonoBehaviour:
   rotationSpeed: 2
   rotationAngle: -90
   hit: 0
-  pointValue: 1000
+  pointValue: 50
   pole: {fileID: 1314375269468230}
   target: {fileID: 1737731694027894}
   originalY: 180
