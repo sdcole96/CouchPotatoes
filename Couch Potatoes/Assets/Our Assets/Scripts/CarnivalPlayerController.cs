@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarnivalPlayerController : MonoBehaviour 
 {
-	public float speed = 50.0f;
+	public float speed = 100.0f;
 	public int playerNum = -1;
 	public XboxController gamepad = new XboxController ();
 	public CarnivalShootGM GM;

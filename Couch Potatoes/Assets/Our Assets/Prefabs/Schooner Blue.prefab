@@ -334,7 +334,7 @@ MonoBehaviour:
   target: {fileID: 1720142846860620}
   originalY: 180
   originalZ: 0
-  speed: 2
+  speed: 3
   goRight: 0
 --- !u!136 &136228246420790604
 CapsuleCollider:
