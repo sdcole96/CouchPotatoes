@@ -9,6 +9,7 @@ public class CarnivalSpawner : MonoBehaviour
 	public List<GameObject> targets = new List<GameObject> ();
 	public GameObject selectedSpawner;
 	public GameObject selectedTarget;
+    public GameObject lastTargetUsed = null;
 	public bool canSpawn = true; 
 
 
@@ -24,6 +25,11 @@ public class CarnivalSpawner : MonoBehaviour
 		if (canSpawn) 
 		{
 			selectedSpawner = unusedSpawners [Random.Range (0, unusedSpawners.Count)];
+            while (selectedSpawner == lastTargetUsed)
+            {
+                selectedSpawner = unusedSpawners[Random.Range(0, unusedSpawners.Count)];
+            }
+
 			if (selectedSpawner.name == "Spawner 2" || selectedSpawner.name == "Spawner 4") 
 			{
 				selectedTarget = targets [Random.Range (0, (targets.Count/2))+9];
