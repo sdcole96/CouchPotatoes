@@ -40,7 +40,7 @@ public class fallingIce : MonoBehaviour {
 
 			//Transform ice = transform.GetChild(rand).GetChild(0);
 			Animator iceAnim = g.GetComponent<Animator> ();
-			iceAnim.Play ("FallingIce");
+			iceAnim.Play ("fallingIce");
 		}
 	}
 
