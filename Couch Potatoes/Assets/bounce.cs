@@ -18,7 +18,7 @@ public class bounce : MonoBehaviour {
 		if (c.gameObject.tag == "Player") 
 		{
 			Debug.Log ("BOUNCE");
-			c.gameObject.GetComponent<Rigidbody> ().AddForce (new Vector3 (0, 1000, 0));
+			c.gameObject.GetComponent<Rigidbody> ().AddForce (new Vector3 (0, 500, 0));
 		}
 	}
 }
