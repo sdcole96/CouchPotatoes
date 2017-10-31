@@ -122,7 +122,26 @@ public class XboxController
         return false;
     }
 
-	public float getAxisX(ButtonQuery q)
+    public bool getStartButton(ButtonQuery q)
+    {
+        string input = "JoystickStart";
+        if (isMac)
+        {
+            input = input + "Mac";
+        }
+        switch (q)
+        {
+            case ButtonQuery.Up:
+                return Input.GetButtonUp(input + playerNum);
+            case ButtonQuery.Down:
+                return Input.GetButtonDown(input + playerNum);
+            case ButtonQuery.Hold:
+                return Input.GetButton(input + playerNum);
+        }
+        return false;
+    }
+
+    public float getAxisX(ButtonQuery q)
 	{
 		string input = "JoystickX";
 
