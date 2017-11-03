@@ -25,7 +25,7 @@ public class Punch : MonoBehaviour {
 				Debug.Log ("FALCO PUNCH");
 				Vector3 dir = col.contacts[0].point - transform.position;
 				dir = -dir.normalized;
-				col.gameObject.GetComponent<Rigidbody>().AddForce(-dir*force);
+				col.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-dir.x*force,0f,-dir.z*force));
 			}
 		}
 	}

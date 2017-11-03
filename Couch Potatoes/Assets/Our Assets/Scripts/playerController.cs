@@ -101,12 +101,56 @@ public class playerController : MonoBehaviour {
 
 	}
 
+	IEnumerator powerUpTimer(string powerUpName)
+	{
+		yield return new WaitForSeconds(10);
+		switch (powerUpName) 
+		{
+		case "Strength":
+			{
+				this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force = 500;
+				this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force = 500;
+
+				break;
+			}
+		case "Speed":
+			{
+				speed = 50;
+				break;
+			}
+		default:
+			{
+				break;
+			}
+		}
+	}
+	//deal with powerups
 	public void OnCollisionEnter(Collision c)
 	{
 		if (c.gameObject.tag == "Powerup") 
 		{
-			speed = 100;
-			Destroy (c.gameObject);
+			StartCoroutine (powerUpTimer (c.gameObject.name));
+			switch (c.gameObject.name) 
+			{
+			case "Strength":
+				{
+					this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force = 2000;
+					this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force = 2000;
+					Destroy (c.gameObject);
+					break;
+				}
+			case "Speed":
+				{
+					speed = 100;
+					Destroy (c.gameObject);
+					break;
+				}
+			default:
+				{
+					Destroy (c.gameObject);
+					break;
+				}
+			}
 		}
 	}
 }
