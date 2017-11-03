@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - Target
   - Ship
+  - Powerup
   layers:
   - Default
   - TransparentFX

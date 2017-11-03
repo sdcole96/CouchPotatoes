@@ -21,6 +21,7 @@ public class Punch : MonoBehaviour {
 			{
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("LeftPunch")||anim.GetCurrentAnimatorStateInfo(0).IsName("RightPunch")) 
 			{
+				anim.Play ("New State");//stops punch so that multiple collisions dont occur
 				Debug.Log ("FALCO PUNCH");
 				Vector3 dir = col.contacts[0].point - transform.position;
 				dir = -dir.normalized;

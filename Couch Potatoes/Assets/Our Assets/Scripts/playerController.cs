@@ -12,6 +12,8 @@ public class playerController : MonoBehaviour {
 	public float distToGround;
 	public int force = 500000;
 	private Animator anim;
+	bool togglePunch = false;
+
 
 	public int playerNum = -1;
 	public XboxController gamepad = new XboxController ();
@@ -52,17 +54,23 @@ public class playerController : MonoBehaviour {
 		{ 
 			if (isGrounded())
 			{
-				//jump ();
+				jump ();
 			}
 		} 
 
-		if(gamepad.getAButton(ButtonQuery.Down) && !isPunching())
+	
+		if(gamepad.getBButton(ButtonQuery.Down) && !isPunching())
 		{
-			this.transform.Find("Skeleton/Left").GetComponent<Animator>().Play("LeftPunch");
-		}
-		if(gamepad.getAButton(ButtonQuery.Down) && !isPunching())
-		{
-			this.transform.Find("Skeleton/Right").GetComponent<Animator>().Play("RightPunch");
+			if (togglePunch)
+			{
+				this.transform.Find ("Skeleton/Left").GetComponent<Animator> ().Play ("LeftPunch");
+				togglePunch = !togglePunch;
+			} 
+			else 
+			{
+				this.transform.Find ("Skeleton/Right").GetComponent<Animator> ().Play ("RightPunch");
+				togglePunch = !togglePunch;
+			}
 		}
 
 	}
@@ -91,6 +99,15 @@ public class playerController : MonoBehaviour {
 	{
 		return Physics.Raycast(transform.position, - Vector3.up, 1);
 
+	}
+
+	public void OnCollisionEnter(Collision c)
+	{
+		if (c.gameObject.tag == "Powerup") 
+		{
+			speed = 100;
+			Destroy (c.gameObject);
+		}
 	}
 }
 
