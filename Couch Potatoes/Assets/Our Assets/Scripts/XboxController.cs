@@ -29,7 +29,7 @@ public class XboxController
 
 	public bool getBButton(ButtonQuery q)
 	{
-        string input = "JoystickBtnA";
+        string input = "JoystickBtnB";
         if (isMac)
         {
             input = input + "Mac";
@@ -48,7 +48,7 @@ public class XboxController
 
 	public bool getYButton(ButtonQuery q)
 	{
-        string input = "JoystickBtnA";
+        string input = "JoystickBtnY";
         if (isMac)
         {
             input = input + "Mac";
@@ -67,7 +67,7 @@ public class XboxController
 
 	public bool getXButton(ButtonQuery q)
 	{
-        string input = "JoystickBtnA";
+        string input = "JoystickBtnX";
         if (isMac)
         {
             input = input + "Mac";
@@ -86,7 +86,7 @@ public class XboxController
 
 	public bool getRightTrigger(ButtonQuery q)
 	{
-        string input = "JoystickBtnA";
+        string input = "JoystickRightTrigger";
         if (isMac)
         {
             input = input + "Mac";
@@ -105,7 +105,7 @@ public class XboxController
 
 	public bool getLeftTrigger(ButtonQuery q)
 	{
-        string input = "JoystickBtnA";
+        string input = "JoystickLeftTrigger";
         if (isMac)
         {
             input = input + "Mac";

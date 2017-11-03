@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour {
 	public Rigidbody rb;
 	public float distToGround;
 	public int force = 500000;
+	private Animator anim;
 
 	public int playerNum = -1;
 	public XboxController gamepad = new XboxController ();
@@ -18,6 +19,7 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
 		rb = GetComponent<Rigidbody> ();
 		distToGround = this.GetComponent<Collider> ().bounds.extents.y;
@@ -43,39 +45,47 @@ public class playerController : MonoBehaviour {
 		{
 			transform.Translate(x, 0, z);
 		}
-
+			
 
 
 		if(gamepad.getAButton(ButtonQuery.Down)||Input.GetKeyDown(KeyCode.Space))
 		{ 
 			if (isGrounded())
 			{
-				jump ();
+				//jump ();
 			}
 		} 
+
+		if(gamepad.getAButton(ButtonQuery.Down) && !isPunching())
+		{
+			this.transform.Find("Skeleton/Left").GetComponent<Animator>().Play("LeftPunch");
+		}
+		if(gamepad.getAButton(ButtonQuery.Down) && !isPunching())
+		{
+			this.transform.Find("Skeleton/Right").GetComponent<Animator>().Play("RightPunch");
+		}
+
 	}
 
-	public void OnTriggerEnter(Collider other)
+	public bool isPunching()
 	{
-		if (other.tag == "Player" && Input.GetMouseButtonDown (0)) {
-			other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.up * force);
-			Debug.Log ("PUNCH");
+		if (this.transform.Find("Skeleton/Left").GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName ("LeftPunch")) 
+		{
+			return true;
+		} 
+		else if (this.transform.Find("Skeleton/Right").GetComponent<Animator>().GetCurrentAnimatorStateInfo (0).IsName ("RightPunch"))
+		{
+			return true;
 		}
+		return false;
 	}
+		
 
 	private void jump()
 	{
 		rb.AddForce (new Vector3 (0, jumpForce, 0));
 	}
 		
-	public void OnTriggerStay(Collider other)
-	{
-		if (other.tag == "Player" && Input.GetMouseButtonDown(0)) 
-		{
-			other.gameObject.GetComponent<Rigidbody> ().AddForce (Vector3.up * force);
-			Debug.Log ("PUNCH");
-		}
-	}
 		
 	public bool isGrounded()
 	{
