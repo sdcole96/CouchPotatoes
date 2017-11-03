@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Punch : MonoBehaviour {
 	public float force;
+	private Animator anim;
 	// Use this for initialization
 	void Start () {
-		
+		anim = this.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -16,12 +17,15 @@ public class Punch : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.tag == "Player" && col.gameObject.name != this.transform.root.name)
-		{
-			Debug.Log ("FALCO PUNCH");
-			Vector3 dir = col.contacts[0].point - transform.position;
-			dir = -dir.normalized;
-			col.gameObject.GetComponent<Rigidbody>().AddForce(-dir*force);
+			if (col.gameObject.tag == "Player"  && col.gameObject.name != this.transform.root.name)
+			{
+			if(anim.GetCurrentAnimatorStateInfo(0).IsName("LeftPunch")||anim.GetCurrentAnimatorStateInfo(0).IsName("RightPunch")) 
+			{
+				Debug.Log ("FALCO PUNCH");
+				Vector3 dir = col.contacts[0].point - transform.position;
+				dir = -dir.normalized;
+				col.gameObject.GetComponent<Rigidbody>().AddForce(-dir*force);
+			}
 		}
 	}
 		
