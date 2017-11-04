@@ -110,7 +110,6 @@ public class playerController : MonoBehaviour {
 			{
 				this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force = 500;
 				this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force = 500;
-
 				break;
 			}
 		case "Speed":
