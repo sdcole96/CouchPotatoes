@@ -7,16 +7,27 @@ public class fallingIce : MonoBehaviour {
 	public int seconds = 5;
 	public int i = 0;
 	public GameObject[] players;
-
+	public Camera mainCamera;
+	public Vector3 camera;
+	private float t;
+	private bool gameOver;
 	// Use this for initialization
 	void Start () {
+		camera = mainCamera.transform.position;
 		StartCoroutine (dropIce(seconds));
+		t = 0;
+		gameOver = false;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-
+		if (players.Length == 1) 
+		{
+			gameOver = true;
+			mainCamera.transform.position = Vector3.Lerp (camera, players [0].transform.position+new Vector3(0,3,-3), t);
+			t += .01f;
+		}
 	}
 
 	void destroyMe()
@@ -35,12 +46,14 @@ public class fallingIce : MonoBehaviour {
 			yield return new WaitForSeconds (waitTime);
 
 			players = GameObject.FindGameObjectsWithTag("Player");
-			int rand = Random.Range (0, players.Length);
-			GameObject g = findClosestIce (players[rand]);
+			if (players.Length != 1) {
+				int rand = Random.Range (0, players.Length);
+				GameObject g = findClosestIce (players [rand]);
 
-			//Transform ice = transform.GetChild(rand).GetChild(0);
-			Animator iceAnim = g.GetComponent<Animator> ();
-			iceAnim.Play ("fallingIce");
+				//Transform ice = transform.GetChild(rand).GetChild(0);
+				Animator iceAnim = g.GetComponent<Animator> ();
+				iceAnim.Play ("fallingIce");
+			}
 		}
 	}
 

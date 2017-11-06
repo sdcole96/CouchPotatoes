@@ -133,8 +133,8 @@ public class playerController : MonoBehaviour {
 			{
 			case "Strength":
 				{
-					this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force = 2000;
-					this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force = 2000;
+					this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force = 10000;
+					this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force = 10000;
 					Destroy (c.gameObject);
 					break;
 				}

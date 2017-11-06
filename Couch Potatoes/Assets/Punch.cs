@@ -29,6 +29,19 @@ public class Punch : MonoBehaviour {
 			}
 		}
 	}
+
+	void OnTriggerStay(Collider col)
+	{
+		if (col.gameObject.tag == "Player"  && col.gameObject.name != this.transform.root.name)
+		{
+			if(anim.GetCurrentAnimatorStateInfo(0).IsName("LeftPunch")||anim.GetCurrentAnimatorStateInfo(0).IsName("RightPunch")) 
+			{
+				anim.Play ("New State");//stops punch so that multiple collisions dont occur
+				Debug.Log ("FALCO PUNCH");
+				col.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(force,0f,force));
+			}
+		}
+	}
 		
 
 
