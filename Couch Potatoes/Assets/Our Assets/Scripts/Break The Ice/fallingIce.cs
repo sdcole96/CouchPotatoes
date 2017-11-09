@@ -95,6 +95,7 @@ public class fallingIce : MonoBehaviour {
 		for (int i = 0; i < playerAmount; i++) 
 		{
 			GameObject player = Instantiate (playerPrefab, playerSpawns[i].transform.position, playerSpawns[i].transform.rotation);
+			player.transform.GetChild (0).GetComponent<rotationController> ().playerNum = i + 1;
 			player.name ="Player " + (i+1).ToString ();
 			foreach (MeshRenderer meshes in player.GetComponentsInChildren<MeshRenderer> ()) 
 			{
@@ -102,6 +103,7 @@ public class fallingIce : MonoBehaviour {
 			}
 			playerController cpc = player.GetComponent<playerController> ();
 			cpc.playerNum = i + 1;
+
 			//players.Add(cpc);
 		}
 	}
