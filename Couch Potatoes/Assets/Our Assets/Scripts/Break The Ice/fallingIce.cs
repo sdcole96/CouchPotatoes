@@ -101,8 +101,8 @@ public class fallingIce : MonoBehaviour {
 			{
 				meshes.material = playerMaterials [i];
 			}
-			playerController cpc = player.GetComponent<playerController> ();
-			cpc.playerNum = i + 1;
+			playerController pc = player.GetComponent<playerController> ();
+			pc.playerNum = i + 1;
 
 			//players.Add(cpc);
 		}

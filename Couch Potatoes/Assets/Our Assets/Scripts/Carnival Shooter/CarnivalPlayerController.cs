@@ -46,6 +46,7 @@ public class CarnivalPlayerController : MonoBehaviour
 					targetHit.hit = true;
 					GM.UpdatePlayerScore (playerNum, targetHit.pointValue);
 					hit.collider.enabled = false;
+					targetHit.ChangeTargetColor (playerNum);
 				}
 			}
 		} 

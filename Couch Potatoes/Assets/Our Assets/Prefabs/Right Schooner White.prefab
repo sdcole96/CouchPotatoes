@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1941385383800078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.0734634, y: 1.73, z: -151.91414}
+  m_LocalPosition: {x: 211.96289, y: 1079.8049, z: -1714.2499}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4780962672443844}
@@ -331,7 +331,17 @@ MonoBehaviour:
   hit: 0
   pointValue: 50
   pole: {fileID: 1941385383800078}
-  target: {fileID: 1261839607954748}
+  ship: {fileID: 1261839607954748}
+  target: {fileID: 23263332504144358}
+  playerColors:
+  - {fileID: 2100000, guid: 91a0546e6ad5b2547bcaf3579bea5cc3, type: 2}
+  - {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
+  - {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
+  - {fileID: 2100000, guid: 2761d01088e3ae04e8998c64a1ede68b, type: 2}
+  - {fileID: 2100000, guid: c68e52ea929c3ad4798ce54ec303847e, type: 2}
+  - {fileID: 2100000, guid: 1d7e96a4b0d412e44b015c6e8e48bb1c, type: 2}
+  - {fileID: 2100000, guid: 0fc816d392ea5b9479b4fda589a5c902, type: 2}
+  - {fileID: 2100000, guid: 569acf4e8a0849a40bc321e2f87249c4, type: 2}
   originalY: 180
   originalZ: 0
   speed: 3

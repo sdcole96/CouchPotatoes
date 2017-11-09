@@ -12,7 +12,10 @@ public class Target : MonoBehaviour
 	public int pointValue;
 
 	public GameObject pole;
-	public GameObject target;
+	public GameObject ship;
+	public MeshRenderer target;
+
+	public Material[] playerColors;
 
 	public float originalY = 180f;
 	public float originalZ = 0f;
@@ -39,9 +42,13 @@ public class Target : MonoBehaviour
 
 		if (hit) 
 		{
-			
 			Quaternion targetRotation = Quaternion.Euler (rotationAngle, originalY, originalZ);
-			target.transform.rotation = Quaternion.Slerp (target.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);	
+			ship.transform.rotation = Quaternion.Slerp (ship.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);	
 		}
+	}
+
+	public void ChangeTargetColor(int playerNum)
+	{
+		target.material = playerColors [playerNum-1];
 	}
 }
