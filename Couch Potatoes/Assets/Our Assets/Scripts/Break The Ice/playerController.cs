@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour {
 	public int force = 500000;
 	private Animator anim;
 	bool togglePunch = false;
+    private float strength;
 
 
 	public int playerNum = -1;
@@ -21,7 +22,8 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		anim = GetComponent<Animator> ();
+        strength = this.transform.Find("Skeleton/Left").GetComponent<Punch>().force;
+        anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
 		rb = GetComponent<Rigidbody> ();
 		distToGround = this.GetComponent<Collider> ().bounds.extents.y;
@@ -108,8 +110,8 @@ public class playerController : MonoBehaviour {
 		{
 		case "Strength":
 			{
-				this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force = 500;
-				this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force = 500;
+				this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force /= 2;
+				this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force /= 2;
 				break;
 			}
 		case "Speed":
@@ -133,9 +135,9 @@ public class playerController : MonoBehaviour {
 			{
 			case "Strength":
 				{
-					this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force = 10000;
-					this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force = 10000;
-					Destroy (c.gameObject);
+                        this.transform.Find("Skeleton/Left").GetComponent<Punch>().force *= 2;
+                        this.transform.Find("Skeleton/Right").GetComponent<Punch>().force *= 2;
+                    Destroy (c.gameObject);
 					break;
 				}
 			case "Speed":
