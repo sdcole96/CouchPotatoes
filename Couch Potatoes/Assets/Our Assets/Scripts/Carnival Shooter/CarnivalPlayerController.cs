@@ -6,6 +6,7 @@ public class CarnivalPlayerController : MonoBehaviour
 {
 	public float speed = 100.0f;
 	public int playerNum = -1;
+	public bool canHit = true;
 	public XboxController gamepad = new XboxController ();
 	public CarnivalShootGM GM;
 
@@ -34,8 +35,9 @@ public class CarnivalPlayerController : MonoBehaviour
 			transform.Translate(x, y, 0);
 		}
 
-		if(gamepad.getAButton(ButtonQuery.Down)||Input.GetKeyDown(KeyCode.Space))
-		{ 
+		if((gamepad.getAButton(ButtonQuery.Down)||Input.GetKeyDown(KeyCode.Space))&&canHit)
+		{
+			StartCoroutine(FireRate(1.0f));
 			RaycastHit hit;
 			Ray ray = new Ray (transform.position, transform.forward);
 			if (Physics.Raycast (ray, out hit)) 
@@ -50,5 +52,12 @@ public class CarnivalPlayerController : MonoBehaviour
 				}
 			}
 		} 
+	}
+	
+	public void IEnumerator FireRate(float seconds)
+	{
+		canHit = false;
+		yield new WaitForSeconds(seconds);
+		canHit = true;
 	}
 }
