@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< Updated upstream
-- path: Assets/Our Assets/Scenes/ShootingGalleryOcean.unity
-=======
-- path: Assets/Our Assets/Scenes/MainMenu.unity
->>>>>>> Stashed changes
+- path: Assets/Our Assets/Scenes/BreakTheIce.unity
   isLoaded: 1
   isActive: 1
