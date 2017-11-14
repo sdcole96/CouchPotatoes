@@ -54,10 +54,10 @@ public class CarnivalPlayerController : MonoBehaviour
 		} 
 	}
 	
-	public void IEnumerator FireRate(float seconds)
+	public IEnumerator FireRate(float seconds)
 	{
 		canHit = false;
-		yield new WaitForSeconds(seconds);
+		yield return new WaitForSeconds(seconds);
 		canHit = true;
 	}
 }
