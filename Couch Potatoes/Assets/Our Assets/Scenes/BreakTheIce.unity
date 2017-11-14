@@ -6323,7 +6323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUp: {fileID: 1949249762287026, guid: a40ff002ac4664c2fbc4c01082cf9ed2, type: 2}
   red: {fileID: 2100000, guid: b22459f05a90849aebf85c9bc49c9696, type: 2}
-  blue: {fileID: 2100000, guid: bc4f5836007e31c46943532400a2c28a, type: 2}
+  blue: {fileID: 2100000, guid: f01cc0cd6b8184544bc795aaaca64c3c, type: 2}
 --- !u!4 &1901964756
 Transform:
   m_ObjectHideFlags: 0
