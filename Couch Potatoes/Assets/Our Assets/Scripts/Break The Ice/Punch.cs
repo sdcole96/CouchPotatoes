@@ -18,6 +18,7 @@ public class Punch : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
 	{
+		/*
 			if (col.gameObject.tag == "Player"  && col.gameObject.name != this.transform.root.name)
 			{
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("LeftPunch")||anim.GetCurrentAnimatorStateInfo(0).IsName("RightPunch")) 
@@ -33,6 +34,7 @@ public class Punch : MonoBehaviour {
 
 			}
 		}
+		*/
 	}
 
     
