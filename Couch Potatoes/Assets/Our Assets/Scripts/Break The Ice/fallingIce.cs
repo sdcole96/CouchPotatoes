@@ -36,6 +36,7 @@ public class fallingIce : MonoBehaviour {
 	{
 		if (players.Length == 1) 
 		{
+
 			gameOver = true;
 			mainCamera.transform.position = Vector3.Lerp (camera, players [0].transform.position+new Vector3(0,3,-3), t);
 			t += .01f;

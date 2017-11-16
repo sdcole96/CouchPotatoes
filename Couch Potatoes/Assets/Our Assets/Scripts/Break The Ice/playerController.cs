@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour {
 	public float gravity;
 	public Rigidbody rb;
 	public float distToGround;
-	public int force = 500000;
 	private Animator anim;
 	bool togglePunch = false;
     private float strength;
@@ -110,8 +109,7 @@ public class playerController : MonoBehaviour {
 		{
 		case "Strength":
 			{
-				this.transform.Find ("Skeleton/Left").GetComponent<Punch> ().force /= 2;
-				this.transform.Find ("Skeleton/Right").GetComponent<Punch> ().force /= 2;
+				this.transform.Find ("Skeleton").GetComponent<punchCollider>().force /= 2;
 				break;
 			}
 		case "Speed":
@@ -135,8 +133,7 @@ public class playerController : MonoBehaviour {
 			{
 			case "Strength":
 				{
-                        this.transform.Find("Skeleton/Left").GetComponent<Punch>().force *= 2;
-                        this.transform.Find("Skeleton/Right").GetComponent<Punch>().force *= 2;
+					this.transform.Find ("Skeleton").GetComponent<punchCollider>().force *= 2;    
                     Destroy (c.gameObject);
 					break;
 				}
