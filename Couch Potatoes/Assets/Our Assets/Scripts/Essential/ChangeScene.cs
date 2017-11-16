@@ -11,6 +11,11 @@ public class ChangeScene : MonoBehaviour {
 	public Button currentButton;
 	public Button[] buttons;
 
+    public Text player1Score;
+    public Text player2Score;
+    public Text player3Score;
+    public Text player4Score;
+
     // Use this for initialization
     void Start () 
 	{
@@ -21,7 +26,12 @@ public class ChangeScene : MonoBehaviour {
 			Debug.Log ("index " + i + ": "+ name);
 			++i;
 		}
-	}
+
+        player1Score.text = "Player 1 Score: " + GameMaster.player1Score;
+        player2Score.text = "Player 2 Score: " + GameMaster.player2Score;
+        player3Score.text = "Player 3 Score: " + GameMaster.player3Score;
+        player4Score.text = "Player 4 Score: " + GameMaster.player4Score;
+    }
 
     // Update is called once per frame
     void Update()
