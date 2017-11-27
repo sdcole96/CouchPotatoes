@@ -100,7 +100,10 @@ public class fallingIce : MonoBehaviour {
 			player.name ="Player " + (i+1).ToString ();
 			foreach (MeshRenderer meshes in player.GetComponentsInChildren<MeshRenderer> ()) 
 			{
-				meshes.material = playerMaterials [i];
+				if (meshes.name != "Eye") 
+				{
+					meshes.material = playerMaterials [i];
+				}
 			}
 			playerController pc = player.GetComponent<playerController> ();
 			pc.playerNum = i + 1;
