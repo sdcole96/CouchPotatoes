@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Our Assets/Scenes/ShootingGalleryOcean.unity
+  isLoaded: 1
+  isActive: 1
