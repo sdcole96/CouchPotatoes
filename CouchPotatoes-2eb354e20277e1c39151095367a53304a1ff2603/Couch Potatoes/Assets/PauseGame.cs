@@ -19,6 +19,12 @@ public class PauseGame : MonoBehaviour {
 		}
 	}
 
+	public void Quit()
+	{
+		ChangeScene cs = new ChangeScene ();
+		cs.LoadSceneMM ();
+	}
+
 	public void Pause()
 	{
 		if (canvas.gameObject.activeInHierarchy == false) 
