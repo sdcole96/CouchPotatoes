@@ -32,7 +32,8 @@ public class Target : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (goRight) {
+		if (goRight)
+        {
 			pole.transform.Translate (Vector3.right * Time.deltaTime * speed);
 		}
 		else

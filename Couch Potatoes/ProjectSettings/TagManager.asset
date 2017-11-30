@@ -9,6 +9,7 @@ TagManager:
   - Target
   - Ship
   - Powerup
+  - SeagullTarget
   layers:
   - Default
   - TransparentFX

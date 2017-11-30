@@ -42,14 +42,22 @@ public class CarnivalPlayerController : MonoBehaviour
 			Ray ray = new Ray (transform.position, transform.forward);
 			if (Physics.Raycast (ray, out hit)) 
 			{
-				if (hit.collider.tag.Equals("Target")) 
-				{
-					Target targetHit = hit.transform.gameObject.transform.root.GetComponent<Target> ();
-					targetHit.hit = true;
-					GM.UpdatePlayerScore (playerNum, targetHit.pointValue);
-					hit.collider.enabled = false;
-					targetHit.ChangeTargetColor (playerNum);
-				}
+                if (hit.collider.tag.Equals("Target"))
+                {
+                    Target targetHit = hit.transform.gameObject.transform.root.GetComponent<Target>();
+                    targetHit.hit = true;
+                    GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
+                    hit.collider.enabled = false;
+                    targetHit.ChangeTargetColor(playerNum);
+                }
+                else if (hit.collider.tag.Equals("SeagullTarget"))
+                {
+                    SeagullTarget targetHit = hit.transform.gameObject.transform.root.GetComponent<SeagullTarget>();
+                    targetHit.hit = true;
+                    GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
+                    hit.collider.enabled = false;
+                    targetHit.ChangeTargetColor(hit.transform.gameObject.GetComponent<MeshRenderer>(), playerNum);
+                }
 			}
 		} 
 	}
