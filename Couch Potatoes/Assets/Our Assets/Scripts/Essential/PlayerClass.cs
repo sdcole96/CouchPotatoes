@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerClass : MonoBehaviour
+public class PlayerClass
 {
-    static int playerNum;
-    static int controllerNum;
-    static int playerScore = 0;	
+    public int playerNum;
+    public int controllerNum;
+	public int playerScore = 0;
+
+	public PlayerClass(int nPlayerNum, int nControllerNum)
+	{
+		playerNum = nPlayerNum;
+		controllerNum = nControllerNum;
+		playerScore = 0;
+	}
 }
