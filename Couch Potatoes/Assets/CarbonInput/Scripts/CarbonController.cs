@@ -175,7 +175,7 @@ namespace CarbonInput {
 #if !UNITY_5_4_OR_NEWER
 				case RuntimePlatform.OSXWebPlayer:
 #endif
-				case RuntimePlatform.OSXDashboardPlayer: return Has(CPlatform.OSX);
+				//case RuntimePlatform.OSXDashboardPlayer: return Has(CPlatform.OSX);
 #if !UNITY_5_5_OR_NEWER
 				case RuntimePlatform.PS3: return Has(CPlatform.PS3);
 #endif
