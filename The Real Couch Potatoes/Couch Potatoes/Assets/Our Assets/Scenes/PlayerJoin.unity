@@ -449,17 +449,17 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
+      objectReference: {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
     - target: {fileID: 23331997142339916, guid: ebc1ab22153aad7458e992f4590bc942,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
+      objectReference: {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
     - target: {fileID: 23958808456942310, guid: ebc1ab22153aad7458e992f4590bc942,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
+      objectReference: {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
     m_RemovedComponents:
     - {fileID: 114513725261661902, guid: ebc1ab22153aad7458e992f4590bc942, type: 2}
     - {fileID: 114947439420558766, guid: ebc1ab22153aad7458e992f4590bc942, type: 2}
@@ -723,17 +723,17 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
+      objectReference: {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
     - target: {fileID: 23331997142339916, guid: ebc1ab22153aad7458e992f4590bc942,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
+      objectReference: {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
     - target: {fileID: 23958808456942310, guid: ebc1ab22153aad7458e992f4590bc942,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
+      objectReference: {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
     m_RemovedComponents:
     - {fileID: 114513725261661902, guid: ebc1ab22153aad7458e992f4590bc942, type: 2}
     - {fileID: 114947439420558766, guid: ebc1ab22153aad7458e992f4590bc942, type: 2}
@@ -1092,6 +1092,7 @@ GameObject:
   - component: {fileID: 1861353170}
   - component: {fileID: 1861353169}
   - component: {fileID: 1861353172}
+  - component: {fileID: 1861353173}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1179,3 +1180,29 @@ MonoBehaviour:
   - {fileID: 1289259003}
   - {fileID: 1003914252}
   - {fileID: 397173302}
+  playerJoined1: 1
+  playerJoined2: 1
+  playerJoined3: 1
+  playerJoined4: 1
+  playerJoined5: 1
+  playerJoined6: 1
+  playerJoined7: 1
+  playerJoined8: 1
+--- !u!114 &1861353173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1861353167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c26683f903937b40832e1aa71fe5a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 1
+  currentButton: {fileID: 0}
+  buttons: []
+  player1Score: {fileID: 0}
+  player2Score: {fileID: 0}
+  player3Score: {fileID: 0}
+  player4Score: {fileID: 0}

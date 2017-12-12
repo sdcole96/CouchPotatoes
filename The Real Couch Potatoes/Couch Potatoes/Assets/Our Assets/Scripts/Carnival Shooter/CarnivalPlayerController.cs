@@ -7,35 +7,28 @@ public class CarnivalPlayerController : MonoBehaviour
 	public float speed = 100.0f;
 	public int playerNum = -1;
 	public bool canHit = true;
-	public XboxController gamepad = new XboxController ();
+	public PlayerIndex controllerNum;
 	public CarnivalShootGM GM;
 
 	// Use this for initialization
 	void Start () 
 	{
 		GM = GameObject.Find ("Game Manager").GetComponent<CarnivalShootGM> ();
-		gamepad.playerNum = playerNum;
-		if (Application.platform == RuntimePlatform.OSXPlayer) 
-		{
-			gamepad.isMac = true;
-		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		var xIn = gamepad.getAxisX(ButtonQuery.Hold);
-		var yIn = -gamepad.getAxisY (ButtonQuery.Hold);
+		var xIn = GamePad.GetAxis (CAxis.LX, controllerNum);
+		var yIn = -GamePad.GetAxis (CAxis.RX, controllerNum);
 
 		var x =  xIn * Time.deltaTime * speed;
 		var y = yIn * Time.deltaTime * speed;
 
-		if (Mathf.Abs (xIn) > .075f || Mathf.Abs (yIn) > .075f) 
-		{
-			transform.Translate(x, y, 0);
-		}
+		Vector2 movement = GamePad.GetLeftStick (controllerNum);
+		transform.Translate(movement.x * 0.40f, -(movement.y * 0.40f), 0);
 
-		if((gamepad.getAButton(ButtonQuery.Down)||Input.GetKeyDown(KeyCode.Space))&&canHit)
+		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum))&&canHit)
 		{
 			StartCoroutine(FireRate(1.0f));
 			RaycastHit hit;

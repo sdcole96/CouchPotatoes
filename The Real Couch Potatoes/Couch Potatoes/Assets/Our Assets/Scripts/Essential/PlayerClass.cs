@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerClass
 {
     public int playerNum;
-    public int controllerNum;
+    public PlayerIndex controllerNum;
 	public int playerScore = 0;
 
-	public PlayerClass(int nPlayerNum, int nControllerNum)
+	public PlayerClass(int nPlayerNum, PlayerIndex nControllerNum)
 	{
 		playerNum = nPlayerNum;
 		controllerNum = nControllerNum;
