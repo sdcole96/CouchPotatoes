@@ -8,7 +8,7 @@ public class SeagullTarget : MonoBehaviour {
     public GameObject[] seagulls;
     public GameObject pivot;
     public bool hit = false;
-    public MeshRenderer target;
+    public int targetsLeft = 4;
     public int pointValue = 50;
     public float speed = 3f;
 
@@ -21,17 +21,21 @@ public class SeagullTarget : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		pivot.transform.Rotate (0, 0, -50 * Time.deltaTime);
+		pivot.transform.Rotate (0, 0, -70 * Time.deltaTime);
         transform.Translate(Vector3.right * Time.deltaTime * speed);
         foreach (GameObject sg in seagulls) 
 		{
 			sg.transform.up = Vector3.up;
 		}
+        if(targetsLeft <= 0)
+        {
+            GetComponent<Rigidbody>().useGravity = true;
+        }
 	}
 
     public void ChangeTargetColor(MeshRenderer seagull, int playerNum)
     {
         seagull.material = playerColors[playerNum - 1];
-
+        targetsLeft--;
     }
 }

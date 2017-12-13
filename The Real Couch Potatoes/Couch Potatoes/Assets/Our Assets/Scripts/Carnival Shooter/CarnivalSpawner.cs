@@ -7,6 +7,8 @@ public class CarnivalSpawner : MonoBehaviour
 	public List<GameObject> unusedSpawners = new List<GameObject> ();
 	public List<GameObject> usedSpawners = new List<GameObject> ();
 	public List<GameObject> targets = new List<GameObject> ();
+    public GameObject seagulls;
+    public GameObject dolphins;
 	public GameObject selectedSpawner;
 	public GameObject selectedTarget;
     public GameObject lastTargetUsed = null;
@@ -30,12 +32,20 @@ public class CarnivalSpawner : MonoBehaviour
                 selectedSpawner = unusedSpawners[Random.Range(0, unusedSpawners.Count)];
             }
 
-			if (selectedSpawner.name == "Spawner 2" || selectedSpawner.name == "Spawner 4") 
+			if (selectedSpawner.name == "Spawner 2") 
 			{
 				selectedTarget = targets [Random.Range (0, (targets.Count/2))+9];
 				Instantiate (selectedTarget, selectedSpawner.transform.position, transform.rotation);
-			} 
-			else 
+			}
+            else if (selectedSpawner.name == "Spawner 3")
+            {
+                Instantiate(dolphins, selectedSpawner.transform.position, transform.rotation);
+            }
+            else if (selectedSpawner.name == "Spawner 4")
+            {
+                Instantiate(seagulls, selectedSpawner.transform.position, transform.rotation);
+            }
+            else 
 			{
 				selectedTarget = targets [Random.Range (0, (targets.Count/2))];
 				Instantiate (selectedTarget, selectedSpawner.transform.position, transform.rotation);
@@ -59,7 +69,7 @@ public class CarnivalSpawner : MonoBehaviour
 
 	public IEnumerator Spawn()
 	{
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (1.2f);
 		canSpawn = true;
 	}
 }

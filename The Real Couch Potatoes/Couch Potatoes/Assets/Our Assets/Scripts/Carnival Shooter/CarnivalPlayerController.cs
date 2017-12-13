@@ -51,6 +51,14 @@ public class CarnivalPlayerController : MonoBehaviour
                     hit.collider.enabled = false;
                     targetHit.ChangeTargetColor(hit.transform.gameObject.GetComponent<MeshRenderer>(), playerNum);
                 }
+                else if (hit.collider.tag.Equals("DolphinTarget"))
+                {
+                    DolphinTarget targetHit = hit.transform.gameObject.transform.root.GetComponent<DolphinTarget>();
+                    targetHit.hit = true;
+                    GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
+                    hit.collider.enabled = false;
+                    targetHit.ChangeTargetColor(hit.transform.gameObject.GetComponent<MeshRenderer>(), playerNum);
+                }
 			}
 		} 
 	}
