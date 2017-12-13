@@ -5,9 +5,11 @@ using UnityEngine;
 public class PauseGame : MonoBehaviour {
 
 	public Transform canvas;
-
+	private GameObject[] playerList;
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		playerList = GameObject.FindGameObjectsWithTag ("RotationSkeleton");
 		
 	}
 	
@@ -30,11 +32,19 @@ public class PauseGame : MonoBehaviour {
 	{
 		if (canvas.gameObject.activeInHierarchy == false) 
 		{
+			foreach (GameObject player in playerList) 
+			{
+				player.GetComponent<rotationController> ().enabled = false;
+			}
 			canvas.gameObject.SetActive (true);
 			Time.timeScale = 0;
 		} 
 		else
 		{
+			foreach (GameObject player in playerList) 
+			{
+				player.GetComponent<rotationController> ().enabled = true;
+			}
 			canvas.gameObject.SetActive (false);
 			Time.timeScale = 1;
 		}

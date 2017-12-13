@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95574244277108874}
   - component: {fileID: 114440696588378658}
   - component: {fileID: 135488270895216832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4242279893442806}
   - component: {fileID: 33451717008929602}
   - component: {fileID: 23930658252242584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 95817669258437826}
   - component: {fileID: 114947153588091850}
   - component: {fileID: 135451917411855966}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4476070927969266}
   - component: {fileID: 33976648148674334}
   - component: {fileID: 23331997142339916}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 23834784923502026}
   - component: {fileID: 114748861283038860}
   - component: {fileID: 65467067649588972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HeadBounceCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4316614118146340}
   - component: {fileID: 33934598795074552}
   - component: {fileID: 23823902353068178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,9 +132,9 @@ GameObject:
   - component: {fileID: 114947439420558766}
   - component: {fileID: 65069258393894766}
   - component: {fileID: 114528488426796124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: RotationSkeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 54053966935385202}
   - component: {fileID: 136036300268060146}
   - component: {fileID: 95852261123931218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966999490288600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.039858, y: 0.10979009, z: 0.15139821}
+  m_LocalPosition: {x: -8.91, y: 1.96, z: -1.3}
   m_LocalScale: {x: 1, y: 1.4355989, z: 1}
   m_Children:
   - {fileID: 4926698257410244}
@@ -633,8 +633,7 @@ MonoBehaviour:
   gravity: -15
   rb: {fileID: 0}
   distToGround: 0
-  force: 500000
-  playerNum: -1
+  playerNum: 4
 --- !u!114 &114528488426796124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -646,6 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe52e2880212c4b119453cca9d02872b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 500
 --- !u!114 &114748861283038860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf7f253fee724fe38973b5976d6618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNum: 4
 --- !u!135 &135451917411855966
 SphereCollider:
   m_ObjectHideFlags: 1

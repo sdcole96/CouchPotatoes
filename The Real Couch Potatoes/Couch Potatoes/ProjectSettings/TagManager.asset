@@ -11,6 +11,7 @@ TagManager:
   - Powerup
   - SeagullTarget
   - DolphinTarget
+  - RotationSkeleton
   layers:
   - Default
   - TransparentFX

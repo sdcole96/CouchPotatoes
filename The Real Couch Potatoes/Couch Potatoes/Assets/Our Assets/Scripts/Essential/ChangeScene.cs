@@ -27,10 +27,10 @@ public class ChangeScene : MonoBehaviour {
 			++i;
 		}
 
-        player1Score.text = "Player 1 Score: " + GameMaster.player1Score;
-        player2Score.text = "Player 2 Score: " + GameMaster.player2Score;
-        player3Score.text = "Player 3 Score: " + GameMaster.player3Score;
-        player4Score.text = "Player 4 Score: " + GameMaster.player4Score;
+        //player1Score.text = "Player 1 Score: " + GameMaster.player1Score;
+        //player2Score.text = "Player 2 Score: " + GameMaster.player2Score;
+        //player3Score.text = "Player 3 Score: " + GameMaster.player3Score;
+        //player4Score.text = "Player 4 Score: " + GameMaster.player4Score;
     }
 
     // Update is called once per frame

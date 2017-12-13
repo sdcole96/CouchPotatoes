@@ -60,35 +60,39 @@ public class fallingIce : MonoBehaviour {
 			yield return new WaitForSeconds (waitTime);
 
 			players = GameObject.FindGameObjectsWithTag("Player");
-			if (players.Length != 1) {
+			if (players.Length != 1) 
+			{
 				int rand = Random.Range (0, players.Length);
-				GameObject g = findClosestIce (players [rand]);
+				ArrayList closeIce = findClosestIce (players [rand]);
 
-				//Transform ice = transform.GetChild(rand).GetChild(0);
-				Animator iceAnim = g.GetComponent<Animator> ();
+				int rand2 = Random.Range (0, closeIce.Count);
+				GameObject ice = (GameObject)closeIce [rand2];
+
+				Animator iceAnim = ice.GetComponent<Animator> ();
 				iceAnim.Play ("fallingIce");
 			}
 		}
 	}
 
-	public GameObject findClosestIce(GameObject g)
+	public ArrayList findClosestIce(GameObject g)
 	{
 		GameObject[] ice;
 		ice = GameObject.FindGameObjectsWithTag ("Floor");
 		GameObject closest = null;
 		float distance = Mathf.Infinity;
 		Vector3 position = g.transform.position;
+
+		ArrayList closeIce = new ArrayList ();
 		foreach (GameObject i in ice)
 		{
 			Vector3 diff = i.transform.position - position;
 			float curDistance = diff.sqrMagnitude;
-			if (curDistance < distance)
+			if (curDistance < 50)
 			{
-				closest = i;
-				distance = curDistance;
+				closeIce.Add (i);
 			}
 		}
-		return closest;
+		return closeIce;
 	}
 
 	public void CreatePlayers(int playerAmount)
