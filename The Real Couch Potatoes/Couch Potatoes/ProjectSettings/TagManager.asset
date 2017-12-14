@@ -12,6 +12,7 @@ TagManager:
   - SeagullTarget
   - DolphinTarget
   - RotationSkeleton
+  - InnerCrosshair
   layers:
   - Default
   - TransparentFX

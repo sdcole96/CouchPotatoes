@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class rotationController : MonoBehaviour {
 
-	public int playerNum = -1;
-	public XboxController gamepad = new XboxController ();
+    public PlayerIndex controllerNum;
 
 	// Use this for initialization
 	void Start () 
 	{
-		gamepad.playerNum = playerNum;
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		var x = gamepad.getAxisX(ButtonQuery.Hold);
-		var z = -gamepad.getAxisY (ButtonQuery.Hold);
+        Vector2 movement = GamePad.GetLeftStick(controllerNum);
 
-		float degree = Mathf.Atan2(x,z)* Mathf.Rad2Deg;
-		if (!(x==0 && z ==0)) 
+		float degree = Mathf.Atan2(movement.x, -movement.y)* Mathf.Rad2Deg;
+		if (!(movement.x==0 && movement.y ==0)) 
 		{
 			transform.rotation = Quaternion.Euler (0f, degree, 0f);
 		}

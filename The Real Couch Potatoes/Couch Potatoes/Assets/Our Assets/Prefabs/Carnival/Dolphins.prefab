@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866335191188194}
   - component: {fileID: 114808909150711576}
+  - component: {fileID: 65774853272965740}
   m_Layer: 0
   m_Name: Dolphins
   m_TagString: Ship
@@ -474,7 +475,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1326360083220892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.7, y: 4.04, z: -137.4}
+  m_LocalPosition: {x: 4.787654, y: 6.06892, z: -143.7188}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4223626319101616}
@@ -949,6 +950,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65774853272965740
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1326360083220892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65971592315302836
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1042,7 +1055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerColors:
   - {fileID: 2100000, guid: 91a0546e6ad5b2547bcaf3579bea5cc3, type: 2}
-  - {fileID: 2100000, guid: c68e52ea929c3ad4798ce54ec303847e, type: 2}
+  - {fileID: 2100000, guid: eab63dc84850d8a45b44a2fb0e9d902a, type: 2}
   - {fileID: 2100000, guid: 76529905a129d62428aeb9a255d741af, type: 2}
   - {fileID: 2100000, guid: 2761d01088e3ae04e8998c64a1ede68b, type: 2}
   - {fileID: 2100000, guid: c68e52ea929c3ad4798ce54ec303847e, type: 2}

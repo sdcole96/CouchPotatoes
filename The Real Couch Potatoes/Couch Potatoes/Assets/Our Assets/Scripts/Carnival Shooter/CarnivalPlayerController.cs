@@ -7,26 +7,39 @@ public class CarnivalPlayerController : MonoBehaviour
 	public float speed = 100.0f;
 	public int playerNum = -1;
 	public bool canHit = true;
+    public SpriteRenderer innerCrosshair;
+    public Camera mainCam;
 	public PlayerIndex controllerNum;
 	public CarnivalShootGM GM;
+
+    public Rect cameraRect;
+
+    public AudioClip[] hitSounds;
+    public AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () 
 	{
 		GM = GameObject.Find ("Game Manager").GetComponent<CarnivalShootGM> ();
-	}
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        audioSource = GetComponent<AudioSource>();
+        var bottomLeft = mainCam.ScreenToWorldPoint(Vector3.zero);
+        var topRight = mainCam.ScreenToWorldPoint(new Vector3(
+            mainCam.pixelWidth, mainCam.pixelHeight));
+
+        cameraRect = new Rect(
+            bottomLeft.x,
+            bottomLeft.y,
+            topRight.x - bottomLeft.x,
+            topRight.y - bottomLeft.y);
+    }
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		var xIn = GamePad.GetAxis (CAxis.LX, controllerNum);
-		var yIn = -GamePad.GetAxis (CAxis.RX, controllerNum);
-
-		var x =  xIn * Time.deltaTime * speed;
-		var y = yIn * Time.deltaTime * speed;
 
 		Vector2 movement = GamePad.GetLeftStick (controllerNum);
-		transform.Translate(movement.x * 0.40f, -(movement.y * 0.40f), 0);
+		transform.Translate(Mathf.Clamp(movement.x * 0.40f, cameraRect.xMin, cameraRect.xMax), Mathf.Clamp(-(movement.y * 0.40f), cameraRect.yMin, cameraRect.yMax), 0);
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum))&&canHit)
 		{
@@ -37,6 +50,7 @@ public class CarnivalPlayerController : MonoBehaviour
 			{
                 if (hit.collider.tag.Equals("Target"))
                 {
+                    PlayHitSound();
                     Target targetHit = hit.transform.gameObject.transform.root.GetComponent<Target>();
                     targetHit.hit = true;
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
@@ -45,6 +59,7 @@ public class CarnivalPlayerController : MonoBehaviour
                 }
                 else if (hit.collider.tag.Equals("SeagullTarget"))
                 {
+                    PlayHitSound();
                     SeagullTarget targetHit = hit.transform.gameObject.transform.root.GetComponent<SeagullTarget>();
                     targetHit.hit = true;
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
@@ -53,6 +68,7 @@ public class CarnivalPlayerController : MonoBehaviour
                 }
                 else if (hit.collider.tag.Equals("DolphinTarget"))
                 {
+                    PlayHitSound();
                     DolphinTarget targetHit = hit.transform.gameObject.transform.root.GetComponent<DolphinTarget>();
                     targetHit.hit = true;
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
@@ -65,8 +81,18 @@ public class CarnivalPlayerController : MonoBehaviour
 	
 	public IEnumerator FireRate(float seconds)
 	{
-		canHit = false;
+        Color playerColor = innerCrosshair.color;
+        innerCrosshair.color = Color.gray;
+        canHit = false;
 		yield return new WaitForSeconds(seconds);
 		canHit = true;
+        innerCrosshair.color = playerColor;
 	}
+
+    public void PlayHitSound()
+    {
+        //AudioClip hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
+        //audioSource.clip = hitSound;
+        //audioSource.Play();
+    }
 }

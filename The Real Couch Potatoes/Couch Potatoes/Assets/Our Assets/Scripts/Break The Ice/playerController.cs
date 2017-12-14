@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour {
 
-	public float speed = 50.0f;
+	public float speed = 0.1f;
 	public int jumpForce = 300;
 	public float gravity;
 	public Rigidbody rb;
@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour {
 
 
 	public int playerNum = -1;
+    public PlayerIndex controllerNum;
 	public XboxController gamepad = new XboxController ();
 
 	// Use this for initialization
@@ -36,31 +37,19 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		//var x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-		//var z = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-		var xIn = gamepad.getAxisX(ButtonQuery.Hold);
-		var zIn = -gamepad.getAxisY (ButtonQuery.Hold);
-
-		var x =  xIn * Time.deltaTime * speed;
-		var z = zIn * Time.deltaTime * speed;
-
-		if (Mathf.Abs (xIn) > .075f || Mathf.Abs (zIn) > .075f) 
-		{
-			transform.Translate(x, 0, z);
-		}
+        Vector2 movement = GamePad.GetLeftStick(controllerNum);
+        
+		transform.Translate(movement.x*speed, 0, -movement.y*speed);
 			
 
 
-		if(gamepad.getAButton(ButtonQuery.Down)||Input.GetKeyDown(KeyCode.Space))
-		{ 
-			if (isGrounded())
-			{
-				jump ();
-			}
+		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum)) && isGrounded())
+        { 
+			jump ();
 		} 
 
 	
-		if(gamepad.getBButton(ButtonQuery.Down) && !isPunching())
+		if((GamePad.GetButton(CButton.B, controllerNum) || GamePad.GetButton(PSButton.Circle, controllerNum)) && !isPunching())
 		{
 			if (togglePunch)
 			{
@@ -98,7 +87,7 @@ public class playerController : MonoBehaviour {
 		
 	public bool isGrounded()
 	{
-		return Physics.Raycast(transform.position, - Vector3.up, 1);
+		return Physics.Raycast(transform.position, - Vector3.up, 0.8f);
 
 	}
 
@@ -114,7 +103,7 @@ public class playerController : MonoBehaviour {
 			}
 		case "Speed":
 			{
-				speed = 50;
+				speed = 0.1f;
 				break;
 			}
 		default:
@@ -139,7 +128,7 @@ public class playerController : MonoBehaviour {
 				}
 			case "Speed":
 				{
-					speed = 100;
+					speed = 0.2f;
 					Destroy (c.gameObject);
 					break;
 				}

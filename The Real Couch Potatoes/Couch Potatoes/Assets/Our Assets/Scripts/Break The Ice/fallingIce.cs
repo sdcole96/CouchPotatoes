@@ -90,8 +90,13 @@ public class fallingIce : MonoBehaviour {
 			if (curDistance < 50)
 			{
 				closeIce.Add (i);
+                Debug.Log("Ice Added");
 			}
 		}
+        if(closeIce.Count == 0)
+        {
+            closeIce.Add(GameObject.FindGameObjectWithTag("Floor"));
+        }
 		return closeIce;
 	}
 
@@ -100,8 +105,8 @@ public class fallingIce : MonoBehaviour {
 		for (int i = 0; i < playerAmount; i++) 
 		{
 			GameObject player = Instantiate (playerPrefab, playerSpawns[i].transform.position, playerSpawns[i].transform.rotation);
-			player.transform.GetChild (0).GetComponent<rotationController> ().playerNum = i + 1;
-			player.name ="Player " + (i+1).ToString ();
+			player.transform.GetChild (0).GetComponent<rotationController> ().controllerNum = GameMaster.activePlayers[i].controllerNum;
+            player.name ="Player " + (i+1).ToString ();
 			foreach (MeshRenderer meshes in player.GetComponentsInChildren<MeshRenderer> ()) 
 			{
 				if (meshes.name != "Eye") 
@@ -110,10 +115,11 @@ public class fallingIce : MonoBehaviour {
 				}
 			}
 			playerController pc = player.GetComponent<playerController> ();
+            pc.controllerNum = GameMaster.activePlayers[i].controllerNum;
 			pc.playerNum = i + 1;
 
-			//players.Add(cpc);
-		}
+            //players.Add(cpc);
+        }
 	}
 
 	IEnumerator changeScene(float seconds)

@@ -29,22 +29,6 @@ public class GameMaster : MonoBehaviour
 
     public static void AddScore(int playerNum, int points)
     {
-        switch (playerNum)
-        {
-            case 1:
-                player1Score += points;
-                break;
-            case 2:
-                player2Score += points;
-                break;
-            case 3:
-                player3Score += points;
-                break;
-            case 4:
-                player4Score += points;
-                break;
-            default:
-                break;
-        }
+        activePlayers[playerNum].playerScore += points;
     }
 }

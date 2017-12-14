@@ -5,6 +5,7 @@ using UnityEngine;
 public class PauseGame : MonoBehaviour {
 
 	public Transform canvas;
+    public bool isPaused = false;
 	private GameObject[] playerList;
 	// Use this for initialization
 	void Start () 
@@ -15,10 +16,14 @@ public class PauseGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape)) 
-		{
-			Pause ();
-		}
+        if ((Input.GetKeyDown(KeyCode.Escape) || GamePad.GetButton(CButton.Start) || GamePad.GetButton(PSButton.Start)) && isPaused == false)
+        {
+            Pause();
+        }
+        else if ((GamePad.GetButton(CButton.Start) || GamePad.GetButton(PSButton.Start)) && isPaused)
+        {
+            Pause();
+        }
 	}
 
 	public void Quit()
@@ -30,23 +35,25 @@ public class PauseGame : MonoBehaviour {
 
 	public void Pause()
 	{
-		if (canvas.gameObject.activeInHierarchy == false) 
-		{
-			foreach (GameObject player in playerList) 
-			{
-				player.GetComponent<rotationController> ().enabled = false;
-			}
-			canvas.gameObject.SetActive (true);
-			Time.timeScale = 0;
-		} 
-		else
-		{
-			foreach (GameObject player in playerList) 
-			{
-				player.GetComponent<rotationController> ().enabled = true;
-			}
-			canvas.gameObject.SetActive (false);
-			Time.timeScale = 1;
-		}
+        if (isPaused==false)
+        {
+            isPaused = true;
+            foreach (GameObject player in playerList)
+            {
+                player.GetComponent<rotationController>().enabled = false;
+            }
+            canvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            isPaused = false;
+            foreach (GameObject player in playerList)
+            {
+                player.GetComponent<rotationController>().enabled = true;
+            }
+            canvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
 	}
 }
