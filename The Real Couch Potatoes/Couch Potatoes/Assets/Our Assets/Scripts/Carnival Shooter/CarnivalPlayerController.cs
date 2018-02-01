@@ -39,7 +39,7 @@ public class CarnivalPlayerController : MonoBehaviour
 	{
 
 		Vector2 movement = GamePad.GetLeftStick (controllerNum);
-		transform.Translate(Mathf.Clamp(movement.x * 0.40f, cameraRect.xMin, cameraRect.xMax), Mathf.Clamp(-(movement.y * 0.40f), cameraRect.yMin, cameraRect.yMax), 0);
+		transform.Translate(Mathf.Clamp(movement.x * speed, cameraRect.xMin, cameraRect.xMax), Mathf.Clamp(-(movement.y * speed), cameraRect.yMin, cameraRect.yMax), 0);
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum))&&canHit)
 		{
@@ -56,6 +56,7 @@ public class CarnivalPlayerController : MonoBehaviour
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
                     hit.collider.enabled = false;
                     targetHit.ChangeTargetColor(playerNum);
+                    Handheld.Vibrate();
                 }
                 else if (hit.collider.tag.Equals("SeagullTarget"))
                 {
@@ -65,6 +66,7 @@ public class CarnivalPlayerController : MonoBehaviour
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
                     hit.collider.enabled = false;
                     targetHit.ChangeTargetColor(hit.transform.gameObject.GetComponent<MeshRenderer>(), playerNum);
+                    Handheld.Vibrate();
                 }
                 else if (hit.collider.tag.Equals("DolphinTarget"))
                 {
@@ -74,6 +76,7 @@ public class CarnivalPlayerController : MonoBehaviour
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
                     hit.collider.enabled = false;
                     targetHit.ChangeTargetColor(hit.transform.gameObject.GetComponent<MeshRenderer>(), playerNum);
+                    Handheld.Vibrate();
                 }
 			}
 		} 

@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e271dd29faa893e4094d8e072f9895ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 0.3
   playerNum: -1
   canHit: 1
   innerCrosshair: {fileID: 212027950601968084}
