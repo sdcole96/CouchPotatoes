@@ -6,11 +6,26 @@ public class PauseGame : MonoBehaviour {
 
 	public Transform canvas;
     public bool isPaused = false;
-	private GameObject[] playerList;
-	// Use this for initialization
-	void Start () 
+    // Below variables are for fixing pause screen flicker
+    public float coolDownPeriod = 0.1f;
+    private bool inCooldown = false; // For checking if you are currently in 'cooldown mode'
+    // For disabling player controllers
+    public bool carnivalGame;
+    public bool iceGame;
+    public List<MonoBehaviour> controllerList;
+
+    // Use this for initialization
+    void Start () 
 	{
-		playerList = GameObject.FindGameObjectsWithTag ("RotationSkeleton");
+        /*
+        GameObject[] playerList = GameObject.FindGameObjectsWithTag ("Player");
+        foreach (GameObject player in playerList)
+        {
+            if (carnivalGame)
+                controllerList.Add(player.GetComponent<CarnivalPlayerController>());
+            else if (iceGame)
+                controllerList.Add(player.GetComponent<playerController>());
+        } */
 		
 	}
 	
@@ -35,25 +50,37 @@ public class PauseGame : MonoBehaviour {
 
 	public void Pause()
 	{
-        if (isPaused==false)
+        if (isPaused==false && !inCooldown) // If the game is not paused, pause game
         {
             isPaused = true;
-            foreach (GameObject player in playerList)
+            /*
+            foreach (MonoBehaviour controllerScript in controllerList)
             {
-                player.GetComponent<rotationController>().enabled = false;
-            }
+                controllerScript.enabled = false;
+            } */
             canvas.gameObject.SetActive(true);
             Time.timeScale = 0;
+            StartCoroutine("cooldownMode");
         }
-        else
+        else if (!inCooldown) // If the game is already paused, resume game
         {
             isPaused = false;
-            foreach (GameObject player in playerList)
+            /*
+            foreach (MonoBehaviour controllerScript in controllerList)
             {
-                player.GetComponent<rotationController>().enabled = true;
+                controllerScript.enabled = true;
             }
+            */
             canvas.gameObject.SetActive(false);
             Time.timeScale = 1;
+            StartCoroutine("cooldownMode");
         }
 	}
+    IEnumerator cooldownMode() // Cooldown period before the player can pause/unpause the game after previously pausing/unpausing it.
+    {
+        inCooldown = true;
+        yield return new WaitForSecondsRealtime(coolDownPeriod);
+        inCooldown = false;
+    }
+
 }
