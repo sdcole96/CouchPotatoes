@@ -20,20 +20,19 @@ public class playerController : MonoBehaviour {
 	public int playerNum = -1;
     public PlayerIndex controllerNum;
 	public XboxController gamepad = new XboxController ();
+	public bool airbourne = false;
 
 	// Use this for initialization
 	void Start () 
 	{
+		gamepad.playerNum = playerNum;
 		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P1HUD").GetValue(0);
-
-
-
         strength = this.transform.Find("Skeleton/Left").GetComponent<Punch>().force;
         anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
 		rb = GetComponent<Rigidbody> ();
 		distToGround = this.GetComponent<Collider> ().bounds.extents.y;
-		gamepad.playerNum = playerNum;
+
 
 		if (Application.platform == RuntimePlatform.OSXPlayer) 
 		{
@@ -44,6 +43,7 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		airbourne = Physics.Raycast(transform.position, - Vector3.up, 0.7999f);
         Vector2 movement = GamePad.GetLeftStick(controllerNum);
         
 		transform.Translate(movement.x*speed, 0, -movement.y*speed);
@@ -53,6 +53,8 @@ public class playerController : MonoBehaviour {
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum)) && isGrounded())
         { 
 			jump ();
+			airbourne = true;
+
 		} 
 
 	
@@ -94,8 +96,7 @@ public class playerController : MonoBehaviour {
 		
 	public bool isGrounded()
 	{
-		return Physics.Raycast(transform.position, - Vector3.up, 0.8f);
-
+		return airbourne;
 	}
 
 	IEnumerator powerUpTimer(string powerUpName)
@@ -105,13 +106,13 @@ public class playerController : MonoBehaviour {
 		{
 		case "Strength":
 			{
-				myHUD.transform.GetChild (4).gameObject.SetActive (true);
+				myHUD.transform.GetChild (3).gameObject.SetActive (true);
 				this.transform.Find ("Skeleton").GetComponent<punchCollider>().force /= 2;
 				break;
 			}
 		case "Speed":
 			{
-				myHUD.transform.GetChild (3).gameObject.SetActive (true);
+				myHUD.transform.GetChild (4).gameObject.SetActive (true);
 				speed = 0.1f;
 				break;
 			}
@@ -131,14 +132,14 @@ public class playerController : MonoBehaviour {
 			{
 			case "Strength":
 				{
-					myHUD.transform.GetChild (4).gameObject.SetActive (false);
+					myHUD.transform.GetChild (3).gameObject.SetActive (false);
 					this.transform.Find ("Skeleton").GetComponent<punchCollider>().force *= 2;    
                     Destroy (c.gameObject);
 					break;
 				}
 			case "Speed":
 				{
-					myHUD.transform.GetChild (3).gameObject.SetActive (false);
+					myHUD.transform.GetChild (4).gameObject.SetActive (false);
 					speed = 0.2f;
 					Destroy (c.gameObject);
 					break;

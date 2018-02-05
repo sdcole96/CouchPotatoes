@@ -14,6 +14,9 @@ TagManager:
   - RotationSkeleton
   - InnerCrosshair
   - P1HUD
+  - P2HUD
+  - P3HUD
+  - P4HUD
   layers:
   - Default
   - TransparentFX
