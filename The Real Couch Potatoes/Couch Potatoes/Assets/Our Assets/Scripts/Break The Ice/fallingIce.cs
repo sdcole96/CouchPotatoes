@@ -60,7 +60,7 @@ public class fallingIce : MonoBehaviour {
 			yield return new WaitForSeconds (waitTime);
 
 			players = GameObject.FindGameObjectsWithTag("Player");
-			if (players.Length != 1) 
+			if (players.Length > 1) 
 			{
 				int rand = Random.Range (0, players.Length);
 				ArrayList closeIce = findClosestIce (players [rand]);
@@ -70,6 +70,7 @@ public class fallingIce : MonoBehaviour {
 
 				Animator iceAnim = ice.GetComponent<Animator> ();
 				iceAnim.Play ("fallingIce");
+				ice.tag = "falling";
 			}
 		}
 	}
