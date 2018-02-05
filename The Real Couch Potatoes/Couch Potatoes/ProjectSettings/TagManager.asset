@@ -13,6 +13,7 @@ TagManager:
   - DolphinTarget
   - RotationSkeleton
   - InnerCrosshair
+  - P1HUD
   layers:
   - Default
   - TransparentFX

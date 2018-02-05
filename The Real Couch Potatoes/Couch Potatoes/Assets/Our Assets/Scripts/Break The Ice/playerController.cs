@@ -2,9 +2,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerController : MonoBehaviour {
 
+	private GameObject myHUD;
 	public float speed = 0.1f;
 	public int jumpForce = 300;
 	public float gravity;
@@ -22,12 +24,17 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P1HUD").GetValue(0);
+
+
+
         strength = this.transform.Find("Skeleton/Left").GetComponent<Punch>().force;
         anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
 		rb = GetComponent<Rigidbody> ();
 		distToGround = this.GetComponent<Collider> ().bounds.extents.y;
 		gamepad.playerNum = playerNum;
+
 		if (Application.platform == RuntimePlatform.OSXPlayer) 
 		{
 			gamepad.isMac = true;
@@ -98,11 +105,13 @@ public class playerController : MonoBehaviour {
 		{
 		case "Strength":
 			{
+				myHUD.transform.GetChild (4).gameObject.SetActive (true);
 				this.transform.Find ("Skeleton").GetComponent<punchCollider>().force /= 2;
 				break;
 			}
 		case "Speed":
 			{
+				myHUD.transform.GetChild (3).gameObject.SetActive (true);
 				speed = 0.1f;
 				break;
 			}
@@ -122,12 +131,14 @@ public class playerController : MonoBehaviour {
 			{
 			case "Strength":
 				{
+					myHUD.transform.GetChild (4).gameObject.SetActive (false);
 					this.transform.Find ("Skeleton").GetComponent<punchCollider>().force *= 2;    
                     Destroy (c.gameObject);
 					break;
 				}
 			case "Speed":
 				{
+					myHUD.transform.GetChild (3).gameObject.SetActive (false);
 					speed = 0.2f;
 					Destroy (c.gameObject);
 					break;

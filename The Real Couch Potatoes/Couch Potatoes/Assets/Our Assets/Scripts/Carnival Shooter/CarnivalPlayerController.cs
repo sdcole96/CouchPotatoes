@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarnivalPlayerController : MonoBehaviour 
 {
-	public float speed = 100.0f;
+	public float speed;
 	public int playerNum = -1;
 	public bool canHit = true;
     public SpriteRenderer innerCrosshair;

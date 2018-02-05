@@ -84,3 +84,4 @@
 /Users/DCole/Desktop/CouchPotatoes/The Real Couch Potatoes/Couch Potatoes/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/DCole/Desktop/CouchPotatoes/The Real Couch Potatoes/Couch Potatoes/Temp/bin/Debug/Unity.Cecil.Pdb.dll
 /Users/DCole/Desktop/CouchPotatoes/The Real Couch Potatoes/Couch Potatoes/Temp/bin/Debug/Unity.Cecil.Mdb.dll
+/Users/DCole/Desktop/CouchPotatoes/The Real Couch Potatoes/Couch Potatoes/Temp/bin/Debug/Facebook.Unity.Settings.dll
