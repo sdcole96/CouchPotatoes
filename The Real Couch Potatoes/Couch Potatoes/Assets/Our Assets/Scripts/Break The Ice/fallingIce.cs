@@ -18,6 +18,9 @@ public class fallingIce : MonoBehaviour {
 	public GameObject[] playerSpawns = new GameObject[4];
 	public Material[] playerMaterials = new Material[4];
 
+    public GameObject hud3;
+    public GameObject hud4;
+
 
 
 	// Use this for initialization
@@ -34,7 +37,15 @@ public class fallingIce : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (players.Length == 1) 
+        if (players.Length < 4)
+        {
+            Destroy(hud4);
+            if (players.Length < 3)
+            {
+                Destroy(hud3);
+            }
+        }
+        if (players.Length == 1) 
 		{
 
 			gameOver = true;

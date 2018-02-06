@@ -26,7 +26,7 @@ public class playerController : MonoBehaviour {
 	void Start () 
 	{
 		gamepad.playerNum = playerNum;
-		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P1HUD").GetValue(0);
+		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P"+(this.playerNum+1).ToString() +"HUD").GetValue(0);
         strength = this.transform.Find("Skeleton/Left").GetComponent<Punch>().force;
         anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
