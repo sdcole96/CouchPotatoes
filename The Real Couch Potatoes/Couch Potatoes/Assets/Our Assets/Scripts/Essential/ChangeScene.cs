@@ -44,6 +44,12 @@ public class ChangeScene : MonoBehaviour {
 		{
 			LoadSceneBTI ();
 		}
+        else if (gamepad.getYButton(ButtonQuery.Down))
+        {
+            Debug.Log("Ok we detach");
+            // Temp for now. Just moving camera to TV set
+            GetComponent<CameraZoom>().isDetached = true; // detach
+        }
     }
 
     public void LoadSceneSG()

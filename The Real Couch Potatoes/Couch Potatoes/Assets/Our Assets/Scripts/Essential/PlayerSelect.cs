@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSelect : MonoBehaviour
 {
     public int playerNum = -1;
 	public Rigidbody[] potatoes;
+    public Text playerJoinText; // Player has joined the game textbox
+    public Text startText; // Press start to begin textbox
 
 	public bool playerJoined1 = true;
 	public bool playerJoined2 = true;
@@ -17,6 +20,8 @@ public class PlayerSelect : MonoBehaviour
 	public bool playerJoined8 = true;
 
     //public XboxController gamepad = new XboxController();
+
+    private bool isPressStartCoroutineStarted = false;
 
     // Use this for initialization
     void Start ()
@@ -45,6 +50,12 @@ public class PlayerSelect : MonoBehaviour
 //
 //            playerNum = GameMaster.activePlayers.Count;
 //        }
+        // Show the "Press Start to begin" text
+        if (!isPressStartCoroutineStarted && GameMaster.activePlayers.Count == 2)
+        {  
+            isPressStartCoroutineStarted = true;
+            StartCoroutine("pressStartToBegin");
+        }
 
 		if(((GamePad.GetButton(CButton.A, PlayerIndex.One) || GamePad.GetButton(PSButton.Cross, PlayerIndex.One)) && GameMaster.activePlayers.Count < 4) && playerJoined1)
 		{
@@ -52,6 +63,7 @@ public class PlayerSelect : MonoBehaviour
 			DropTater ();
 			PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.One);
 			GameMaster.activePlayers.Add (newPlayer);
+            StartCoroutine(showPlayerJoined(1, Color.red));
 			Debug.Log ("Controller 1");
 		}
 		else if(((GamePad.GetButton(CButton.A, PlayerIndex.Two) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Two)) && GameMaster.activePlayers.Count < 4) && playerJoined2)
@@ -60,7 +72,8 @@ public class PlayerSelect : MonoBehaviour
 			DropTater ();
 			PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Two);
 			GameMaster.activePlayers.Add (newPlayer);
-			Debug.Log ("Controller 2");
+            StartCoroutine(showPlayerJoined(2, Color.green));
+            Debug.Log ("Controller 2");
 		}
 		else if(((GamePad.GetButton(CButton.A, PlayerIndex.Three) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Three)) && GameMaster.activePlayers.Count < 4) && playerJoined3)
 		{
@@ -116,4 +129,28 @@ public class PlayerSelect : MonoBehaviour
 	{
 		potatoes[GameMaster.activePlayers.Count].useGravity = true;
 	}
+    
+    IEnumerator showPlayerJoined(int playerNumber, Color colorName)
+    {
+        //Show text
+        playerJoinText.enabled = true;
+        playerJoinText.color = colorName;
+        playerJoinText.text = "Player #" + playerNumber + " has joined the game";
+        // Wait 5 seconds
+        yield return new WaitForSeconds(5);
+        // Hide Text
+        playerJoinText.enabled = false;
+    }
+
+    IEnumerator pressStartToBegin()
+    {
+        while (true)
+        {
+            startText.enabled = true;
+            yield return new WaitForSeconds(0.6f);
+            startText.enabled = false;
+            yield return new WaitForSeconds(0.6f);
+        }
+        
+    }
 }
