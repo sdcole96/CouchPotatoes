@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour {
 
 	private GameObject myHUD;
+	public float raycast = 1f;
 	public float speed = 0.1f;
 	public int jumpForce = 300;
 	public float gravity;
@@ -43,7 +44,7 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		airbourne = Physics.Raycast(transform.position, - Vector3.up, 0.7999f);
+		airbourne = Physics.Raycast(transform.position, - Vector3.up, raycast);
         Vector2 movement = GamePad.GetLeftStick(controllerNum);
         
 		transform.Translate(movement.x*speed, 0, -movement.y*speed);

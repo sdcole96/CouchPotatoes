@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fallingIce : MonoBehaviour {
 
-	public int seconds = 5;
+	public int seconds = 6;
 	public int i = 0;
 	public GameObject[] players;
 	public Camera mainCamera;
@@ -58,7 +58,7 @@ public class fallingIce : MonoBehaviour {
 			childCount = transform.childCount;
 
 			yield return new WaitForSeconds (waitTime);
-
+			seconds = 3;
 			players = GameObject.FindGameObjectsWithTag("Player");
 			if (players.Length > 1) 
 			{
