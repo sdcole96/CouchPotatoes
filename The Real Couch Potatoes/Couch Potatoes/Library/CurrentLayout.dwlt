@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 521}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 1117
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 521}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 471}
+  m_MaxSize: {x: 14002, y: 14021}
   vertical: 0
-  controlID: 11258
+  controlID: 1745
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 1067
-  m_MinSize: {x: 406, y: 492}
-  m_MaxSize: {x: 10002, y: 14042}
+  m_MinSize: {x: 404, y: 471}
+  m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 11259
+  controlID: 1746
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,10 +154,10 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 645
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 404, y: 221}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 11260
+  controlID: 1747
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -365,9 +365,9 @@ MonoBehaviour:
     height: 624
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: bef8ffff18fcffff000000004230000012310000
+    m_SelectedIDs: de310000
+    m_LastClickedID: 12766
+    m_ExpandedIDs: 18fcffff000000001c330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -417,14 +417,14 @@ MonoBehaviour:
     width: 1148
     height: 624
   m_SceneLighting: 1
-  lastFramingTime: 586.2417968418962
+  lastFramingTime: 827.5733779412756
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 177.53558, y: 534.021, z: -433.51297}
+    m_Target: {x: -2.7877395, y: 26.12046, z: -28.85781}
     speed: 2
-    m_Value: {x: 177.53558, y: 534.021, z: -433.51297}
+    m_Value: {x: -2.7877395, y: 26.12046, z: -28.85781}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -447,13 +447,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.23486134, y: -0.04283874, z: 0.0103611825, w: -0.9710292}
+    m_Target: {x: 0.0075414525, y: 0.9860021, z: -0.15994333, w: 0.046488892}
     speed: 2
-    m_Value: {x: -0.23486133, y: -0.04283874, z: 0.0103611825, w: -0.97102916}
+    m_Value: {x: 0.0075414525, y: 0.9860021, z: -0.15994333, w: 0.046488892}
   m_Size:
-    m_Target: 411.67978
+    m_Target: 189.09058
     speed: 2
-    m_Value: 411.67978
+    m_Value: 189.09058
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -530,20 +530,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Our Assets/Scripts/Essential
+    - Assets/Our Assets/Fonts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Our Assets/Scripts/Essential
+  - Assets/Our Assets/Fonts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\jsjos\Documents\UnityProjects\CouchPotatoes\The Real
     Couch Potatoes\Couch Potatoes
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 420}
-    m_SelectedIDs: 5a2a0000
-    m_LastClickedID: 10842
-    m_ExpandedIDs: 000000005a2700005e270000a0270000ac2800009e290000b4290000c6290000f42a00002a2b0000362c00008e2d00009c2d0000282e0000522e0000742e0000fc2e0000f62f0000f82f000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 299}
+    m_SelectedIDs: 2e2f0000
+    m_LastClickedID: 12078
+    m_ExpandedIDs: 000000005c27000060270000a627000068280000be280000c6290000dc290000f2290000802b0000b82b0000ce2c0000e02e0000ee2e00007c2f0000a62f0000c82f0000683000003a3700003c37000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -571,7 +571,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a2700005e270000a0270000ac2800009e290000b4290000c6290000f42a00002a2b0000362c00008e2d00009c2d0000282e0000522e0000742e0000fc2e0000f62f0000f82f000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000005c27000060270000a627000068280000be280000c6290000dc290000f2290000802b0000b82b0000ce2c0000e02e0000ee2e00007c2f0000a62f0000c82f0000683000003a3700003c37000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
