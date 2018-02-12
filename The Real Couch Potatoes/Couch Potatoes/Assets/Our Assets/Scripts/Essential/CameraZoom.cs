@@ -7,6 +7,7 @@ public class CameraZoom : MonoBehaviour
 
     public bool isDetached = false;
     public bool atDestination = false;
+    public bool zoomIn;
     public float speed;
     public GameObject tvSet;
     private Vector3 tvPos;
@@ -22,6 +23,11 @@ public class CameraZoom : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        if(zoomIn)
+            ZoomToTV();
+    }
+    void ZoomToTV()
     {
         if (isDetached && transform.parent != null)
         {
@@ -42,5 +48,6 @@ public class CameraZoom : MonoBehaviour
         }
     }
 }
+
 
 

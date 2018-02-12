@@ -11,6 +11,8 @@ public class ChangeScene : MonoBehaviour {
 	public Button currentButton;
 	public Button[] buttons;
 
+    public bool isTransitioning = false; // to indicated whether or not we will be transitioning to a new scene
+
     public Text player1Score;
     public Text player2Score;
     public Text player3Score;
@@ -44,11 +46,15 @@ public class ChangeScene : MonoBehaviour {
 		{
 			LoadSceneBTI ();
 		}
-        else if (gamepad.getYButton(ButtonQuery.Down))
+        else if (gamepad.getYButton(ButtonQuery.Down) && !isTransitioning)
         {
             Debug.Log("Ok we detach");
+            isTransitioning = true;
+            StartCoroutine("LoadSceneAfterTransition");
             // Temp for now. Just moving camera to TV set
             GetComponent<CameraZoom>().isDetached = true; // detach
+            // Fade out
+            GetComponent<fadeInFadeOut>().FadeIn();
         }
     }
 
@@ -66,4 +72,11 @@ public class ChangeScene : MonoBehaviour {
 	{
 		SceneManager.LoadScene("MainMenu");
 	}
+
+    IEnumerator LoadSceneAfterTransition()
+    {
+        yield return new WaitForSeconds(1.3f);
+        LoadSceneMM();
+
+    }
 }
