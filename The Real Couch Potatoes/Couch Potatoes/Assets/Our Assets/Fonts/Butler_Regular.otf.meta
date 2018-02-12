@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 22596ae886fc35640a2e03b98de5bed5
+timeCreated: 1518403283
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Butler
+  fontNames:
+  - Butler
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
