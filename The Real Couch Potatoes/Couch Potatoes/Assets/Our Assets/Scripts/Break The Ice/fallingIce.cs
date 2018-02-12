@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fallingIce : MonoBehaviour {
 
-	public int seconds = 5;
+	public int seconds = 6;
 	public int i = 0;
 	public GameObject[] players;
 	public Camera mainCamera;
@@ -17,6 +17,9 @@ public class fallingIce : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject[] playerSpawns = new GameObject[4];
 	public Material[] playerMaterials = new Material[4];
+
+    public GameObject hud3;
+    public GameObject hud4;
 
 
 
@@ -34,7 +37,15 @@ public class fallingIce : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (players.Length == 1) 
+        if (players.Length < 4)
+        {
+            Destroy(hud4);
+            if (players.Length < 3)
+            {
+                Destroy(hud3);
+            }
+        }
+        if (players.Length == 1) 
 		{
 
 			gameOver = true;
@@ -58,9 +69,9 @@ public class fallingIce : MonoBehaviour {
 			childCount = transform.childCount;
 
 			yield return new WaitForSeconds (waitTime);
-
+			seconds = 3;
 			players = GameObject.FindGameObjectsWithTag("Player");
-			if (players.Length != 1) 
+			if (players.Length > 1) 
 			{
 				int rand = Random.Range (0, players.Length);
 				ArrayList closeIce = findClosestIce (players [rand]);
@@ -70,6 +81,7 @@ public class fallingIce : MonoBehaviour {
 
 				Animator iceAnim = ice.GetComponent<Animator> ();
 				iceAnim.Play ("fallingIce");
+				ice.tag = "falling";
 			}
 		}
 	}

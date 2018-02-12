@@ -26,6 +26,8 @@ public class spawnPowers : MonoBehaviour {
 			yield return new WaitForSeconds (i);
 			GameObject[] g = GameObject.FindGameObjectsWithTag ("Floor");
 			GameObject ice = g [Random.Range (0, g.Length)];
+
+
 			GameObject power = Instantiate (powerUp, new Vector3 (ice.transform.position.x, 20, ice.transform.position.z), new Quaternion ());
 			power.AddComponent<Rigidbody> ();
 			power.AddComponent<BoxCollider> ();

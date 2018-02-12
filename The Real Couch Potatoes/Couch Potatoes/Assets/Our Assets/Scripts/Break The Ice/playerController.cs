@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour {
 
 	private GameObject myHUD;
+	public float raycast = 1f;
 	public float speed = 0.1f;
 	public int jumpForce = 300;
 	public float gravity;
@@ -26,7 +27,7 @@ public class playerController : MonoBehaviour {
 	void Start () 
 	{
 		gamepad.playerNum = playerNum;
-		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P1HUD").GetValue(0);
+		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P"+(this.playerNum+1).ToString() +"HUD").GetValue(0);
         strength = this.transform.Find("Skeleton/Left").GetComponent<Punch>().force;
         anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
@@ -43,7 +44,7 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		airbourne = Physics.Raycast(transform.position, - Vector3.up, 0.7999f);
+		airbourne = Physics.Raycast(transform.position, - Vector3.up, raycast);
         Vector2 movement = GamePad.GetLeftStick(controllerNum);
         
 		transform.Translate(movement.x*speed, 0, -movement.y*speed);
