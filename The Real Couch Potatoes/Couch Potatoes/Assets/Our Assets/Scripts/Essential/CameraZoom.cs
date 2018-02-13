@@ -17,7 +17,7 @@ public class CameraZoom : MonoBehaviour
     void Start()
     {
         tvPos = tvSet.gameObject.transform.position;
-        endPos = new Vector3(tvPos.x, tvPos.y+1, tvPos.z - 2);
+        endPos = new Vector3(tvPos.x, tvPos.y+2, tvPos.z - 2);
 
     }
 
