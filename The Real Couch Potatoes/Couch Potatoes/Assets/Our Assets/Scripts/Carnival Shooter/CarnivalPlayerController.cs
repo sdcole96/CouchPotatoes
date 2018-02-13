@@ -8,7 +8,6 @@ public class CarnivalPlayerController : MonoBehaviour
 	public int playerNum = -1;
 	public bool canHit = true;
     public SpriteRenderer innerCrosshair;
-    public Camera mainCam;
 	public PlayerIndex controllerNum;
 	public CarnivalShootGM GM;
 
@@ -19,11 +18,7 @@ public class CarnivalPlayerController : MonoBehaviour
 	void Start () 
 	{
 		GM = GameObject.Find ("Game Manager").GetComponent<CarnivalShootGM> ();
-        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         audioSource = GetComponent<AudioSource>();
-        var bottomLeft = mainCam.ScreenToWorldPoint(Vector3.zero);
-        var topRight = mainCam.ScreenToWorldPoint(new Vector3(
-            mainCam.pixelWidth, mainCam.pixelHeight));
     }
 	
 	// Update is called once per frame
@@ -34,16 +29,16 @@ public class CarnivalPlayerController : MonoBehaviour
 		transform.Translate(movement.x * speed, -(movement.y * speed), 0);
 
 		// This keeps the reticle from leaving the screen on the x axis
-		if (transform.position.x > 10)
-			transform.position = new Vector3 (10f, transform.position.y, transform.position.z);
-		else if(transform.position.x < -10)
-			transform.position = new Vector3 (-10f, transform.position.y, transform.position.z);
+		if (transform.position.x > 10.5)
+			transform.position = new Vector3 (10.5f, transform.position.y, transform.position.z);
+		else if(transform.position.x < -10.5)
+			transform.position = new Vector3 (-10.5f, transform.position.y, transform.position.z);
 
 		// This keeps the reticle from leaving the screen on the y axis
-		if (transform.position.y > 5)
-			transform.position = new Vector3 (transform.position.x, 5f, transform.position.z);
-		else if(transform.position.y < -5)
-			transform.position = new Vector3 (transform.position.x, -5f, transform.position.z);
+		if (transform.position.y > 10)
+			transform.position = new Vector3 (transform.position.x, 10f, transform.position.z);
+		else if(transform.position.y < 0)
+			transform.position = new Vector3 (transform.position.x, 0, transform.position.z);
 
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum))&&canHit)
