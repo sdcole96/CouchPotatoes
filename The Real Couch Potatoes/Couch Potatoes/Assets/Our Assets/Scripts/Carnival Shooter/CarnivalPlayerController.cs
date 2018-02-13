@@ -12,8 +12,6 @@ public class CarnivalPlayerController : MonoBehaviour
 	public PlayerIndex controllerNum;
 	public CarnivalShootGM GM;
 
-    public Rect cameraRect;
-
     public AudioClip[] hitSounds;
     public AudioSource audioSource;
 
@@ -26,12 +24,6 @@ public class CarnivalPlayerController : MonoBehaviour
         var bottomLeft = mainCam.ScreenToWorldPoint(Vector3.zero);
         var topRight = mainCam.ScreenToWorldPoint(new Vector3(
             mainCam.pixelWidth, mainCam.pixelHeight));
-
-        cameraRect = new Rect(
-            bottomLeft.x,
-            bottomLeft.y,
-            topRight.x - bottomLeft.x,
-            topRight.y - bottomLeft.y);
     }
 	
 	// Update is called once per frame
@@ -39,7 +31,20 @@ public class CarnivalPlayerController : MonoBehaviour
 	{
 
 		Vector2 movement = GamePad.GetLeftStick (controllerNum);
-		transform.Translate(Mathf.Clamp(movement.x * speed, cameraRect.xMin, cameraRect.xMax), Mathf.Clamp(-(movement.y * speed), cameraRect.yMin, cameraRect.yMax), 0);
+		transform.Translate(movement.x * speed, -(movement.y * speed), 0);
+
+		// This keeps the reticle from leaving the screen on the x axis
+		if (transform.position.x > 10)
+			transform.position = new Vector3 (10f, transform.position.y, transform.position.z);
+		else if(transform.position.x < -10)
+			transform.position = new Vector3 (-10f, transform.position.y, transform.position.z);
+
+		// This keeps the reticle from leaving the screen on the y axis
+		if (transform.position.y > 5)
+			transform.position = new Vector3 (transform.position.x, 5f, transform.position.z);
+		else if(transform.position.y < -5)
+			transform.position = new Vector3 (transform.position.x, -5f, transform.position.z);
+
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum))&&canHit)
 		{
