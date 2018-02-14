@@ -109,6 +109,8 @@ public class playerController : MonoBehaviour {
 			{
 				myHUD.transform.GetChild (3).gameObject.SetActive (true);
 				this.transform.Find ("Skeleton").GetComponent<punchCollider>().force /= 2;
+				this.transform.Find ("Skeleton/Left/Orange").gameObject.SetActive (false);
+				toggleFireHands (false);
 				break;
 			}
 		case "Speed":
@@ -123,6 +125,17 @@ public class playerController : MonoBehaviour {
 			}
 		}
 	}
+
+	public void toggleFireHands(bool b)
+	{
+		this.transform.Find ("Skeleton/Left/Orange").gameObject.SetActive (b);
+		this.transform.Find ("Skeleton/Left/Yellow").gameObject.SetActive (b);
+		this.transform.Find ("Skeleton/Left/Red").gameObject.SetActive (b);
+		this.transform.Find ("Skeleton/Right/Orange").gameObject.SetActive (b);
+		this.transform.Find ("Skeleton/Right/Yellow").gameObject.SetActive (b);
+		this.transform.Find ("Skeleton/Right/Orange").gameObject.SetActive (b);
+	}
+
 	//deal with powerups
 	public void OnCollisionEnter(Collision c)
 	{
@@ -134,7 +147,8 @@ public class playerController : MonoBehaviour {
 			case "Strength":
 				{
 					myHUD.transform.GetChild (3).gameObject.SetActive (false);
-					this.transform.Find ("Skeleton").GetComponent<punchCollider>().force *= 2;    
+					this.transform.Find ("Skeleton").GetComponent<punchCollider>().force *= 2;  
+					toggleFireHands (true);
                     Destroy (c.gameObject);
 					break;
 				}
