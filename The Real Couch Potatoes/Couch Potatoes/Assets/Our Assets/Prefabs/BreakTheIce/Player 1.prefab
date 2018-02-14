@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bef16b4aee34519939db8de2525331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycast: 0
+  raycast: 3
   speed: 0.1
   jumpForce: 400
   gravity: -15

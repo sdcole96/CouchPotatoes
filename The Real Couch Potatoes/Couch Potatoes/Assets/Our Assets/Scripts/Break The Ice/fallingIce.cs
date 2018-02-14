@@ -12,7 +12,7 @@ public class fallingIce : MonoBehaviour {
 	private float t;
 	private bool gameOver;
 
-
+	public bool debugMode;
 	public GameObject[] playerObjects;
 	public GameObject playerPrefab;
 	public GameObject[] playerSpawns = new GameObject[4];
@@ -30,8 +30,12 @@ public class fallingIce : MonoBehaviour {
 		StartCoroutine (dropIce(seconds));
 		t = 0;
 		gameOver = false;
-
-		CreatePlayers (Input.GetJoystickNames ().Length);
+		int i = 0;
+		if (debugMode) 
+		{
+			i = 1;
+		}
+		CreatePlayers (Input.GetJoystickNames ().Length + i);
 	}
 	
 	// Update is called once per frame
