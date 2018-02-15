@@ -53,7 +53,8 @@ public class fallingIce : MonoBehaviour {
 		{
 
 			gameOver = true;
-			mainCamera.transform.position = Vector3.Lerp (camera, players [0].transform.position+new Vector3(0,3,-3), t);
+			GameObject g = GameObject.Find ("CutsceneCam");
+			g.transform.position = Vector3.Lerp (g.transform.position, players [0].transform.position+new Vector3(0,3,-3), t);
 			t += .01f;
 			StartCoroutine (changeScene (3.0f));
 		}

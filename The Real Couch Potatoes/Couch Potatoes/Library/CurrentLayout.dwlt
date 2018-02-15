@@ -14,7 +14,7 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-    y: 47
+    y: 46
     width: 1280
     height: 694
   m_ShowMode: 4
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 644
-  m_MinSize: {x: 681, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 546
+  controlID: 21
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 547
+  controlID: 22
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 548
+  controlID: 23
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -253,8 +253,8 @@ MonoBehaviour:
     y: 0
     width: 277
     height: 644
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 250
-    y: 96
+    y: 95
     width: 751
     height: 352
   m_MaximizeOnPlay: 0
@@ -359,33 +359,33 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 96
+    y: 95
     width: 246
     height: 352
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c0340000
-    m_LastClickedID: 13504
-    m_ExpandedIDs: 1afcffff00000000b6310000c0340000b2350000
+    m_SelectedIDs: 522a0000
+    m_LastClickedID: 0
+    m_ExpandedIDs: d06afeff48a9feff52a9feff6ea9feff70a9feff1afcffff000000000833000040340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: CameraLoc
-      m_OriginalName: CameraLoc
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 13360
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
   m_ExpandedScenes:
-  - BreakTheIce
+  - PlayerJoin
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -412,18 +412,18 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 250
-    y: 96
+    y: 95
     width: 751
     height: 352
   m_SceneLighting: 1
-  lastFramingTime: 1902.6249829530716
+  lastFramingTime: 18.02907395362854
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.5, y: 5.91, z: -15.2}
+    m_Target: {x: -8.435173, y: -4.107142, z: 0.20736551}
     speed: 2
-    m_Value: {x: -9.5, y: 5.91, z: -15.2}
+    m_Value: {x: -8.435173, y: -4.107142, z: 0.20736551}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -446,13 +446,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.1631348, y: -0.6510467, z: 0.14613923, w: 0.72675395}
+    m_Target: {x: 0.32633016, y: -0.16473775, z: 0.057867095, w: 0.92898947}
     speed: 2
-    m_Value: {x: 0.16313459, y: -0.65104586, z: 0.14613904, w: 0.726753}
+    m_Value: {x: 0.32633018, y: -0.16473776, z: 0.0578671, w: 0.9289895}
   m_Size:
-    m_Target: 22
+    m_Target: 27.34778
     speed: 2
-    m_Value: 22
+    m_Value: 27.34778
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 469
+    y: 468
     width: 1001
     height: 250
   m_SearchFilter:
@@ -501,20 +501,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Our Assets/Prefabs/BreakTheIce
+    - Assets/Our Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Our Assets/Prefabs/BreakTheIce
+  - Assets/Our Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/DCole/Desktop/CouchPotatoes/The Real Couch Potatoes/Couch
     Potatoes
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 359}
-    m_SelectedIDs: 282a0000
-    m_LastClickedID: 10792
-    m_ExpandedIDs: 0000000040270000442700008a2700004c280000a2280000aa290000c0290000d6290000662b00009e2b0000ba2c0000cc2e0000dc2e00006c2f0000962f0000b82f000058300000263700002837000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 151}
+    m_SelectedIDs: 00280000
+    m_LastClickedID: 10240
+    m_ExpandedIDs: 0000000040270000442700008a2700004c280000a2280000aa290000c0290000d6290000662b0000ba2c0000cc2e0000dc2e00006c2f0000b82f000058300000923600009436000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,7 +542,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000040270000442700008a2700004c280000a2280000aa290000c0290000d6290000662b00009e2b0000ba2c0000cc2e0000dc2e00006c2f0000962f0000b82f000058300000263700002837000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000040270000442700008a2700004c280000a2280000aa290000c0290000d6290000662b00009e2b0000ba2c0000cc2e0000dc2e00006c2f0000962f0000b82f0000583000009236000094360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -570,7 +570,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 
+    m_ExpandedInstanceIDs: 2a2800009e2c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1005
-    y: 96
+    y: 95
     width: 275
     height: 623
   m_ScrollPosition: {x: 0, y: 0}
