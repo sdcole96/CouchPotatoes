@@ -17,6 +17,7 @@ TagManager:
   - P2HUD
   - P3HUD
   - P4HUD
+  - P5HUD
   layers:
   - Default
   - TransparentFX

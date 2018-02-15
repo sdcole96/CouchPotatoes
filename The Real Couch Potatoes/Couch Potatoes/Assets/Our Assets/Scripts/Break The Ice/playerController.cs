@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour {
 
 	private GameObject myHUD;
-	public float raycast = 1f;
+	public float raycast = .8975f;
 	public float speed = 0.1f;
 	public int jumpForce = 300;
 	public float gravity;
@@ -26,13 +26,14 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		rb = this.GetComponent<Rigidbody> ();
 		gamepad.playerNum = playerNum;
 		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P"+(this.playerNum+1).ToString() +"HUD").GetValue(0);
         strength = this.transform.Find("Skeleton/Left").GetComponent<Punch>().force;
         anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
 
-		rb = this.GetComponent<Rigidbody> ();
+
 		distToGround = this.GetComponent<Collider> ().bounds.extents.y;
 
 
@@ -50,24 +51,11 @@ public class playerController : MonoBehaviour {
         
 		transform.Translate(movement.x*speed, 0, -movement.y*speed);
 			
-		if (Input.GetKey(KeyCode.A))
-			rb.AddForce(Vector3.left);
-		if (Input.GetKey(KeyCode.D))
-			rb.AddForce(Vector3.right);
-		if (Input.GetKey(KeyCode.W))
-			rb.AddForce(Vector3.up);
-		if (Input.GetKey(KeyCode.S))
-			rb.AddForce(Vector3.down);
-		if(Input.GetKey(KeyCode.Space))
-		{
-				jump();
-		}
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum)) && isGrounded())
         { 
 			jump ();
 			airbourne = true;
-
 		} 
 
 	
@@ -103,7 +91,9 @@ public class playerController : MonoBehaviour {
 
 	private void jump()
 	{
-		rb.AddForce (new Vector3 (0, jumpForce, 0));
+		if (isGrounded ()) {
+			rb.AddForce (new Vector3 (0, jumpForce, 0));
+		}
 	}
 		
 		

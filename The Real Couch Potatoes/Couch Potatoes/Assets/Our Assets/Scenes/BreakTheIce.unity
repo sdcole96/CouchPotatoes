@@ -5646,7 +5646,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1098124909}
   m_LocalRotation: {x: 0.41310447, y: 0, z: 0, w: 0.91068363}
-  m_LocalPosition: {x: -23, y: 6.5, z: -35.56}
+  m_LocalPosition: {x: -0.4, y: 0.83, z: 0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1538601325}
@@ -6518,13 +6518,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1226148680}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 17.310001, z: -20.8}
+  m_LocalRotation: {x: 0.07069615, y: -0, z: -0, w: 0.9974979}
+  m_LocalPosition: {x: -7.5, y: 17.310001, z: -21.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.108001, y: 0, z: 0}
 --- !u!1 &1231506170 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: db9dbca2a5fe96a4585c5a55c1772b0b, type: 3}
@@ -7927,6 +7927,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1538601325}
+  - component: {fileID: 1538601326}
   m_Layer: 0
   m_Name: CutsceneCam
   m_TagString: Untagged
@@ -7941,13 +7942,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1538601324}
   m_LocalRotation: {x: -0.074021526, y: 0, z: 0, w: 0.9972567}
-  m_LocalPosition: {x: 15.1, y: 1.7, z: 28.2}
+  m_LocalPosition: {x: -7.55, y: 1.1, z: -7.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1098124914}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: -8.49, y: 0, z: 0}
+--- !u!114 &1538601326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1538601324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d08670f05cb3405bb78758131d959e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1562986109
 Prefab:
   m_ObjectHideFlags: 0
