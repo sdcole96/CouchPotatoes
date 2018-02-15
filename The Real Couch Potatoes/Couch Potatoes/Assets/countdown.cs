@@ -17,22 +17,32 @@ public class countdown : MonoBehaviour {
 
 	IEnumerator count()
 	{
-		int i = 3;
+		int i = 4;
 		yield return new WaitForSeconds (5f);
-		while(i != -1)
+		while(i != 0)
 		{
 			yield return new WaitForSeconds (1f);
-			foreach (Transform child in transform)
-			{
-				child.GetComponent<Text> ().text = (i--).ToString ();
-			}
+			i--;
+
+				foreach (Transform child in transform)
+				{
+					child.GetComponent<Text> ().text = (i).ToString ();
+				}
 		}
-
-
 		foreach (playerController p in GameObject.FindObjectsOfType<playerController> ()) 
 		{
 			p.enabled = true;
 		}
+		foreach (Transform child in transform)
+		{
+			child.GetComponent<Text> ().text = "Go!";
+		}
+		yield return new WaitForSeconds(.5f);
+		foreach (Transform child in transform)
+		{
+			Destroy(child);
+		}
+
 	}
 
 }

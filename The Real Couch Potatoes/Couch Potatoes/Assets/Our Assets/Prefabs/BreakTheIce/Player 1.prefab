@@ -805,7 +805,7 @@ MonoBehaviour:
   raycast: 0.8975
   speed: 0.1
   jumpForce: 400
-  gravity: 15
+  gravity: -15
   rb: {fileID: 0}
   distToGround: 0
   playerNum: 4
