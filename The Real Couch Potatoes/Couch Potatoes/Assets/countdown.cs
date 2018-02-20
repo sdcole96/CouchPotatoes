@@ -19,15 +19,18 @@ public class countdown : MonoBehaviour {
 	{
 		int i = 4;
 		yield return new WaitForSeconds (5f);
+		float j = 0;
 		while(i != 0)
 		{
+			j += .5f;
 			yield return new WaitForSeconds (1f);
 			i--;
 
-				foreach (Transform child in transform)
-				{
-					child.GetComponent<Text> ().text = (i).ToString ();
-				}
+			foreach (Transform child in transform)
+			{
+				child.GetComponent<Text> ().text = (i).ToString ();
+				child.GetComponent<RectTransform> ().position = child.GetComponent<RectTransform> ().position + new Vector3 (j, j, 0);
+			}
 		}
 		foreach (playerController p in GameObject.FindObjectsOfType<playerController> ()) 
 		{
