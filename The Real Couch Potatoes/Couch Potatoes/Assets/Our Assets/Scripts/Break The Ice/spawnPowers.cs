@@ -8,6 +8,8 @@ public class spawnPowers : MonoBehaviour {
 	public Material red;
 	public Material blue;
 
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -21,6 +23,7 @@ public class spawnPowers : MonoBehaviour {
 
 	IEnumerator spawnWait()
 	{
+		yield return new WaitForSeconds (8);
 		for (int j = 0; j < 10; j++) {
 			int i = Random.Range (5, 15);
 			yield return new WaitForSeconds (i);
@@ -50,6 +53,7 @@ public class spawnPowers : MonoBehaviour {
 				{
 					break;
 				}
+				yield return new WaitUntil(() => power.gameObject == null);
 			}
 		}
 	}
