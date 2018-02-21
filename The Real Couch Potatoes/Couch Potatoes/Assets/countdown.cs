@@ -43,7 +43,7 @@ public class countdown : MonoBehaviour {
 		yield return new WaitForSeconds(.5f);
 		foreach (Transform child in transform)
 		{
-			Destroy(child);
+			child.GetComponent<Text> ().text = " ";
 		}
 
 	}
