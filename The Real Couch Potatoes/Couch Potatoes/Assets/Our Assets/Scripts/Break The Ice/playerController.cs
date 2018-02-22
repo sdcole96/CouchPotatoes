@@ -28,7 +28,7 @@ public class playerController : MonoBehaviour {
 	{
 		rb = this.GetComponent<Rigidbody> ();
 		gamepad.playerNum = playerNum;
-		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P"+(this.playerNum+1).ToString() +"HUD").GetValue(0);
+		myHUD = (GameObject)GameObject.FindGameObjectsWithTag ("P"+(this.playerNum).ToString() +"HUD").GetValue(0);
         strength = this.transform.Find("Skeleton/Left").GetComponent<Punch>().force;
         anim = GetComponent<Animator> ();
 		Physics.gravity = new Vector3(0, gravity, 0);
@@ -118,6 +118,7 @@ public class playerController : MonoBehaviour {
 		case "Speed":
 			{
 				myHUD.transform.GetChild (4).gameObject.SetActive (true);
+				this.transform.Find ("Skeleton/Lightning").GetComponent<ParticleSystem> ().gameObject.SetActive (false);
 				speed = 0.1f;
 				break;
 			}
@@ -135,7 +136,7 @@ public class playerController : MonoBehaviour {
 		this.transform.Find ("Skeleton/Left/Red").gameObject.SetActive (b);
 		this.transform.Find ("Skeleton/Right/Orange").gameObject.SetActive (b);
 		this.transform.Find ("Skeleton/Right/Yellow").gameObject.SetActive (b);
-		this.transform.Find ("Skeleton/Right/Orange").gameObject.SetActive (b);
+		this.transform.Find ("Skeleton/Right/Red").gameObject.SetActive (b);
 	}
 
 	//deal with powerups

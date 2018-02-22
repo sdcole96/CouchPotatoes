@@ -63,6 +63,7 @@ public class PlayerSelect : MonoBehaviour
         {
             playerJoined1 = false;
             DropTater(0);
+			GameObject.Find ("Player 1").GetComponent<AudioSource> ().volume = 1;
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.One);
             GameMaster.activePlayers.Add(newPlayer);
             StartCoroutine(showPlayerJoined(1, Color.red));
@@ -74,6 +75,7 @@ public class PlayerSelect : MonoBehaviour
         {
             playerJoined2 = false;
             DropTater(1);
+			GameObject.Find ("Player 2").GetComponent<AudioSource> ().volume = 1;
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Two);
             GameMaster.activePlayers.Add(newPlayer);
             StartCoroutine(showPlayerJoined(2, Color.green));
@@ -85,6 +87,7 @@ public class PlayerSelect : MonoBehaviour
         {
             playerJoined3 = false;
             DropTater(2);
+			GameObject.Find ("Player 3").GetComponent<AudioSource> ().volume = 1;
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Three);
             GameMaster.activePlayers.Add(newPlayer);
             StartCoroutine(showPlayerJoined(3, Color.blue));
@@ -96,6 +99,7 @@ public class PlayerSelect : MonoBehaviour
         {
             playerJoined4 = false;
             DropTater(3);
+			GameObject.Find ("Player 4").GetComponent<AudioSource> ().volume = 1;
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Four);
             GameMaster.activePlayers.Add(newPlayer);
             StartCoroutine(showPlayerJoined(4, Color.yellow));
