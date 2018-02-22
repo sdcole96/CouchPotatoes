@@ -18,6 +18,7 @@ public class TankController : MonoBehaviour {
 	{
 		rightStick = GamePad.GetAxis (CAxis.RY);
 		leftStick = GamePad.GetAxis(CAxis.LY);
-		this.transform.Translate (-Vector3.forward * rightStick - Vector3.forward * leftStick);
+		this.transform.Translate ((-Vector3.forward * rightStick - Vector3.forward * leftStick)*.5f);
+		this.transform.Rotate (Vector3.up, 5 * rightStick - 5 * leftStick);
 	}
 }

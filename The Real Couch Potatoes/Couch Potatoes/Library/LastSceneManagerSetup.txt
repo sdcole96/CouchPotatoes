@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Our Assets/Scenes/PlayerJoin.unity
-=======
-- path: Assets/Our Assets/Scenes/BreakTheIce.unity
->>>>>>> 6697c6f43faec5cd757be8642a89fc2b3461646f
+- path: Assets/Our Assets/Scenes/Potatanks.unity
   isLoaded: 1
   isActive: 1
