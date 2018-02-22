@@ -94,8 +94,8 @@ public class CarnivalPlayerController : MonoBehaviour
 
     public void PlayHitSound()
     {
-        //AudioClip hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
-        //audioSource.clip = hitSound;
-        //audioSource.Play();
+        AudioClip hitSound = hitSounds[Random.Range(0, hitSounds.Length)];
+        audioSource.clip = hitSound;
+        audioSource.Play();
     }
 }
