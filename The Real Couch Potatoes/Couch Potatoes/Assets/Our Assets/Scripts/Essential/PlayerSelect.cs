@@ -10,7 +10,8 @@ public class PlayerSelect : MonoBehaviour
     public Text playerJoinText; // Player has joined the game textbox
     public Text startText; // Press start to begin textbox
     public Text[] pressATextBoxes;
-    public Image[] spriteImages;
+	public Image[] spriteImages; 
+	public ArrayList remainingSprites = new ArrayList();
 
     public bool playerJoined1 = true;
     public bool playerJoined2 = true;
@@ -21,26 +22,11 @@ public class PlayerSelect : MonoBehaviour
     public bool playerJoined7 = true;
     public bool playerJoined8 = true;
 
-    //public XboxController gamepad = new XboxController();
-
     private bool isPressStartCoroutineStarted = false;
 
     // Use this for initialization
     void Start()
     {
-        //        if (Application.platform == RuntimePlatform.OSXPlayer)
-        //        {
-        //            gamepad.isMac = true;
-        //        }
-        GamePadState state1 = GamePad.GetState(PlayerIndex.One);
-        GamePadState state2 = GamePad.GetState(PlayerIndex.Two);
-        GamePadState state3 = GamePad.GetState(PlayerIndex.Three);
-        GamePadState state4 = GamePad.GetState(PlayerIndex.Four);
-        GamePadState state5 = GamePad.GetState(PlayerIndex.Five);
-        GamePadState state6 = GamePad.GetState(PlayerIndex.Six);
-        GamePadState state7 = GamePad.GetState(PlayerIndex.Seven);
-        GamePadState state8 = GamePad.GetState(PlayerIndex.Eight);
-
 
     }
 
@@ -61,57 +47,57 @@ public class PlayerSelect : MonoBehaviour
 
         if (((GamePad.GetButton(CButton.A, PlayerIndex.One) || GamePad.GetButton(PSButton.Cross, PlayerIndex.One)) && GameMaster.activePlayers.Count < 4) && playerJoined1)
         {
+			spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined1 = false;
-            DropTater(0);
-			GameObject.Find ("Player 1").GetComponent<AudioSource> ().volume = 1;
+            DropTater();
+			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.One);
             GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(1, Color.red));
-            pressATextBoxes[0].enabled = false;
-            spriteImages[0].gameObject.SetActive(true);
+			StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, Color.red));
             Debug.Log("Controller 1");
         }
         else if (((GamePad.GetButton(CButton.A, PlayerIndex.Two) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Two)) && GameMaster.activePlayers.Count < 4) && playerJoined2)
         {
+			spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined2 = false;
-            DropTater(1);
-			GameObject.Find ("Player 2").GetComponent<AudioSource> ().volume = 1;
+            DropTater();
+			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Two);
             GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(2, Color.green));
-            pressATextBoxes[1].enabled = false;
-            spriteImages[1].gameObject.SetActive(true);
+			StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, Color.green));
             Debug.Log("Controller 2");
         }
         else if (((GamePad.GetButton(CButton.A, PlayerIndex.Three) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Three)) && GameMaster.activePlayers.Count < 4) && playerJoined3)
         {
+			spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined3 = false;
-            DropTater(2);
-			GameObject.Find ("Player 3").GetComponent<AudioSource> ().volume = 1;
+            DropTater();
+			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Three);
             GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(3, Color.blue));
-            pressATextBoxes[2].enabled = false;
-            spriteImages[2].gameObject.SetActive(true);
+			StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, Color.blue));
             Debug.Log("Controller 3");
         }
         else if (((GamePad.GetButton(CButton.A, PlayerIndex.Four) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Four)) && GameMaster.activePlayers.Count < 4) && playerJoined4)
         {
+			spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined4 = false;
-            DropTater(3);
-			GameObject.Find ("Player 4").GetComponent<AudioSource> ().volume = 1;
+            DropTater();
+			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Four);
             GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(4, Color.yellow));
-            pressATextBoxes[3].enabled = false;
-            spriteImages[3].gameObject.SetActive(true);
+			StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, Color.yellow));
             Debug.Log("Controller 4");
         }
         /*
         else if (((GamePad.GetButton(CButton.A, PlayerIndex.Five) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Five)) && GameMaster.activePlayers.Count < 4) && playerJoined5)
         {
             playerJoined5 = false;
-            DropTater(4);
+            DropTater();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Five);
             GameMaster.activePlayers.Add(newPlayer);
             Debug.Log("Controller 5");
@@ -119,7 +105,7 @@ public class PlayerSelect : MonoBehaviour
         else if (((GamePad.GetButton(CButton.A, PlayerIndex.Six) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Six)) && GameMaster.activePlayers.Count < 4) && playerJoined6)
         {
             playerJoined6 = false;
-            DropTater(5);
+            DropTater();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Six);
             GameMaster.activePlayers.Add(newPlayer);
             Debug.Log("Controller 6");
@@ -127,7 +113,7 @@ public class PlayerSelect : MonoBehaviour
         else if (((GamePad.GetButton(CButton.A, PlayerIndex.Seven) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Seven)) && GameMaster.activePlayers.Count < 4) && playerJoined7)
         {
             playerJoined7 = false;
-            DropTater(6);
+            DropTater();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Seven);
             GameMaster.activePlayers.Add(newPlayer);
             Debug.Log("Controller 7");
@@ -135,7 +121,7 @@ public class PlayerSelect : MonoBehaviour
         else if (((GamePad.GetButton(CButton.A, PlayerIndex.Eight) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Eight)) && GameMaster.activePlayers.Count < 4) && playerJoined8)
         {
             playerJoined8 = false;
-            DropTater(7);
+            DropTater();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Eight);
             GameMaster.activePlayers.Add(newPlayer);
             Debug.Log("Controller 8");
@@ -143,10 +129,21 @@ public class PlayerSelect : MonoBehaviour
         */
     }
 
-    public void DropTater(int index)
+    public void DropTater()
     {
-        potatoes[index].useGravity = true;
+		potatoes[GameMaster.activePlayers.Count].useGravity = true;
     }
+
+	public void PlayerAudio()
+	{
+		int playerNum = GameMaster.activePlayers.Count + 1;
+		GameObject.Find ("Player " + playerNum).GetComponent<AudioSource> ().volume = 1;
+	}
+
+	public void ColorSelect()
+	{
+		//Instantiate color script and set player values
+	}
 
     IEnumerator showPlayerJoined(int playerNumber, Color colorName)
     {
