@@ -5,6 +5,7 @@ using UnityEngine;
 public class spawnPowers : MonoBehaviour {
 	
 	public GameObject powerUp;
+	public GameObject penguin;
 	public Material red;
 	public Material blue;
 
@@ -30,8 +31,8 @@ public class spawnPowers : MonoBehaviour {
 			GameObject[] g = GameObject.FindGameObjectsWithTag ("Floor");
 			GameObject ice = g [Random.Range (0, g.Length)];
 
-
-			GameObject power = Instantiate (powerUp, new Vector3 (ice.transform.position.x, 20, ice.transform.position.z), new Quaternion ());
+			GameObject power = Instantiate (powerUp, new Vector3 (ice.transform.position.x, 20, ice.transform.position.z), new Quaternion ());	
+			
 			power.AddComponent<Rigidbody> ();
 			power.AddComponent<BoxCollider> ();
 			power.tag = "Powerup";
