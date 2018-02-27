@@ -12,6 +12,7 @@ public class PlayerSelect : MonoBehaviour
     public Text[] pressATextBoxes;
 	public Image[] spriteImages; 
 	public ArrayList remainingSprites = new ArrayList();
+	public GameObject colorSelector;
 
     public bool playerJoined1 = true;
     public bool playerJoined2 = true;
@@ -27,7 +28,7 @@ public class PlayerSelect : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+		
     }
 
     // Update is called once per frame
@@ -51,6 +52,7 @@ public class PlayerSelect : MonoBehaviour
 			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined1 = false;
             DropTater();
+			ColorSelect (PlayerIndex.One);
 			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.One);
             GameMaster.activePlayers.Add(newPlayer);
@@ -63,6 +65,7 @@ public class PlayerSelect : MonoBehaviour
 			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined2 = false;
             DropTater();
+			ColorSelect (PlayerIndex.Two);
 			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Two);
             GameMaster.activePlayers.Add(newPlayer);
@@ -75,6 +78,7 @@ public class PlayerSelect : MonoBehaviour
 			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined3 = false;
             DropTater();
+			ColorSelect (PlayerIndex.Three);
 			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Three);
             GameMaster.activePlayers.Add(newPlayer);
@@ -87,6 +91,7 @@ public class PlayerSelect : MonoBehaviour
 			pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
             playerJoined4 = false;
             DropTater();
+			ColorSelect (PlayerIndex.Four);
 			PlayerAudio ();
             PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Four);
             GameMaster.activePlayers.Add(newPlayer);
@@ -140,9 +145,12 @@ public class PlayerSelect : MonoBehaviour
 		GameObject.Find ("Player " + playerNum).GetComponent<AudioSource> ().volume = 1;
 	}
 
-	public void ColorSelect()
+	public void ColorSelect(PlayerIndex pi)
 	{
-		//Instantiate color script and set player values
+		GameObject colSel = Instantiate (colorSelector);
+		ColorSelect cs = colSel.GetComponent<ColorSelect>();
+		cs.controllerNum = pi;
+		cs.playerNum = GameMaster.activePlayers.Count;
 	}
 
     IEnumerator showPlayerJoined(int playerNumber, Color colorName)

@@ -225,7 +225,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1646d33d1051946269e54b4096a45b69, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1058,7 +1058,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5962ffe35383844ea9c87ec7eeb728b6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1618,7 +1618,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a1a491f3f0eb64c688f4c48f395f6611, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2809,7 +2809,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0f6de6bbfe94c4ab4a5d49eaaa841345, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3711,6 +3711,8 @@ MonoBehaviour:
   - {fileID: 1765047724}
   - {fileID: 704103329}
   - {fileID: 1220271428}
+  colorSelector: {fileID: 1057656947164714, guid: bda36e68335e1b44ba675549b767fb48,
+    type: 2}
   playerJoined1: 1
   playerJoined2: 1
   playerJoined3: 1

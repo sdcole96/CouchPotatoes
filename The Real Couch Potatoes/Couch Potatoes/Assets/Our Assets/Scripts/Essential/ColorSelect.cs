@@ -16,7 +16,7 @@ public class ColorSelect : MonoBehaviour
 	void Start () 
 	{
 		ps = GameObject.Find ("Main Camera").GetComponent<PlayerSelect> (); 
-		taterSprite = (Image) ps.remainingSprites[playerNum-1];
+		taterSprite = (Image) ps.spriteImages[playerNum];
 	}
 	
 	// Update is called once per frame
@@ -25,16 +25,18 @@ public class ColorSelect : MonoBehaviour
 		leftStick = GamePad.GetAxis(CAxis.LX, controllerNum);
 
 		// Goes right
-		if(!held && leftStick>0)
+		if(!held && leftStick>0.2f)
 		{
 			ChangeSprite(1);
 			held = true;
+			Debug.Log ("Went right");
 		}
 		// Goes Left
-		else if(!held && leftStick<0)
+		else if(!held && leftStick<-0.2f)
 		{
 			ChangeSprite(-1);
 			held = true;
+			Debug.Log ("Went left");
 		}
 		// Resets when at stand still
 		else
@@ -54,13 +56,13 @@ public class ColorSelect : MonoBehaviour
 	// Changes the color of the sprite the player is selecting
 	public void ChangeSprite(int direction)
 	{
-		int currentIndex = ps.remainingSprites.IndexOf (taterSprite);
+		int currentIndex = ps.remainingSprites.IndexOf (taterSprite.sprite);
 		currentIndex -= direction;
 		if(currentIndex < 0)
 		{
 			currentIndex = ps.remainingSprites.Count;
 		}
 
-		taterSprite = (Image) ps.remainingSprites [currentIndex];
+		taterSprite.sprite = (Sprite) ps.remainingSprites [currentIndex];
 	}
 }
