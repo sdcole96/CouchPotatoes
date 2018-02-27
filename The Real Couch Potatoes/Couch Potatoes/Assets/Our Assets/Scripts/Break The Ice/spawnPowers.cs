@@ -54,7 +54,6 @@ public class spawnPowers : MonoBehaviour {
 				{
 					break;
 				}
-				yield return new WaitUntil(() => power.gameObject == null);
 			}
 		}
 	}

@@ -8,9 +8,10 @@ public class fallingIce : MonoBehaviour {
 	public int i = 0;
 	public GameObject[] players;
 	public Camera mainCamera;
-	public Vector3 camera;
+	public Vector3 cam;
 	private float t;
-	private bool gameOver;
+	public bool gameOver = false;
+	public bool penguinDrop = true;
 
 	public GameObject penguinPrefab;
 
@@ -29,7 +30,7 @@ public class fallingIce : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		camera = mainCamera.transform.position;
+		cam = mainCamera.transform.position;
 		StartCoroutine (dropIce(seconds));
 		t = 0;
 		gameOver = false;
@@ -52,7 +53,7 @@ public class fallingIce : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-        if (players.Length < 1) 
+		if (players.Length < 1 || gameOver) 
 		{
 			if (players.Length < 4)
 			{
@@ -60,6 +61,17 @@ public class fallingIce : MonoBehaviour {
 				if (players.Length < 3)
 				{
 					Destroy(hud3);
+				}
+			}
+			if (penguinDrop) 
+			{
+				penguinDrop = false;
+				penguinPrefab = GameObject.Find ("PenguinBlue");
+				foreach (GameObject ice in GameObject.FindGameObjectsWithTag("Floor")) 
+				{
+					GameObject temp = Instantiate (penguinPrefab, new Vector3 (ice.transform.position.x+4.35f, 20, ice.transform.position.z - 12.1f), new Quaternion ());
+					temp.AddComponent<Rigidbody> ();
+					temp.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation;
 				}
 			}
 			gameOver = true;

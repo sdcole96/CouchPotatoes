@@ -26,6 +26,5 @@ public class Cutscene : MonoBehaviour {
 		yield return new WaitForSeconds (1.5f);
 		GameObject ice = GameObject.Find ("CutsceneIce");
 		ice.GetComponent<Animator> ().Play ("fallingIce");
-		GameObject g = GameObject.Find ("Ice");
 	}
 }
