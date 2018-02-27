@@ -36,20 +36,30 @@ public class ColorSelect : MonoBehaviour
 		{
 			ChangeSprite(-1);
 			held = true;
-			Debug.Log ("Went left");
+			Debug.Log ("Went left: ");
 		}
 		// Resets when at stand still
 		else
 		{
 			held = false;
+			Debug.Log(held);
 		}
 
-		//when a button is pressed, change all other sprite
+		//when a button is pressed, change all other sprites
 		if (GamePad.GetButton (CButton.A, controllerNum) || GamePad.GetButton (PSButton.Cross, controllerNum)) 
 		{
 			//set color of player
+			
 			//remove current sprite from remaining sprites
+			ps.remainingSprites.Remove((taterSprite.sprite, taterSprite.animator));
+			taterSprite.enabled = false;
 			//change all other players sprites
+			for(Image im in ps.spriteImages)
+			{
+				if(im != taterSprite)
+					taterSprite.ChangeSprite(0);
+			}
+			
 		}
 	}
 
@@ -63,6 +73,7 @@ public class ColorSelect : MonoBehaviour
 			currentIndex = ps.remainingSprites.Count;
 		}
 
-		taterSprite.sprite = (Sprite) ps.remainingSprites [currentIndex];
+		taterSprite.sprite = (Sprite) ps.remainingSprites [currentIndex].Item1;
+		taterSprite.animator = (Animator) ps.remainingSprites [currentIndex].Item2;
 	}
 }
