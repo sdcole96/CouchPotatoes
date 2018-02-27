@@ -15,10 +15,10 @@ public class ColorSelect : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		ps = GameObject.Find ("Main Camera").GetComponent<PlayerSelect> (); 
-		taterSprite = (Image) ps.spriteImages[playerNum];
+		//ps = GameObject.Find ("Main Camera").GetComponent<PlayerSelect> (); 
+		//taterSprite = (Image) ps.spriteImages[playerNum];
 	}
-	
+	/*
 	// Update is called once per frame
 	void Update () 
 	{
@@ -76,4 +76,5 @@ public class ColorSelect : MonoBehaviour
 		taterSprite.sprite = (Sprite) ps.remainingSprites [currentIndex].Item1;
 		taterSprite.animator = (Animator) ps.remainingSprites [currentIndex].Item2;
 	}
+	*/
 }

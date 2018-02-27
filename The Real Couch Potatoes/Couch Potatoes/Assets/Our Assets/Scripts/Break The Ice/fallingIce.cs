@@ -20,6 +20,7 @@ public class fallingIce : MonoBehaviour {
 	public GameObject[] playerSpawns = new GameObject[4];
 	public Material[] playerMaterials = new Material[4];
 
+
     public GameObject hud3;
     public GameObject hud4;
 
@@ -28,13 +29,6 @@ public class fallingIce : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		foreach (GameObject g in GameObject.FindGameObjectsWithTag("Floor"))
-		{
-			GameObject penguin = Instantiate (penguinPrefab, new Vector3 (g.transform.position.x+4f, 20, g.transform.position.z-11.5f), new Quaternion ());	
-			penguin.AddComponent<Rigidbody> ();
-			penguin.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation;
-		}
-
 		camera = mainCamera.transform.position;
 		StartCoroutine (dropIce(seconds));
 		t = 0;
@@ -45,22 +39,29 @@ public class fallingIce : MonoBehaviour {
 			i = 1;
 		}
 		CreatePlayers (Input.GetJoystickNames ().Length + i);
+		if (players.Length < 4)
+		{
+			Destroy(hud4);
+			if (players.Length < 3)
+			{
+				Destroy(hud3);
+			}
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-        if (players.Length < 4)
-        {
-            Destroy(hud4);
-            if (players.Length < 3)
-            {
-                Destroy(hud3);
-            }
-        }
-
         if (players.Length < 1) 
 		{
+			if (players.Length < 4)
+			{
+				Destroy(hud4);
+				if (players.Length < 3)
+				{
+					Destroy(hud3);
+				}
+			}
 			gameOver = true;
 			GameObject g = GameObject.Find ("CutsceneCam");
 			g.transform.position = Vector3.Lerp (g.transform.position, players [0].transform.position+new Vector3(0,3,-3), t);
