@@ -29,6 +29,7 @@ public class GameMaster : MonoBehaviour
 
     public static void AddScore(int playerNum, int points)
     {
-        activePlayers[playerNum].playerScore += points;
+		int newScore = activePlayers [playerNum].GetPScore () + points;
+		activePlayers[playerNum].SetPScore(newScore);
     }
 }
