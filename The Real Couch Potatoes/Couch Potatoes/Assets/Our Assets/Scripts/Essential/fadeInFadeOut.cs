@@ -10,6 +10,7 @@ public class fadeInFadeOut : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        whiteScreen.enabled = true;
         whiteScreen.canvasRenderer.SetAlpha(0.0f);
 	}
 	

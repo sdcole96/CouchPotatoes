@@ -68,7 +68,12 @@ public class ChangeScene : MonoBehaviour {
 		SceneManager.LoadScene("BreakTheIce");
 	}
 
-	public void LoadSceneMM()
+    public void LoadScenePT()
+    {
+        SceneManager.LoadScene("Potatanks");
+    }
+
+    public void LoadSceneMM()
 	{
 		SceneManager.LoadScene("MainMenu");
 	}

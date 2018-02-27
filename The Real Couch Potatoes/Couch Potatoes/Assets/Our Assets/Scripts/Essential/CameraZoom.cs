@@ -12,6 +12,7 @@ public class CameraZoom : MonoBehaviour
     public GameObject tvSet;
     private Vector3 tvPos;
     private Vector3 endPos;
+    public Light lightSource;
 
     // Use this for initialization
     void Start()
@@ -32,6 +33,7 @@ public class CameraZoom : MonoBehaviour
         if (isDetached && transform.parent != null)
         {
             transform.parent = null; //detach
+            lightSource.enabled = true;
             Debug.Log("oh we are in the update");
         }
 
