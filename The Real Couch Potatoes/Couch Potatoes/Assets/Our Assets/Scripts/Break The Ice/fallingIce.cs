@@ -49,11 +49,25 @@ public class fallingIce : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	IEnumerator penguins()
+	{
+		yield return new WaitForSeconds (7);
+		if (penguinDrop) {
+			penguinDrop = false;
+			penguinPrefab = GameObject.Find ("PenguinBlue");
+			foreach (GameObject ice in GameObject.FindGameObjectsWithTag("Floor")) {
+				GameObject temp = Instantiate (penguinPrefab, new Vector3 (ice.transform.position.x + 4.35f, 20, ice.transform.position.z - 12.1f), new Quaternion ());
+				temp.AddComponent<Rigidbody> ();
+				temp.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation;
+			}
+		}
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
-		if (players.Length < 1 || gameOver) 
+		if (players.Length <= 1) 
 		{
 			if (players.Length < 4)
 			{
@@ -65,14 +79,7 @@ public class fallingIce : MonoBehaviour {
 			}
 			if (penguinDrop) 
 			{
-				penguinDrop = false;
-				penguinPrefab = GameObject.Find ("PenguinBlue");
-				foreach (GameObject ice in GameObject.FindGameObjectsWithTag("Floor")) 
-				{
-					GameObject temp = Instantiate (penguinPrefab, new Vector3 (ice.transform.position.x+4.35f, 20, ice.transform.position.z - 12.1f), new Quaternion ());
-					temp.AddComponent<Rigidbody> ();
-					temp.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation;
-				}
+				StartCoroutine (penguins ());
 			}
 			gameOver = true;
 			GameObject g = GameObject.Find ("CutsceneCam");
