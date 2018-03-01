@@ -12,6 +12,7 @@ public class ChangeScene : MonoBehaviour {
 	public Button[] buttons;
 
     public bool isTransitioning = false; // to indicated whether or not we will be transitioning to a new scene
+    private GameObject faderObj;
 
     public Text player1Score;
     public Text player2Score;
@@ -21,6 +22,8 @@ public class ChangeScene : MonoBehaviour {
     // Use this for initialization
     void Start () 
 	{
+        faderObj = GameObject.Find("whitescreen");
+
 		gamepad.playerNum = playerNum;
 		int i = 0;
 		foreach (string name in Input.GetJoystickNames()) 
@@ -46,7 +49,7 @@ public class ChangeScene : MonoBehaviour {
 		{
 			LoadSceneBTI ();
 		}
-        else if (gamepad.getYButton(ButtonQuery.Down) && !isTransitioning)
+        else if (GamePad.GetButton(CButton.Start, PlayerIndex.One))
         {
             Debug.Log("Ok we detach");
             isTransitioning = true;
@@ -65,17 +68,17 @@ public class ChangeScene : MonoBehaviour {
 
 	public void LoadSceneBTI()
 	{
-		SceneManager.LoadScene("BreakTheIce");
+        StartCoroutine(FadeThenStart("BreakTheIce"));
 	}
 
     public void LoadScenePT()
     {
-        SceneManager.LoadScene("Potatanks");
+        StartCoroutine(FadeThenStart("Potatanks"));
     }
 
     public void LoadSceneMM()
 	{
-		SceneManager.LoadScene("MainMenu");
+        StartCoroutine(FadeThenStart("MainMenu"));
 	}
 
     IEnumerator LoadSceneAfterTransition()
@@ -83,5 +86,11 @@ public class ChangeScene : MonoBehaviour {
         yield return new WaitForSeconds(1.3f);
         LoadSceneMM();
 
+    }
+    IEnumerator FadeThenStart(string sceneName)
+    {
+        faderObj.GetComponent<fadeInFadeOut>().FadeIn();
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene(sceneName);
     }
 }

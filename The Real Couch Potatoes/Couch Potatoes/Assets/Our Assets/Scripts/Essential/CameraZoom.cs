@@ -9,17 +9,16 @@ public class CameraZoom : MonoBehaviour
     public bool atDestination = false;
     public bool zoomIn;
     public float speed;
-    public GameObject tvSet;
-    private Vector3 tvPos;
+    public GameObject zoomInObj;
+    private Vector3 zoomInVect;
     private Vector3 endPos;
     public Light lightSource;
 
     // Use this for initialization
     void Start()
     {
-        tvPos = tvSet.gameObject.transform.position;
-        endPos = new Vector3(tvPos.x, tvPos.y+2, tvPos.z - 2);
-
+        zoomInVect = zoomInObj.gameObject.transform.position;
+        endPos = new Vector3(zoomInVect.x, zoomInVect.y, zoomInVect.z);
     }
 
     // Update is called once per frame
@@ -46,7 +45,7 @@ public class CameraZoom : MonoBehaviour
         }
         else if (atDestination)
         {
-            transform.LookAt(tvSet.gameObject.transform);
+            transform.LookAt(zoomInObj.gameObject.transform);
         }
     }
 }
