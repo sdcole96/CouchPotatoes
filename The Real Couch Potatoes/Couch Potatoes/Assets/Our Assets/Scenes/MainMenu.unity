@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -119,7 +119,6 @@ GameObject:
   - component: {fileID: 124873270}
   - component: {fileID: 124873269}
   - component: {fileID: 124873268}
-  - component: {fileID: 124873267}
   - component: {fileID: 124873266}
   m_Layer: 5
   m_Name: SceneChangePT
@@ -163,25 +162,6 @@ MonoBehaviour:
     type: 3}
   colorChoice: {r: 0.5593606, g: 0.58823526, b: 0.06487888, a: 0}
   lightToChange: {fileID: 417607329}
---- !u!114 &124873267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 124873264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c26683f903937b40832e1aa71fe5a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNum: 1
-  currentButton: {fileID: 0}
-  buttons: []
-  isTransitioning: 0
-  player1Score: {fileID: 0}
-  player2Score: {fileID: 0}
-  player3Score: {fileID: 0}
-  player4Score: {fileID: 0}
 --- !u!114 &124873268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +201,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 124873267}
+      - m_Target: {fileID: 184499628}
         m_MethodName: LoadScenePT
         m_Mode: 1
         m_Arguments:
@@ -279,6 +259,8 @@ GameObject:
   - component: {fileID: 184499624}
   - component: {fileID: 184499623}
   - component: {fileID: 184499622}
+  - component: {fileID: 184499627}
+  - component: {fileID: 184499628}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -356,6 +338,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &184499627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184499621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1ff55f2d76cf548b89bc5af629f193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteScreen: {fileID: 1279868621}
+  fadeDuration: 2
+  startingAlpha: 1
+--- !u!114 &184499628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184499621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c26683f903937b40832e1aa71fe5a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 1
+  currentButton: {fileID: 0}
+  buttons: []
+  isTransitioning: 0
+  player1Score: {fileID: 0}
+  player2Score: {fileID: 0}
+  player3Score: {fileID: 0}
+  player4Score: {fileID: 0}
 --- !u!1 &207537499
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +885,6 @@ GameObject:
   - component: {fileID: 606299252}
   - component: {fileID: 606299251}
   - component: {fileID: 606299250}
-  - component: {fileID: 606299249}
   - component: {fileID: 606299253}
   m_Layer: 5
   m_Name: SceneChangeBTI
@@ -898,25 +912,6 @@ RectTransform:
   m_AnchoredPosition: {x: 55.3, y: -11.05}
   m_SizeDelta: {x: 238.2, y: 30}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &606299249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 606299247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c26683f903937b40832e1aa71fe5a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNum: 1
-  currentButton: {fileID: 0}
-  buttons: []
-  isTransitioning: 0
-  player1Score: {fileID: 0}
-  player2Score: {fileID: 0}
-  player3Score: {fileID: 0}
-  player4Score: {fileID: 0}
 --- !u!114 &606299250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,7 +951,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 606299249}
+      - m_Target: {fileID: 184499628}
         m_MethodName: LoadSceneBTI
         m_Mode: 1
         m_Arguments:
@@ -1377,7 +1372,6 @@ GameObject:
   - component: {fileID: 1279868619}
   - component: {fileID: 1279868622}
   - component: {fileID: 1279868621}
-  - component: {fileID: 1279868620}
   m_Layer: 5
   m_Name: whitescreen
   m_TagString: Untagged
@@ -1403,20 +1397,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1279868620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1279868618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f1ff55f2d76cf548b89bc5af629f193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whiteScreen: {fileID: 1279868621}
-  fadeDuration: 2
-  startingAlpha: 1
 --- !u!114 &1279868621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,7 +1441,6 @@ GameObject:
   - component: {fileID: 1423647107}
   - component: {fileID: 1423647106}
   - component: {fileID: 1423647105}
-  - component: {fileID: 1423647108}
   - component: {fileID: 1423647109}
   m_Layer: 5
   m_Name: SceneChangeSG
@@ -1528,7 +1507,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1423647108}
+      - m_Target: {fileID: 184499628}
         m_MethodName: LoadSceneSG
         m_Mode: 1
         m_Arguments:
@@ -1574,25 +1553,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423647103}
---- !u!114 &1423647108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1423647103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c26683f903937b40832e1aa71fe5a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNum: 1
-  currentButton: {fileID: 0}
-  buttons: []
-  isTransitioning: 0
-  player1Score: {fileID: 0}
-  player2Score: {fileID: 0}
-  player3Score: {fileID: 0}
-  player4Score: {fileID: 0}
 --- !u!114 &1423647109
 MonoBehaviour:
   m_ObjectHideFlags: 0

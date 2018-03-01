@@ -31,6 +31,7 @@ public class fallingIce : MonoBehaviour {
 	void Start () 
 	{
 		cam = mainCamera.transform.position;
+		players = new GameObject[4];
 		StartCoroutine (dropIce(seconds));
 		t = 0;
 		gameOver = false;
@@ -40,14 +41,14 @@ public class fallingIce : MonoBehaviour {
 			i = 1;
 		}
 		CreatePlayers (Input.GetJoystickNames ().Length + i);
-		if (players.Length < 4)
-		{
-			Destroy(hud4);
-			if (players.Length < 3)
-			{
-				Destroy(hud3);
-			}
-		}
+//		if (players. < 4)
+//		{
+//			Destroy(hud4);
+//			if (players.Length < 3)
+//			{
+//				Destroy(hud3);
+//			}
+//		}
 	}
 
 	IEnumerator penguins()
@@ -115,7 +116,7 @@ public class fallingIce : MonoBehaviour {
 
 				Animator iceAnim = ice.GetComponent<Animator> ();
 				iceAnim.Play ("fallingIce");
-				ice.tag = "falling";
+				ice.tag = "Falling";
 			}
 		}
 	}
@@ -164,14 +165,14 @@ public class fallingIce : MonoBehaviour {
 			pc.controllerNum = GameMaster.activePlayers[i].GetPIndex();
 			pc.playerNum = i + 1;
 
-            //players.Add(cpc);
+			players[i] = player;
         }
 	}
 
 	IEnumerator changeScene(float seconds)
 	{
 		yield return new WaitForSeconds (seconds);
-		ChangeScene cs = new ChangeScene ();
+		ChangeScene cs = GameObject.Find("Main Camera"). GetComponent<ChangeScene>();
 		cs.LoadSceneMM ();
 	}
 

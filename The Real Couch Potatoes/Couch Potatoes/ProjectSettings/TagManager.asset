@@ -18,6 +18,7 @@ TagManager:
   - P3HUD
   - P4HUD
   - P5HUD
+  - Falling
   layers:
   - Default
   - TransparentFX

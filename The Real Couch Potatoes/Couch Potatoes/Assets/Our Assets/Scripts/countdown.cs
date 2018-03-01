@@ -31,7 +31,7 @@ public class countdown : MonoBehaviour {
 
 			foreach (Transform child in transform)
 			{
-				child.GetComponent<Text> ().text = (i).ToString ();
+				//child.GetComponent<Text> ().text = (i).ToString ();
 			}
 		}
 		foreach (playerController p in GameObject.FindObjectsOfType<playerController> ()) 

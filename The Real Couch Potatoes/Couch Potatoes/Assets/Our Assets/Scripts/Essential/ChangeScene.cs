@@ -12,7 +12,7 @@ public class ChangeScene : MonoBehaviour {
 	public Button[] buttons;
 
     public bool isTransitioning = false; // to indicated whether or not we will be transitioning to a new scene
-    private GameObject faderObj;
+	public bool isMainMenu = false;
 
     public Text player1Score;
     public Text player2Score;
@@ -22,7 +22,6 @@ public class ChangeScene : MonoBehaviour {
     // Use this for initialization
     void Start () 
 	{
-        faderObj = GameObject.Find("whitescreen");
 
 		gamepad.playerNum = playerNum;
 		int i = 0;
@@ -41,15 +40,7 @@ public class ChangeScene : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (gamepad.getXButton(ButtonQuery.Down))
-        {
-			LoadSceneSG ();
-        }
-		else if (gamepad.getBButton(ButtonQuery.Down))
-		{
-			LoadSceneBTI ();
-		}
-        else if (GamePad.GetButton(CButton.Start, PlayerIndex.One))
+        if (GamePad.GetButton(CButton.Start) && isMainMenu)
         {
             Debug.Log("Ok we detach");
             isTransitioning = true;
@@ -89,7 +80,7 @@ public class ChangeScene : MonoBehaviour {
     }
     IEnumerator FadeThenStart(string sceneName)
     {
-        faderObj.GetComponent<fadeInFadeOut>().FadeIn();
+		this.GetComponent<fadeInFadeOut>().FadeIn();
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene(sceneName);
     }

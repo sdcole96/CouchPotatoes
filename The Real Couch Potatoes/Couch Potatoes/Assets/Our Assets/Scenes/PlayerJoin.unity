@@ -3837,6 +3837,7 @@ MonoBehaviour:
   currentButton: {fileID: 0}
   buttons: []
   isTransitioning: 0
+  isMainMenu: 1
   player1Score: {fileID: 0}
   player2Score: {fileID: 0}
   player3Score: {fileID: 0}

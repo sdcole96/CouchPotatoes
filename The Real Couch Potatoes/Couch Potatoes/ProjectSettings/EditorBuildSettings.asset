@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Our Assets/Scenes/PlayerJoin.unity
+    guid: bbb865d527a8a4cfe9c5e4b43afec3b4
+  - enabled: 1
     path: Assets/Our Assets/Scenes/MainMenu.unity
     guid: 7ea65a84f97a9014ba955306bf18ccb6
   - enabled: 1
@@ -14,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Our Assets/Scenes/BreakTheIce.unity
     guid: 6ac895ad105fd41b4be0d328aa6eb6d9
+  - enabled: 1
+    path: Assets/Our Assets/Scenes/Potatanks.unity
+    guid: c3070e1a12618d14da643f1459fb9f4e
