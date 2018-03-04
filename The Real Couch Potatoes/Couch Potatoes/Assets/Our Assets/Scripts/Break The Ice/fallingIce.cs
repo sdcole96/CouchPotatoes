@@ -41,28 +41,23 @@ public class fallingIce : MonoBehaviour {
 			i = 1;
 		}
 		CreatePlayers (Input.GetJoystickNames ().Length + i);
-//		if (players. < 4)
-//		{
-//			Destroy(hud4);
-//			if (players.Length < 3)
-//			{
-//				Destroy(hud3);
-//			}
-//		}
+		penguins ();
 	}
 
-	IEnumerator penguins()
+	public void penguins()
 	{
-		yield return new WaitForSeconds (7);
-		if (penguinDrop) {
-			penguinDrop = false;
-			penguinPrefab = GameObject.Find ("PenguinBlue");
-			foreach (GameObject ice in GameObject.FindGameObjectsWithTag("Floor")) {
-				GameObject temp = Instantiate (penguinPrefab, new Vector3 (ice.transform.position.x + 4.35f, 20, ice.transform.position.z - 12.1f), new Quaternion ());
-				temp.AddComponent<Rigidbody> ();
-				temp.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation;
-			}
+		Debug.Log ("I'm trying0");
+		Debug.Log ("I'm trying1/2");
+		penguinPrefab = GameObject.Find ("PenguinBlue");
+		Debug.Log ("I'm trying1");
+		foreach (GameObject ice in GameObject.FindGameObjectsWithTag("Floor")) 
+		{
+			Debug.Log ("I'm trying2");
+			GameObject temp = Instantiate (penguinPrefab, new Vector3 (ice.transform.position.x + 4.35f, 20, ice.transform.position.z - 12.1f), new Quaternion ());
+			temp.AddComponent<Rigidbody> ();
+			temp.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation;
 		}
+		
 	}
 
 	// Update is called once per frame
@@ -77,10 +72,6 @@ public class fallingIce : MonoBehaviour {
 				{
 					Destroy(hud3);
 				}
-			}
-			if (penguinDrop) 
-			{
-				StartCoroutine (penguins ());
 			}
 			gameOver = true;
 			GameObject g = GameObject.Find ("CutsceneCam");

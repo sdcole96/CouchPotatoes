@@ -34,6 +34,7 @@ public class countdown : MonoBehaviour {
 				//child.GetComponent<Text> ().text = (i).ToString ();
 			}
 		}
+		GameObject.Find ("Song").GetComponent<AudioSource> ().enabled = true;
 		foreach (playerController p in GameObject.FindObjectsOfType<playerController> ()) 
 		{
 			p.enabled = true;
@@ -41,8 +42,8 @@ public class countdown : MonoBehaviour {
 		foreach (Transform child in transform)
 		{
 			child.GetComponent<Text> ().text = "Go!";
-			GameObject.Find ("Song").GetComponent<AudioSource> ().enabled = true;
 		}
+
 		yield return new WaitForSeconds(.5f);
 		foreach (Transform child in transform)
 		{

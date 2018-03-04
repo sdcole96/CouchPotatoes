@@ -24,7 +24,6 @@ public class fadeInFadeOut : MonoBehaviour {
     public void FadeIn()
     {
         whiteScreen.CrossFadeAlpha(1.0f, fadeDuration, true);
-        Debug.Log("WE");
     }
 
     public void FadeOut()
