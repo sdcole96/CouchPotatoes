@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Our Assets/Scenes/BreakTheIce.unity
+- path: Assets/Our Assets/Scenes/BallPlatformer.unity
   isLoaded: 1
   isActive: 1

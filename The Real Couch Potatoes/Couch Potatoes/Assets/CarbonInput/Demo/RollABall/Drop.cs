@@ -11,8 +11,8 @@ namespace CarbonInput.Demo {
             transform.Rotate(Axis, 100 * Time.deltaTime);
         }
 
-        void OnTriggerEnter(Collider other) {
-            BallController.UpdateScore(true);
+        void OnTriggerEnter(Collider other)
+		{
             Destroy(gameObject);
         }
     }
