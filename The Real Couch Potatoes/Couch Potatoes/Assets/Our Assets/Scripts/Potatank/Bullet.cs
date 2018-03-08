@@ -20,7 +20,17 @@ public class Bullet : MonoBehaviour {
 
     public IEnumerator DestroyBullet()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Destroy(this.gameObject);
     }
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.tag == "Tank")
+		{
+			TankController tc = col.gameObject.GetComponent<TankController> ();
+			tc.life--;
+			tc.Hit ();
+		}
+	}
 }
