@@ -19,6 +19,7 @@ TagManager:
   - P4HUD
   - P5HUD
   - Falling
+  - Tank
   layers:
   - Default
   - TransparentFX

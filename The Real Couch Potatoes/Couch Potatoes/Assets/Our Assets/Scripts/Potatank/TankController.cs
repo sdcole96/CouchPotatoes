@@ -7,19 +7,16 @@ public class TankController : MonoBehaviour {
 	private float rightStick;
 	private float leftStick;
 	public bool stunned = false;
+	public bool canFire = true;
 	public int life = 3;
     public GameObject bullet;
     public GameObject firingPoint;
-	public int playerNum;
 	public PlayerIndex pi;
 
 	// Use this for initialization
 	void Start () 
 	{
-		if (playerNum == 1)
-			pi = PlayerIndex.One;
-		else if(playerNum == 2)
-			pi = PlayerIndex.Two;
+		
 	}
 	
 	// Update is called once per frame
@@ -33,10 +30,17 @@ public class TankController : MonoBehaviour {
 			this.transform.Rotate (Vector3.up, 2 * rightStick - 2 * leftStick);
 		}
 			
-        if (GamePad.GetButton(CButton.RB, pi) || GamePad.GetButton(PSButton.R1, pi))
+		if (canFire && (GamePad.GetButton(CButton.RB, pi) || GamePad.GetButton(PSButton.R1, pi)))
         {
+			StartCoroutine (FireRate(0.5f));
             Instantiate(bullet, firingPoint.transform.position, firingPoint.transform.rotation);
         }
+
+		if (life <= 0) 
+		{
+			stunned = true;
+			canFire = false;
+		}
     }
 
 	public void Hit()
@@ -49,5 +53,12 @@ public class TankController : MonoBehaviour {
 		stunned = true;
 		yield return new WaitForSeconds (0.5f);
 		stunned = false;
+	}
+
+	public IEnumerator FireRate(float seconds)
+	{
+		canFire = false;
+		yield return new WaitForSeconds (seconds);
+		canFire = true;
 	}
 }

@@ -28,9 +28,11 @@ public class Bullet : MonoBehaviour {
 	{
 		if (col.tag == "Tank")
 		{
-			TankController tc = col.gameObject.GetComponent<TankController> ();
+			TankController tc = col.gameObject.GetComponentInParent<TankController> ();
 			tc.life--;
 			tc.Hit ();
+			Destroy (this.gameObject);
+			Debug.Log ("Destory");
 		}
 	}
 }
