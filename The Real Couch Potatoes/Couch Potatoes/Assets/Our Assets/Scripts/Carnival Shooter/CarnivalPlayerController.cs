@@ -56,7 +56,6 @@ public class CarnivalPlayerController : MonoBehaviour
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
                     hit.collider.enabled = false;
                     targetHit.ChangeTargetColor(playerNum);
-                    Handheld.Vibrate();
                 }
                 else if (hit.collider.tag.Equals("SeagullTarget"))
                 {
@@ -66,7 +65,6 @@ public class CarnivalPlayerController : MonoBehaviour
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
                     hit.collider.enabled = false;
                     targetHit.ChangeTargetColor(hit.transform.gameObject.GetComponent<MeshRenderer>(), playerNum);
-                    Handheld.Vibrate();
                 }
                 else if (hit.collider.tag.Equals("DolphinTarget"))
                 {
@@ -76,7 +74,6 @@ public class CarnivalPlayerController : MonoBehaviour
                     GM.UpdatePlayerScore(playerNum, targetHit.pointValue);
                     hit.collider.enabled = false;
                     targetHit.ChangeTargetColor(hit.transform.gameObject.GetComponent<MeshRenderer>(), playerNum);
-                    Handheld.Vibrate();
                 }
 			}
 		} 
