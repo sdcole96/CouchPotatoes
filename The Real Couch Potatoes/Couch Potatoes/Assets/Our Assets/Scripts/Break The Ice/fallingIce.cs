@@ -41,7 +41,6 @@ public class fallingIce : MonoBehaviour {
 			i = 1;
 		}
 		CreatePlayers (Input.GetJoystickNames ().Length + i);
-		penguins ();
 	}
 
 	public void penguins()
