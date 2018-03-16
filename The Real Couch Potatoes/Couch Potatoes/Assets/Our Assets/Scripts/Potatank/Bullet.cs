@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     public float speed = 10f;
+	public GameObject explosion;
 
 	// Use this for initialization
 	void Start ()
@@ -29,10 +30,16 @@ public class Bullet : MonoBehaviour {
 		if (col.tag == "Tank")
 		{
 			TankController tc = col.gameObject.GetComponentInParent<TankController> ();
+			GameObject exp = Instantiate (explosion, this.gameObject.transform);
+			exp.transform.parent = null;
 			tc.life--;
 			tc.Hit ();
 			Destroy (this.gameObject);
 			Debug.Log ("Destory");
+		}
+		else
+		{
+			Destroy (this.gameObject);
 		}
 	}
 }

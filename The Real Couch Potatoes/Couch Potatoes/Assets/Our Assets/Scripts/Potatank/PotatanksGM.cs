@@ -7,18 +7,30 @@ public class PotatanksGM : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject[] playerSpawns;
 	public TankController playerControllers;
+	public int playersLeft;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+		playersLeft = GameMaster.activePlayers.Count;
+		for (int i = 0; i < 4; i++)
+		{
+			playerSpawns [i].SetActive (false);
+		}
+		for (int i = 0; i < GameMaster.activePlayers.Count; i++)
+		{
+			playerSpawns [i].SetActive (true);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (playersLeft == 1) 
+		{
+			StartCoroutine (changeScene (5.0f));
+		}
 	}
 
 	public void CreatePlayers(int playerAmount)
@@ -42,5 +54,12 @@ public class PotatanksGM : MonoBehaviour {
 			//playerControllers.Add(tc);
 			tc.enabled = false;
 		}
+	}
+
+	IEnumerator changeScene(float seconds)
+	{
+		yield return new WaitForSeconds (seconds);
+		ChangeScene cs = GameObject.Find("Main Camera"). GetComponent<ChangeScene>();
+		cs.LoadSceneMM ();
 	}
 }

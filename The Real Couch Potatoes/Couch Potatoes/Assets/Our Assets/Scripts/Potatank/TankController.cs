@@ -8,10 +8,13 @@ public class TankController : MonoBehaviour {
 	private float leftStick;
 	public bool stunned = false;
 	public bool canFire = true;
+	public bool dead = false;
 	public int life = 3;
     public GameObject bullet;
     public GameObject firingPoint;
+	public GameObject explosion;
 	public PlayerIndex pi;
+	public PotatanksGM gm;
 
 	// Use this for initialization
 	void Start () 
@@ -36,10 +39,12 @@ public class TankController : MonoBehaviour {
             Instantiate(bullet, firingPoint.transform.position, firingPoint.transform.rotation);
         }
 
-		if (life <= 0) 
+		if (life <= 0 && !dead) 
 		{
 			stunned = true;
 			canFire = false;
+			dead = true;
+			StartCoroutine (TankDeath ());
 		}
     }
 
@@ -60,5 +65,14 @@ public class TankController : MonoBehaviour {
 		canFire = false;
 		yield return new WaitForSeconds (seconds);
 		canFire = true;
+	}
+
+	public IEnumerator TankDeath()
+	{
+		gm.playersLeft -= 1;
+		GameObject exp = Instantiate (explosion, this.gameObject.transform);
+		exp.transform.parent = null;
+		yield return new WaitForSeconds (0.5f);
+		Destroy (this.gameObject);
 	}
 }
