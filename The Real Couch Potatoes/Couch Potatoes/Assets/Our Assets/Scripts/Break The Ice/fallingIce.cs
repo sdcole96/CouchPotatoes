@@ -9,7 +9,7 @@ public class fallingIce : MonoBehaviour {
 	public GameObject[] players;
 	public Camera mainCamera;
 	public Vector3 cam;
-	private float t;
+	public float t = 0;
 	public bool gameOver = false;
 	public bool penguinDrop = true;
 
@@ -45,13 +45,9 @@ public class fallingIce : MonoBehaviour {
 
 	public void penguins()
 	{
-		Debug.Log ("I'm trying0");
-		Debug.Log ("I'm trying1/2");
 		penguinPrefab = GameObject.Find ("PenguinBlue");
-		Debug.Log ("I'm trying1");
 		foreach (GameObject ice in GameObject.FindGameObjectsWithTag("Floor")) 
 		{
-			Debug.Log ("I'm trying2");
 			GameObject temp = Instantiate (penguinPrefab, new Vector3 (ice.transform.position.x + 4.35f, 20, ice.transform.position.z - 12.1f), new Quaternion ());
 			temp.AddComponent<Rigidbody> ();
 			temp.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeRotation;
@@ -74,9 +70,13 @@ public class fallingIce : MonoBehaviour {
 			}
 			gameOver = true;
 			GameObject g = GameObject.Find ("CutsceneCam");
-			g.transform.position = Vector3.Lerp (g.transform.position, players [0].transform.position+new Vector3(0,3,-3), t);
+			StartCoroutine (changeScene (6.0f));
+			if (t == 0) 
+			{
+				penguins ();
+			}
 			t += .01f;
-			StartCoroutine (changeScene (3.0f));
+			g.transform.position = Vector3.Lerp (g.transform.position, players [0].transform.position+new Vector3(0,3,-3), t);
 		}
 	}
 
@@ -93,7 +93,7 @@ public class fallingIce : MonoBehaviour {
 		{
 			childCount = transform.childCount;
 
-			yield return new WaitForSeconds (waitTime);
+			yield return new WaitForSeconds (seconds);
 			seconds = 3;
 			players = GameObject.FindGameObjectsWithTag("Player");
 			if (players.Length > 1) 
