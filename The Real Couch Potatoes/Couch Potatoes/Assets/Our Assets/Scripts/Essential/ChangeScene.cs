@@ -40,15 +40,12 @@ public class ChangeScene : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (GamePad.GetButton(CButton.Start) && isMainMenu)
+		if ((GamePad.GetButton(CButton.Start)) || (Input.GetKey(KeyCode.Space)) && isMainMenu)
         {
-            Debug.Log("Ok we detach");
             isTransitioning = true;
             StartCoroutine("LoadSceneAfterTransition");
             // Temp for now. Just moving camera to TV set
-            GetComponent<CameraZoom>().isDetached = true; // detach
             // Fade out
-            GetComponent<fadeInFadeOut>().FadeIn();
         }
     }
 
@@ -74,12 +71,15 @@ public class ChangeScene : MonoBehaviour {
 
     IEnumerator LoadSceneAfterTransition()
     {
-        yield return new WaitForSeconds(1.3f);
+		this.GetComponent<TVfade> ().work = true;
+        yield return new WaitForSeconds(3.0f);
+		GetComponent<fadeInFadeOut>().FadeIn();
         LoadSceneMM();
 
     }
     IEnumerator FadeThenStart(string sceneName)
     {
+		yield return new WaitForSeconds (3f);
 		this.GetComponent<fadeInFadeOut>().FadeIn();
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene(sceneName);
