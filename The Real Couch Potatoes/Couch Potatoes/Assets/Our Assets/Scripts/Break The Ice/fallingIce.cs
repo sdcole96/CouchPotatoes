@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class fallingIce : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class fallingIce : MonoBehaviour {
 	public float t = 0;
 	public bool gameOver = false;
 	public bool penguinDrop = true;
+	public GameObject middleText;
 
 	public GameObject penguinPrefab;
 
@@ -60,6 +62,12 @@ public class fallingIce : MonoBehaviour {
 	{
 		if (players.Length <= 1) 
 		{
+			GameObject winner = players [0];
+			if (winner == null) 
+			{
+				middleText.GetComponent<Text> ().text =  "Tie";
+			}
+			middleText.GetComponent<Text> ().text = winner.gameObject.tag + "Wins!";
 			if (players.Length < 4)
 			{
 				Destroy(hud4);

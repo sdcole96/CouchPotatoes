@@ -17,22 +17,33 @@ public class countdown : MonoBehaviour {
 	{
 	}
 
+	IEnumerator changeColor()
+	{
+		foreach (Transform child in transform)
+		{
+				for(float i = 0; i < 100; i+=0.01f)
+				{
+					yield return new WaitForSeconds(.01f);
+					Color c = new Color (i, .5f, .5f);
+					transform.GetComponent<Text> ().color = c;
+					//do something with the color
+				}
+		}
+	}
 
 	IEnumerator count()
 	{
-		int i = 4;
+		int i = 3;
 		yield return new WaitForSeconds (5f);
-		float j = 5;
 		while(i != 0)
 		{
-			j += -j*2f;
+			foreach (Transform child in transform)
+			{
+				child.GetComponent<Text> ().text = "     " + (i).ToString ();
+			}
 			yield return new WaitForSeconds (1f);
 			i--;
 
-			foreach (Transform child in transform)
-			{
-				//child.GetComponent<Text> ().text = (i).ToString ();
-			}
 		}
 		GameObject.Find ("Song").GetComponent<AudioSource> ().enabled = true;
 		foreach (playerController p in GameObject.FindObjectsOfType<playerController> ()) 
@@ -41,7 +52,7 @@ public class countdown : MonoBehaviour {
 		}
 		foreach (Transform child in transform)
 		{
-			child.GetComponent<Text> ().text = "Go!";
+			child.GetComponent<Text> ().text = "     Go!";
 		}
 
 		yield return new WaitForSeconds(.5f);
