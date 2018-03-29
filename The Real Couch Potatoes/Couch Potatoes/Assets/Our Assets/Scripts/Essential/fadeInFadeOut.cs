@@ -23,12 +23,12 @@ public class fadeInFadeOut : MonoBehaviour {
 
     public void FadeIn()
     {
-        whiteScreen.CrossFadeAlpha(1.0f, fadeDuration, true);
+       whiteScreen.CrossFadeAlpha(1.0f, fadeDuration, true);
     }
 
     public void FadeOut()
     {
-        whiteScreen.CrossFadeAlpha(0.0f, fadeDuration, true);
+       whiteScreen.CrossFadeAlpha(0.0f, fadeDuration, true);
         
     }
 }

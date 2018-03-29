@@ -37,12 +37,17 @@ public class countdown : MonoBehaviour {
 		yield return new WaitForSeconds (5f);
 		while(i != 0)
 		{
+            
 			foreach (Transform child in transform)
 			{
-				child.GetComponent<Text> ().text = "     " + (i).ToString ();
+                if (child.name != "whitescreen")
+                {
+                    child.GetComponent<Text>().text = "     " + (i).ToString();
+                }
 			}
 			yield return new WaitForSeconds (1f);
 			i--;
+            
 
 		}
 		GameObject.Find ("Song").GetComponent<AudioSource> ().enabled = true;
@@ -50,15 +55,23 @@ public class countdown : MonoBehaviour {
 		{
 			p.enabled = true;
 		}
+        
 		foreach (Transform child in transform)
 		{
-			child.GetComponent<Text> ().text = "     Go!";
+            if (child.name != "whitescreen")
+            {
+                child.GetComponent<Text>().text = "     Go!";
+            }
+            
 		}
 
 		yield return new WaitForSeconds(.5f);
 		foreach (Transform child in transform)
 		{
-			child.GetComponent<Text> ().text = " ";
+            if (child.name != "whitescreen")
+            {
+                child.GetComponent<Text>().text = " ";
+            }
 		}
 
 	}

@@ -25,14 +25,14 @@ public class TankController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		rightStick = GamePad.GetAxis (CAxis.RY, pi);
+		rightStick = GamePad.GetAxis (CAxis.RX, pi);
 		leftStick = GamePad.GetAxis(CAxis.LY, pi);
 		if (!stunned) 
 		{
 			//this.transform.Translate ((-Vector3.forward * rightStick - Vector3.forward * leftStick)*.3f);
 			//this.transform.Rotate (Vector3.up, 2 * rightStick - 2 * leftStick);
 			this.transform.Translate((-Vector3.forward*leftStick)*.3f);
-			this.transform.Rotate(new Vector3(0f,1.3f*rightStick,0f));
+			this.transform.Rotate(new Vector3(0f,5f*rightStick,0f));
 		}
 			
 		if (canFire && (GamePad.GetButton(CButton.RB, pi) || GamePad.GetButton(PSButton.R1, pi)))

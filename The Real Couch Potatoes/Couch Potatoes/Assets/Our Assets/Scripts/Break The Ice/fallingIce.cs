@@ -78,7 +78,7 @@ public class fallingIce : MonoBehaviour {
 			}
 			gameOver = true;
 			GameObject g = GameObject.Find ("CutsceneCam");
-			StartCoroutine (changeScene (6.0f));
+			StartCoroutine (changeScene (3.0f));
 			if (t == 0) 
 			{
 				penguins ();
