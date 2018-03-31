@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class displayPlayers : MonoBehaviour {
 
     public GameObject[] spriteBoxes;
+    public GameObject[] scoreBoxes;
     public RuntimeAnimatorController redAnim;
     public RuntimeAnimatorController greenAnim;
     public RuntimeAnimatorController blueAnim;
@@ -21,6 +22,8 @@ public class displayPlayers : MonoBehaviour {
         {
             Color colorToCheck = GameMaster.activePlayers[i].GetPColor();
             spriteBoxes[i].GetComponent<Image>().enabled = true; // Enable Image
+            scoreBoxes[i].GetComponent<Text>().enabled = true;
+            scoreBoxes[i].GetComponent<Text>().text = GameMaster.activePlayers[i].GetPScore().ToString();
             if (colorToCheck == Color.red)
                 spriteBoxes[i].GetComponent<Animator>().runtimeAnimatorController = redAnim as RuntimeAnimatorController; // Pop in requested animation
             if (colorToCheck == Color.green)

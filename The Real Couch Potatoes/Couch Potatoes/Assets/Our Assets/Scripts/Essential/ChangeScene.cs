@@ -40,7 +40,7 @@ public class ChangeScene : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		if (isMainMenu && !isTransitioning && GameMaster.activePlayers.Count > 0 && (GamePad.GetButton(CButton.Start)) || (Input.GetKey(KeyCode.Space)))
+		if (isMainMenu && !isTransitioning && GameMaster.activePlayers.Count > 1 && (GamePad.GetButton(CButton.Start)) || (Input.GetKey(KeyCode.Space)))
         {
             Debug.Log(GameMaster.activePlayers.Count);
             isTransitioning = true;

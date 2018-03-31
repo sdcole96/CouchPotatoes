@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 1117
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 683, y: 342}
-  m_MaxSize: {x: 12008, y: 8042}
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 691
+  controlID: 13778
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1490
     height: 1067
-  m_MinSize: {x: 406, y: 342}
-  m_MaxSize: {x: 8006, y: 8042}
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 692
+  controlID: 13779
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 693
+  controlID: 13780
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -227,14 +227,14 @@ MonoBehaviour:
     y: 618
     width: 1490
     height: 449
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -283,10 +283,10 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 317
-    y: 92
+    y: 19
     width: 1171
     height: 597
-  m_MaximizeOnPlay: 0
+  m_MaximizeOnPlay: 1
   m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 05000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -364,9 +364,9 @@ MonoBehaviour:
     height: 597
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 20bbfeff
-    m_LastClickedID: -83168
-    m_ExpandedIDs: cea6ffffaaedfffff6efffffa6fbfffff4ffffff00000000d6480000fe48000004490000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 2a4cfbff9ea2fcff6ab7fcff34b9fcffa28dfdff029afdff5c9cfdff2c97ffff4a9fffffa6fbffff00000000c03500001c5c00005c720000da960000d497000002da0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -416,14 +416,14 @@ MonoBehaviour:
     width: 1171
     height: 597
   m_SceneLighting: 1
-  lastFramingTime: 2654.7226806078297
+  lastFramingTime: 3908.353242461741
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -8.471564, y: -3.902675, z: -22.639318}
+    m_Target: {x: 375.3455, y: 89.6279, z: 157.73657}
     speed: 2
-    m_Value: {x: -8.471564, y: -3.902675, z: -22.639318}
+    m_Value: {x: 375.3455, y: 89.6279, z: 157.73657}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -446,13 +446,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.00988141, y: 0.9897901, z: -0.086638555, w: -0.11274724}
+    m_Target: {x: -0.24807289, y: 0.14979495, z: -0.03884504, w: -0.95630145}
     speed: 2
-    m_Value: {x: -0.009881409, y: 0.98978996, z: -0.08663855, w: -0.11274722}
+    m_Value: {x: -0.24807289, y: 0.14979495, z: -0.03884504, w: -0.95630145}
   m_Size:
-    m_Target: 20.080055
+    m_Target: 957.671
     speed: 2
-    m_Value: 20.080055
+    m_Value: 957.671
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -502,19 +502,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Our Assets/Scenes
+    - Assets/Our Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Our Assets/Scenes
+  - Assets/Our Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\jsjos\Documents\UnityProjects\CouchPotatoes\The Real
     Couch Potatoes\Couch Potatoes
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 480}
-    m_SelectedIDs: b6290000
-    m_LastClickedID: 10678
+    m_SelectedIDs: e02b0000
+    m_LastClickedID: 11232
     m_ExpandedIDs: 00000000a6280000ac280000262900002e29000062290000b62900001a2a0000842a0000e02b0000fe2b00001a2c00003c2c0000b42c0000002e0000142e00003c2e0000502e0000622e0000c42f0000b4310000383200005432000022330000563300008a330000523400006c3400003a3a00003c3a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
