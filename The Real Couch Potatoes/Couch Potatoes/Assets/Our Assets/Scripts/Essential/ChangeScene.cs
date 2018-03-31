@@ -40,8 +40,9 @@ public class ChangeScene : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		if ((GamePad.GetButton(CButton.Start)) || (Input.GetKey(KeyCode.Space)) && isMainMenu)
+		if (isMainMenu && !isTransitioning && GameMaster.activePlayers.Count > 0 && (GamePad.GetButton(CButton.Start)) || (Input.GetKey(KeyCode.Space)))
         {
+            Debug.Log(GameMaster.activePlayers.Count);
             isTransitioning = true;
             StartCoroutine("LoadSceneAfterTransition");
             // Temp for now. Just moving camera to TV set
