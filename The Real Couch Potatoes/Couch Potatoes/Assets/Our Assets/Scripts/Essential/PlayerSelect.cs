@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerSelect : MonoBehaviour
 {
     public int playerNum = -1;
-    public Rigidbody[] potatoes;
+    public GameObject[] potatoes;
+    private int[] playerSpecificTater;
     public Text playerJoinText; // Player has joined the game textbox
     public Text startText; // Press start to begin textbox
     public Text[] pressATextBoxes;
@@ -15,14 +16,14 @@ public class PlayerSelect : MonoBehaviour
     public ArrayList remainingSprites = new ArrayList();
 	public GameObject colorSelector;
 
-    public bool playerJoined1 = true;
-    public bool playerJoined2 = true;
-    public bool playerJoined3 = true;
-    public bool playerJoined4 = true;
-    public bool playerJoined5 = true;
-    public bool playerJoined6 = true;
-    public bool playerJoined7 = true;
-    public bool playerJoined8 = true;
+    public bool playerJoined1 = false;
+    public bool playerJoined2 = false;
+    public bool playerJoined3 = false;
+    public bool playerJoined4 = false;
+    public bool playerJoined5 = false;
+    public bool playerJoined6 = false;
+    public bool playerJoined7 = false;
+    public bool playerJoined8 = false;
 
     private bool isPressStartCoroutineStarted = false;
 
@@ -35,6 +36,9 @@ public class PlayerSelect : MonoBehaviour
         colorArray[1] = Color.green;
         colorArray[2] = Color.blue;
         colorArray[3] = Color.yellow;
+
+        // Tater to Player linking
+        playerSpecificTater = new int[4];
     }
 
     // Update is called once per frame
@@ -52,104 +56,120 @@ public class PlayerSelect : MonoBehaviour
             StartCoroutine("pressStartToBegin");
         }
 
-        if (((GamePad.GetButton(CButton.A, PlayerIndex.One) || GamePad.GetButton(PSButton.Cross, PlayerIndex.One)) && GameMaster.activePlayers.Count < 4) && playerJoined1)
+        if (GamePad.GetButton(CButton.A, PlayerIndex.One) || GamePad.GetButton(PSButton.Cross, PlayerIndex.One))
         {
-            spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
-            pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
-            playerJoined1 = false;
-            DropTater();
-            ColorSelect(PlayerIndex.One);
-            PlayerAudio();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.One);
-            newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
-            GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
-            Debug.Log("Controller 1");
+            // Player Join
+            if (GameMaster.activePlayers.Count < 4 && !playerJoined1)
+            {
+                spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+                pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
+                DropTater();
+                playerSpecificTater[0] = GameMaster.activePlayers.Count; // Index reference (for the below Player Jump!) to show which tater belongs to this player
+                ColorSelect(PlayerIndex.One);
+                PlayerAudio();
+                PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.One);
+                newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
+                GameMaster.activePlayers.Add(newPlayer);
+                StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
+                playerJoined1 = true;
+                Debug.Log("Controller 1");
+            }
+            // Player Jump!
+            else if (playerJoined1)
+            {
+                JumpTater(potatoes[playerSpecificTater[0]]);
+            }
+            
         }
-        else if (((GamePad.GetButton(CButton.A, PlayerIndex.Two) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Two)) && GameMaster.activePlayers.Count < 4) && playerJoined2)
+        else if (GamePad.GetButton(CButton.A, PlayerIndex.Two) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Two))
         {
-            spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
-            pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
-            playerJoined2 = false;
-            DropTater();
-            ColorSelect(PlayerIndex.Two);
-            PlayerAudio();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Two);
-            newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
-            GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
-            Debug.Log("Controller 2");
+            // Player Join
+            if (GameMaster.activePlayers.Count < 4 && !playerJoined2)
+            {
+                spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+                pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
+                DropTater();
+                playerSpecificTater[1] = GameMaster.activePlayers.Count; // Index reference (for the below Player Jump!) to show which tater belongs to this player
+                ColorSelect(PlayerIndex.Two);
+                PlayerAudio();
+                PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Two);
+                newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
+                GameMaster.activePlayers.Add(newPlayer);
+                StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
+                playerJoined2 = true;
+                Debug.Log("Controller 2");
+            }
+            // Player Jump!
+            else if (playerJoined2)
+            {
+                JumpTater(potatoes[playerSpecificTater[1]]);
+            }
         }
-        else if (((GamePad.GetButton(CButton.A, PlayerIndex.Three) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Three)) && GameMaster.activePlayers.Count < 4) && playerJoined3)
+        else if (GamePad.GetButton(CButton.A, PlayerIndex.Three) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Three))
         {
-            spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
-            pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
-            playerJoined3 = false;
-            DropTater();
-            ColorSelect(PlayerIndex.Three);
-            PlayerAudio();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Three);
-            newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
-            GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
-            Debug.Log("Controller 3");
+            // Player Join
+            if (GameMaster.activePlayers.Count < 4 && !playerJoined3) {
+                spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+                pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
+                DropTater();
+                playerSpecificTater[2] = GameMaster.activePlayers.Count; // Index reference (for the below Player Jump!) to show which tater belongs to this player
+                ColorSelect(PlayerIndex.Three);
+                PlayerAudio();
+                PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Three);
+                newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
+                GameMaster.activePlayers.Add(newPlayer);
+                StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
+                playerJoined3 = true;
+                Debug.Log("Controller 3");
+            }
+            // Player Jump!
+            else if (playerJoined3)
+            {
+                JumpTater(potatoes[playerSpecificTater[2]]);
+            }
+            
         }
-        else if (((GamePad.GetButton(CButton.A, PlayerIndex.Four) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Four)) && GameMaster.activePlayers.Count < 4) && playerJoined4)
+        else if (GamePad.GetButton(CButton.A, PlayerIndex.Four) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Four))
         {
-            spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
-            pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
-            playerJoined4 = false;
-            DropTater();
-            ColorSelect(PlayerIndex.Four);
-            PlayerAudio();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Four);
-            newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
-            GameMaster.activePlayers.Add(newPlayer);
-            StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
-            Debug.Log("Controller 4");
+            // Player Join
+            if (GameMaster.activePlayers.Count < 4 && !playerJoined4)
+            {
+                spriteImages[GameMaster.activePlayers.Count].gameObject.SetActive(true);
+                pressATextBoxes[GameMaster.activePlayers.Count].enabled = false;
+                DropTater();
+                playerSpecificTater[3] = GameMaster.activePlayers.Count; // Index reference (for the below Player Jump!) to show which tater belongs to this player
+                ColorSelect(PlayerIndex.Four);
+                PlayerAudio();
+                PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Four);
+                newPlayer.SetPColor(colorArray[GameMaster.activePlayers.Count]); // Set the color for the player, based on when they joined the game
+                GameMaster.activePlayers.Add(newPlayer);
+                StartCoroutine(showPlayerJoined(GameMaster.activePlayers.Count, colorArray[GameMaster.activePlayers.Count - 1]));
+                playerJoined4 = true;
+                Debug.Log("Controller 4");
+            }
+            // Player Jump!
+            else if (playerJoined4)
+            {
+                JumpTater(potatoes[playerSpecificTater[3]]);
+            }
+            
         }
-        /*
-        else if (((GamePad.GetButton(CButton.A, PlayerIndex.Five) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Five)) && GameMaster.activePlayers.Count < 4) && playerJoined5)
-        {
-            playerJoined5 = false;
-            DropTater();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Five);
-            GameMaster.activePlayers.Add(newPlayer);
-            Debug.Log("Controller 5");
-        }
-        else if (((GamePad.GetButton(CButton.A, PlayerIndex.Six) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Six)) && GameMaster.activePlayers.Count < 4) && playerJoined6)
-        {
-            playerJoined6 = false;
-            DropTater();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Six);
-            GameMaster.activePlayers.Add(newPlayer);
-            Debug.Log("Controller 6");
-        }
-        else if (((GamePad.GetButton(CButton.A, PlayerIndex.Seven) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Seven)) && GameMaster.activePlayers.Count < 4) && playerJoined7)
-        {
-            playerJoined7 = false;
-            DropTater();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Seven);
-            GameMaster.activePlayers.Add(newPlayer);
-            Debug.Log("Controller 7");
-        }
-        else if (((GamePad.GetButton(CButton.A, PlayerIndex.Eight) || GamePad.GetButton(PSButton.Cross, PlayerIndex.Eight)) && GameMaster.activePlayers.Count < 4) && playerJoined8)
-        {
-            playerJoined8 = false;
-            DropTater();
-            PlayerClass newPlayer = new PlayerClass(GameMaster.activePlayers.Count, PlayerIndex.Eight);
-            GameMaster.activePlayers.Add(newPlayer);
-            Debug.Log("Controller 8");
-        }
-        */
+       
     }
 
     public void DropTater()
     {
-		potatoes[GameMaster.activePlayers.Count].useGravity = true;
+		potatoes[GameMaster.activePlayers.Count].GetComponent<Rigidbody>().useGravity = true;
+    }
+    public void JumpTater(GameObject tater)
+    {
+        //tater.transform.Translate(Vector3.up * 20 * Time.deltaTime, Space.World);
+        if (Physics.Raycast(tater.transform.position, -Vector3.up, 2f))
+            tater.GetComponent<Rigidbody>().AddForce(new Vector3(0, 30, 0));
+            
     }
 
-	public void PlayerAudio()
+    public void PlayerAudio()
 	{
 		int playerNum = GameMaster.activePlayers.Count + 1;
 		GameObject.Find ("Player " + playerNum).GetComponent<AudioSource> ().volume = 1;

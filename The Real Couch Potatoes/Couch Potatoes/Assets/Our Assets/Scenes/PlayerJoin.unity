@@ -603,11 +603,6 @@ Transform:
   m_Father: {fileID: 32023956}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &397173302 stripped
-Rigidbody:
-  m_PrefabParentObject: {fileID: 54053966935385202, guid: ebc1ab22153aad7458e992f4590bc942,
-    type: 2}
-  m_PrefabInternal: {fileID: 1072800659}
 --- !u!1 &397761918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1230,10 @@ AudioSource:
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: 4d92b13f97b52354ab926b011d960c66, type: 3}
   m_PrefabInternal: {fileID: 2037747506}
+--- !u!4 &856572932 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400008, guid: 4d92b13f97b52354ab926b011d960c66, type: 3}
+  m_PrefabInternal: {fileID: 2037747506}
 --- !u!64 &856572933
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1448,11 +1447,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 936746764}
---- !u!54 &1003914252 stripped
-Rigidbody:
-  m_PrefabParentObject: {fileID: 54053966935385202, guid: ebc1ab22153aad7458e992f4590bc942,
-    type: 2}
-  m_PrefabInternal: {fileID: 889790813}
 --- !u!4 &1047837741 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400054, guid: 27f3b79abf18f2f43b26962e351e07ed, type: 3}
@@ -1701,6 +1695,47 @@ Prefab:
     - {fileID: 114440696588378658, guid: ebc1ab22153aad7458e992f4590bc942, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ebc1ab22153aad7458e992f4590bc942, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1083900527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1083900528}
+  - component: {fileID: 1083900529}
+  m_Layer: 0
+  m_Name: PlayerJumpZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1083900528
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083900527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.452, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 856572932}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1083900529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083900527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.66, y: 1, z: 0.76}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1086149169 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4432084465850600, guid: ebc1ab22153aad7458e992f4590bc942,
@@ -2408,11 +2443,6 @@ Transform:
   m_Father: {fileID: 354560619}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!54 &1289259003 stripped
-Rigidbody:
-  m_PrefabParentObject: {fileID: 54053966935385202, guid: ebc1ab22153aad7458e992f4590bc942,
-    type: 2}
-  m_PrefabInternal: {fileID: 1222080331}
 --- !u!4 &1340434739 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 27f3b79abf18f2f43b26962e351e07ed, type: 3}
@@ -2569,11 +2599,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1414895197}
---- !u!54 &1469975704 stripped
-Rigidbody:
-  m_PrefabParentObject: {fileID: 54053966935385202, guid: ebc1ab22153aad7458e992f4590bc942,
-    type: 2}
-  m_PrefabInternal: {fileID: 1846695260}
 --- !u!1 &1475814994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,10 +3856,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: -1
   potatoes:
-  - {fileID: 1469975704}
-  - {fileID: 1289259003}
-  - {fileID: 1003914252}
-  - {fileID: 397173302}
+  - {fileID: 1089599322}
+  - {fileID: 145980420}
+  - {fileID: 1588315720}
+  - {fileID: 796460652}
   playerJoinText: {fileID: 1862668105}
   startText: {fileID: 1414895199}
   pressATextBoxes:
@@ -3849,14 +3874,14 @@ MonoBehaviour:
   - {fileID: 1220271428}
   colorSelector: {fileID: 1057656947164714, guid: bda36e68335e1b44ba675549b767fb48,
     type: 2}
-  playerJoined1: 1
-  playerJoined2: 1
-  playerJoined3: 1
-  playerJoined4: 1
-  playerJoined5: 1
-  playerJoined6: 1
-  playerJoined7: 1
-  playerJoined8: 1
+  playerJoined1: 0
+  playerJoined2: 0
+  playerJoined3: 0
+  playerJoined4: 0
+  playerJoined5: 0
+  playerJoined6: 0
+  playerJoined7: 0
+  playerJoined8: 0
 --- !u!114 &1861353173
 MonoBehaviour:
   m_ObjectHideFlags: 0
