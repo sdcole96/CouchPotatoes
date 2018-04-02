@@ -26,45 +26,42 @@ public class punchCollider : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) 
 	{
-		if (col.gameObject.tag == "Player"  && col.gameObject.name != this.transform.root.name)
-		{
-			if(leftAnim.GetCurrentAnimatorStateInfo(0).IsName("LeftPunch")||rightAnim.GetCurrentAnimatorStateInfo(0).IsName("RightPunch")) 
-			{
-				if (isPunching != true) 
-				{
-					
-					Vector3 dir = col.gameObject.transform.position - transform.parent.position;
-					dir = -dir.normalized;
-					Vector3 punchForce = new Vector3 (-dir.x * force, 5f, -dir.z * force);
-					Debug.Log (punchForce);
+		
+			if (col.gameObject.tag == "Player" && col.gameObject.name != this.transform.root.name) {
+				if (leftAnim.GetCurrentAnimatorStateInfo (0).IsName ("LeftPunch") || rightAnim.GetCurrentAnimatorStateInfo (0).IsName ("RightPunch")) {
+					if (isPunching != true) {
+						
+						Vector3 dir = col.gameObject.transform.position - transform.parent.position;
+						dir = -dir.normalized;
+						Vector3 punchForce = new Vector3 (-dir.x * force, 5f, -dir.z * force);
+						Debug.Log (punchForce);
 
-					col.gameObject.GetComponent<Rigidbody> ().AddForce (punchForce);
-					isPunching = true;
-					StartCoroutine (coolDown());
+						col.gameObject.GetComponent<Rigidbody> ().AddForce (punchForce);
+						isPunching = true;
+						StartCoroutine (coolDown ());
+					}
 				}
 			}
-		}
+	
 	}
 
 	void OnTriggerStay(Collider col)
 	{
-		if (col.gameObject.tag == "Player"  && col.gameObject.name != this.transform.root.name)
-		{
-			if(leftAnim.GetCurrentAnimatorStateInfo(0).IsName("LeftPunch")||rightAnim.GetCurrentAnimatorStateInfo(0).IsName("RightPunch")) 
-			{
-				if (isPunching != true) 
-				{
-					Vector3 dir = col.gameObject.transform.position - transform.parent.position;
-					dir = -dir.normalized;
-					Vector3 punchForce = new Vector3 (-dir.x * force, 5f, -dir.z * force);
-					Debug.Log (punchForce);
+			if (col.gameObject.tag == "Player" && col.gameObject.name != this.transform.root.name) {
+				if (leftAnim.GetCurrentAnimatorStateInfo (0).IsName ("LeftPunch") || rightAnim.GetCurrentAnimatorStateInfo (0).IsName ("RightPunch")) {
+					if (isPunching != true) {
+						Vector3 dir = col.gameObject.transform.position - transform.parent.position;
+						dir = -dir.normalized;
+						Vector3 punchForce = new Vector3 (-dir.x * force, 5f, -dir.z * force);
+						Debug.Log (punchForce);
 
-					col.gameObject.GetComponent<Rigidbody> ().AddForce (punchForce);
-					isPunching = true;
-					StartCoroutine (coolDown());
+						col.gameObject.GetComponent<playerController> ().stunned = true;
+						col.gameObject.GetComponent<Rigidbody> ().AddForce (punchForce);
+						isPunching = true;
+						StartCoroutine (coolDown ());
+					}
 				}
 			}
-		}
 	}
 		
 

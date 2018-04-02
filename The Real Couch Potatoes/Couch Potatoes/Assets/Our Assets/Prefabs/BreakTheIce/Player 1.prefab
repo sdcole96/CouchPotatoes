@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 95574244277108874}
   - component: {fileID: 114440696588378658}
   - component: {fileID: 135488270895216832}
+  - component: {fileID: 65189974984703110}
+  - component: {fileID: 114252668117644270}
   m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
@@ -95,6 +97,8 @@ GameObject:
   - component: {fileID: 95817669258437826}
   - component: {fileID: 114947153588091850}
   - component: {fileID: 135451917411855966}
+  - component: {fileID: 65317814598825720}
+  - component: {fileID: 114261509197184248}
   m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
@@ -404,7 +408,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966999490288600}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -9.862009, y: 0.13780254, z: -5.1510715}
+  m_LocalPosition: {x: -11.728663, y: 0.13780344, z: -7.284226}
   m_LocalScale: {x: 1.0389383, y: 1.4914982, z: 1.0389379}
   m_Children:
   - {fileID: 4926698257410244}
@@ -796,6 +800,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2.12334}
   m_Center: {x: -0.00029230118, y: 0.0046666125, z: 0.56171644}
+--- !u!65 &65189974984703110
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155208009748432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.0000001}
+  m_Center: {x: 0.0000038146973, y: -0.000000059604645, z: 0}
+--- !u!65 &65317814598825720
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352938805115334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.54, y: 1.57, z: 1.66}
+  m_Center: {x: 0, y: -0.00000017881393, z: 0}
 --- !u!65 &65467067649588972
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -859,6 +887,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114252668117644270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155208009748432}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe52e2880212c4b119453cca9d02872b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 500
+--- !u!114 &114261509197184248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1352938805115334}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe52e2880212c4b119453cca9d02872b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 500
 --- !u!114 &114273088311660992
 MonoBehaviour:
   m_ObjectHideFlags: 1

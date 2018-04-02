@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour {
 
 	private GameObject myHUD;
-	public float raycast = .8975f;
+	public float raycast = .898f;
 	public float speed;
 	public int jumpForce = 300;
 	public float gravity;
@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour {
 	private Animator anim;
 	bool togglePunch = false;
     private float strength;
-
+	public bool speedPowerOn = false;
 	public bool stunned = false;
 
 
@@ -50,9 +50,16 @@ public class playerController : MonoBehaviour {
 	{
 		airbourne = Physics.Raycast(transform.position, - Vector3.up, raycast);
         Vector2 movement = GamePad.GetLeftStick(controllerNum);
-        
-		rb.AddForce(movement.x*speed, 0, -movement.y*speed);
-			
+		if (!stunned) {
+			if (!speedPowerOn)
+			{
+				rb.AddForce (movement.x * speed, 0, -movement.y * speed);
+			} 
+		} 
+		else
+		{
+			StartCoroutine (getStunned ());
+		}
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum)) && isGrounded())
         { 
@@ -63,18 +70,53 @@ public class playerController : MonoBehaviour {
 	
 		if((GamePad.GetButton(CButton.B, controllerNum) || GamePad.GetButton(PSButton.Circle, controllerNum)) && !isPunching())
 		{
-			if (togglePunch)
+			if (!stunned) 
 			{
-				this.transform.Find ("Skeleton/Left").GetComponent<Animator> ().Play ("LeftPunch");
-				togglePunch = !togglePunch;
-			} 
-			else 
-			{
-				this.transform.Find ("Skeleton/Right").GetComponent<Animator> ().Play ("RightPunch");
-				togglePunch = !togglePunch;
+				if (togglePunch) 
+				{
+					this.transform.Find ("Skeleton/Left").GetComponent<Animator> ().Play ("LeftPunch");
+					togglePunch = !togglePunch;
+				} else 
+				{
+					this.transform.Find ("Skeleton/Right").GetComponent<Animator> ().Play ("RightPunch");
+					togglePunch = !togglePunch;
+				}
 			}
 		}
 
+	}
+
+	IEnumerator getStunned()
+	{
+		stunned = true;
+		StartCoroutine (flicker ());
+		yield return new WaitForSeconds (1f);
+		stunned = false;
+	}
+
+	IEnumerator flicker()
+	{
+		Transform t = gameObject.transform.GetChild(0);
+		MeshRenderer m0 = t.GetChild (0).GetComponent<MeshRenderer> ();
+		MeshRenderer m1 = t.GetChild (1).GetComponent<MeshRenderer> ();
+		MeshRenderer m2 = t.GetChild (2).GetComponent<MeshRenderer> ();
+		MeshRenderer m3 = t.GetChild (3).GetComponent<MeshRenderer> ();
+		MeshRenderer m4 = t.GetChild (4).GetComponent<MeshRenderer> ();
+		while (stunned != false) 
+		{
+			yield return new WaitForSeconds (.1f);
+			m0.enabled = !m0.enabled;
+			m1.enabled = !m1.enabled;
+			m2.enabled = !m2.enabled;
+			m3.enabled = !m3.enabled;
+			m4.enabled = !m4.enabled;
+		}
+		m0.enabled = true;
+		m1.enabled = true;
+		m2.enabled = true;
+		m3.enabled = true;
+		m4.enabled = true;
+	
 	}
 
 	public bool isPunching()
@@ -119,9 +161,10 @@ public class playerController : MonoBehaviour {
 			}
 		case "Speed":
 			{
+				speedPowerOn = false;
 				myHUD.transform.GetChild (4).gameObject.SetActive (true);
 				this.transform.Find ("Skeleton/Lightning").GetComponent<ParticleSystem> ().gameObject.SetActive (false);
-				speed = 0.1f;
+				speed = speed + 10;
 				break;
 			}
 		default:
@@ -159,8 +202,9 @@ public class playerController : MonoBehaviour {
 				}
 			case "Speed":
 				{
+					speedPowerOn = true;
 					myHUD.transform.GetChild (4).gameObject.SetActive (false);
-					speed = 0.2f;
+					speed = speed + 10;
 					Destroy (c.gameObject);
 					break;
 				}

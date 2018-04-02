@@ -14,6 +14,8 @@ public class fallingIce : MonoBehaviour {
 	public bool gameOver = false;
 	public bool penguinDrop = true;
 	public GameObject middleText;
+	public float x;
+	public float z;
 
 	public GameObject penguinPrefab;
 
@@ -45,9 +47,34 @@ public class fallingIce : MonoBehaviour {
 		CreatePlayers (Input.GetJoystickNames ().Length + i);
 	}
 
-	public void penguins()
+	public void penguins(GameObject player)
 	{
-		penguinPrefab = GameObject.Find ("PenguinBlue");
+		int pNum = player.GetComponent<playerController> ().playerNum;
+
+		switch (pNum) 
+		{
+			case 1:
+				{
+				penguinPrefab = GameObject.Find ("PenguinRed");
+				break;
+				}
+			case 2:
+				{
+					penguinPrefab = GameObject.Find ("PenguinGreen");
+					break;
+				}
+			case 3:
+				{
+					penguinPrefab = GameObject.Find ("PenguinBlue");
+					break;
+				}
+			case 4:
+				{
+					penguinPrefab = GameObject.Find ("PenguinYellow");
+					break;
+				}
+		}
+			
 		foreach (GameObject ice in GameObject.FindGameObjectsWithTag("Floor")) 
 		{
 			GameObject temp = Instantiate (penguinPrefab, new Vector3 (ice.transform.position.x + 4.35f, 20, ice.transform.position.z - 12.1f), new Quaternion ());
@@ -60,31 +87,49 @@ public class fallingIce : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if (players.Length < 4)
+		{
+			Destroy(hud4);
+			if (players.Length < 3)
+			{
+				Destroy(hud3);
+			}
+		}
+
+
 		if (players.Length <= 1) 
 		{
-			GameObject winner = players [0];
-			if (winner == null) 
+			
+			if(t == 0)
 			{
-				middleText.GetComponent<Text> ().text =  "Tie";
-			}
-			middleText.GetComponent<Text> ().text = winner.gameObject.tag + "Wins!";
-			if (players.Length < 4)
-			{
-				Destroy(hud4);
-				if (players.Length < 3)
+				if (players.Length == 0)
 				{
-					Destroy(hud3);
+					middleText.GetComponent<Text> ().text = "Tie";
+					StartCoroutine (changeScene (3.0f));
+				} 
+				else 
+				{
+					GameObject winner = players [0];
+					middleText.GetComponent<Text> ().text = winner.gameObject.tag + "Wins!";
+					GameObject g = GameObject.Find ("CutsceneCam");
+
+					if (t == 0)
+					{
+						x = players [0].transform.position.x;
+						z = players [0].transform.position.z;
+					}
+					
+
+					g.transform.position = Vector3.Lerp (g.transform.position, new Vector3(x,5f,z), t);
+					StartCoroutine (changeScene (6.0f));
+					if (t == 0) 
+					{
+						penguins (winner);
+					}
+					t += .01f;
 				}
 			}
 			gameOver = true;
-			GameObject g = GameObject.Find ("CutsceneCam");
-			StartCoroutine (changeScene (3.0f));
-			if (t == 0) 
-			{
-				penguins ();
-			}
-			t += .01f;
-			g.transform.position = Vector3.Lerp (g.transform.position, players [0].transform.position+new Vector3(0,3,-3), t);
 		}
 	}
 
