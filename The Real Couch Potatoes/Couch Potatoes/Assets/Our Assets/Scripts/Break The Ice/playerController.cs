@@ -8,7 +8,7 @@ public class playerController : MonoBehaviour {
 
 	private GameObject myHUD;
 	public float raycast = .8975f;
-	public float speed = 0.1f;
+	public float speed;
 	public int jumpForce = 300;
 	public float gravity;
 	public Rigidbody rb;
@@ -16,6 +16,8 @@ public class playerController : MonoBehaviour {
 	private Animator anim;
 	bool togglePunch = false;
     private float strength;
+
+	public bool stunned = false;
 
 
 	public int playerNum = -1;
@@ -49,7 +51,7 @@ public class playerController : MonoBehaviour {
 		airbourne = Physics.Raycast(transform.position, - Vector3.up, raycast);
         Vector2 movement = GamePad.GetLeftStick(controllerNum);
         
-		transform.Translate(movement.x*speed, 0, -movement.y*speed);
+		rb.AddForce(movement.x*speed, 0, -movement.y*speed);
 			
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum)) && isGrounded())

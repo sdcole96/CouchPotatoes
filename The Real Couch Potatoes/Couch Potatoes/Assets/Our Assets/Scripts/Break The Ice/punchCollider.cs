@@ -32,6 +32,7 @@ public class punchCollider : MonoBehaviour {
 			{
 				if (isPunching != true) 
 				{
+					
 					Vector3 dir = col.gameObject.transform.position - transform.parent.position;
 					dir = -dir.normalized;
 					Vector3 punchForce = new Vector3 (-dir.x * force, 5f, -dir.z * force);

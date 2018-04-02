@@ -2127,7 +2127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 124dd42e1a07247fa852c9c9acc98286, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 124dd42e1a07247fa852c9c9acc98286, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3772,7 +3772,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 124dd42e1a07247fa852c9c9acc98286, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 124dd42e1a07247fa852c9c9acc98286, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4088,7 +4088,7 @@ RectTransform:
   m_Children:
   - {fileID: 174793054}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5618,7 +5618,7 @@ RectTransform:
   m_Children:
   - {fileID: 1862945192}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
