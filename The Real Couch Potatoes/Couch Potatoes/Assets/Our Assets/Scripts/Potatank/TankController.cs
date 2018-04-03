@@ -13,6 +13,7 @@ public class TankController : MonoBehaviour {
     public GameObject bullet;
     public GameObject firingPoint;
 	public GameObject explosion;
+	public ParticleSystem frontSmoke, backSmoke;
 	public PlayerIndex pi;
 	public PotatanksGM gm;
 
@@ -33,6 +34,20 @@ public class TankController : MonoBehaviour {
 			//this.transform.Rotate (Vector3.up, 2 * rightStick - 2 * leftStick);
 			this.transform.Translate((-Vector3.forward*leftStick)*.3f);
 			this.transform.Rotate(new Vector3(0f,5f*rightStick,0f));
+			if (leftStick > 0) 
+			{
+				frontSmoke.Play ();
+				backSmoke.Stop ();	}
+			else if (leftStick < 0) 
+			{
+				frontSmoke.Stop ();
+				backSmoke.Play ();
+			}
+			else
+			{
+				frontSmoke.Stop ();
+				backSmoke.Stop ();
+			}
 		}
 			
 		if (canFire && (GamePad.GetButton(CButton.RB, pi) || GamePad.GetButton(PSButton.R1, pi)))
