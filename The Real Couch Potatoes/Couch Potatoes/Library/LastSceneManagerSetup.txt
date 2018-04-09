@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Our Assets/Scenes/Potatanks.unity
+- path: Assets/Our Assets/Scenes/PlayerJoin.unity
   isLoaded: 1
   isActive: 1
