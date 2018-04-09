@@ -9,10 +9,13 @@ public class PotatanksGM : MonoBehaviour {
 	public TankController playerControllers;
 	public int playersLeft;
 
+    public bool gameOver;
+
 
 	// Use this for initialization
 	void Start () 
 	{
+        gameOver = false;
 		playersLeft = GameMaster.activePlayers.Count;
 		for (int i = 0; i < 4; i++)
 		{
@@ -30,6 +33,7 @@ public class PotatanksGM : MonoBehaviour {
 		if (playersLeft == 1) 
 		{
 			StartCoroutine (changeScene (5.0f));
+            gameOver = true;
 		}
 	}
 

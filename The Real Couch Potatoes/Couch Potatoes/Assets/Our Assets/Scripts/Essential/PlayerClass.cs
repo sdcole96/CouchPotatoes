@@ -45,6 +45,10 @@ public class PlayerClass
 	{
 		playerScore = pScore;
 	}
+    public void IncrementPScore()
+    {
+        playerScore++;
+    }
 	public void SetPColor(Color pColor)
 	{
 		playerColor = pColor;

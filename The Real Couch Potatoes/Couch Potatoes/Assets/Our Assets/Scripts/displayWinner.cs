@@ -8,6 +8,10 @@ public class displayWinner : MonoBehaviour {
     public GameObject[] spriteBoxes;
     public GameObject[] winnerBoxes;
     public GameObject gameController;
+    public int minigame; // 1 is Break the Ice, 2 is Shooting Gallery, 3 is Potatanks
+
+    private bool gameIsOver;
+
     public RuntimeAnimatorController redAnim;
     public RuntimeAnimatorController greenAnim;
     public RuntimeAnimatorController blueAnim;
@@ -19,27 +23,70 @@ public class displayWinner : MonoBehaviour {
     public Sprite yellowSprite;
 
     private fallingIce iceController;
+    private PotatanksGM potatanksController;
 
     public bool isSetup;
 
     // Use this for initialization
     void Start () {
         isSetup = false;
-        // Break the Ice
-        iceController = gameController.GetComponent<fallingIce>();
+        gameIsOver = false;
+        if(minigame == 1) // Break the Ice
+        {
+            iceController = gameController.GetComponent<fallingIce>();
+        }
+        else if(minigame == 2) // Shooting Gallery
+        {
+
+        }
+        else if (minigame == 3) // Potatanks
+        {
+            potatanksController = gameController.GetComponent<PotatanksGM>();
+        }
+        
+        
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(iceController.gameOver && !isSetup)
+        if(minigame == 1)
+        {
+            gameIsOver = iceController.gameOver;
+        }
+        else if(minigame == 2)
+        {
+            //
+        }
+        else if (minigame == 3)
+        {
+            gameIsOver = potatanksController.gameOver;
+        }
+
+
+		if(gameIsOver && !isSetup)
         {
             isSetup = true;
             gameObject.transform.GetChild(0).gameObject.SetActive(true); // enable canvas
 
+            int winningPlayerNum = -1; // Temp/Trash value to avoid compiler errors
+            Color winningColor = Color.white; // Temp/Trash value to avoid compiler errors
+
             // Set winner; (Make sure you also check for ties!, might mess with the player numcheck below on Break the Ice)
-            int winningPlayerNum = iceController.players[0].GetComponent<playerController>().playerNum -1;
-            Color winningColor = GameMaster.activePlayers[winningPlayerNum].GetPColor();
+            if (minigame == 1)
+            {
+                winningPlayerNum = iceController.players[0].GetComponent<playerController>().playerNum -1;
+                winningColor = GameMaster.activePlayers[winningPlayerNum].GetPColor();
+            }
+            else if (minigame == 2)
+            {
+
+            }
+            else if (minigame == 3)
+            {
+                //winningPlayerNum = potatanksController.p
+            }
+            
 
             for (int i = 0; i < GameMaster.activePlayers.Count; i++)
             {
@@ -72,5 +119,7 @@ public class displayWinner : MonoBehaviour {
         if (winnersColor == Color.yellow)
             spriteBoxes[winnersNumber].GetComponent<Animator>().runtimeAnimatorController = yellowAnim as RuntimeAnimatorController; // Pop in requested animation
         winnerBoxes[winnersNumber].GetComponent<Text>().enabled = true; // Enable the winners tag over the winner
+        // Here we increment the score
+        GameMaster.activePlayers[winnersNumber].IncrementPScore();
     }
 }

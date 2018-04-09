@@ -3512,7 +3512,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 37433288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e953cae5d209e0b4dbfc47904b271d09, type: 3}
   m_Name: 
@@ -56578,6 +56578,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 966620890}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &980389727
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -702.3993
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1088.7073
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -736.5891
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589435977512478, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114653337258749078, guid: ec74aa1fd8c2b674681207e449e239f3,
+        type: 2}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1869815074}
+    - target: {fileID: 114653337258749078, guid: ec74aa1fd8c2b674681207e449e239f3,
+        type: 2}
+      propertyPath: minigame
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &985742803
 GameObject:
   m_ObjectHideFlags: 0
@@ -89646,6 +89698,7 @@ MonoBehaviour:
   - {fileID: 469518813}
   playerControllers: {fileID: 0}
   playersLeft: 0
+  gameOver: 0
 --- !u!114 &1869815082
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 521}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 583, y: 492}
+  m_MinSize: {x: 581, y: 471}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 12103
+  controlID: 9
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1150
     height: 731
-  m_MinSize: {x: 306, y: 492}
+  m_MinSize: {x: 304, y: 471}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 12104
+  controlID: 10
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,10 +154,10 @@ MonoBehaviour:
     y: 0
     width: 1150
     height: 460
-  m_MinSize: {x: 306, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 304, y: 200}
+  m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 12105
+  controlID: 11
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,8 +176,8 @@ MonoBehaviour:
     y: 0
     width: 239
     height: 460
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -364,9 +364,9 @@ MonoBehaviour:
     height: 439
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2c080000
+    m_SelectedIDs: 902b0000
     m_LastClickedID: 0
-    m_ExpandedIDs: 5046faff2a48faffa095faffa09bfaff1c51feff1a8cfeff9294feff2c25ffff302dffff32b8ffff68e7ffff32f6ffff18fcffff000000000e3a0000d83a0000f6660000b06a0000b46a0000bc6f000042700000e8700000fc73000002740000a4110100
+    m_ExpandedIDs: bcf7fdff3210feff1c3ffeff1a4ffeffb850feff445ffefff274feffd8aafeffb4affeffb0c2feff30e0feffb4c6ffff58c8ffff42ccffffc6f1ffff18fcfffff4ffffff00000000a2c50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -501,20 +501,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Our Assets/Scripts/Essential
+    - Assets/Our Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Our Assets/Scripts/Essential
+  - Assets/Our Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\jsjos\Documents\UnityProjects\CouchPotatoes\The Real
     Couch Potatoes\Couch Potatoes
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 635}
-    m_SelectedIDs: be2b0000
-    m_LastClickedID: 11198
-    m_ExpandedIDs: 00000000a2270000a62700001c2800002428000058280000aa2800000a29000074290000ce2a0000e42a0000002b0000222b0000962b00008c2c0000a02c0000c62c0000da2c0000ea2c00003e2e000026300000aa300000c63000008c310000bc310000ee310000ae320000c8320000303900003239000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 720}
+    m_SelectedIDs: ae280000
+    m_LastClickedID: 10414
+    m_ExpandedIDs: 00000000a6270000aa27000020280000282800005c280000ae2800000e29000078290000d22a0000e82a0000042b0000262b00009a2b0000902c0000a42c0000ca2c0000de2c0000ee2c0000422e00002a300000ae300000ca30000090310000c0310000f2310000b2320000cc320000b8380000ba38000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -542,7 +542,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a2270000a62700001c2800002428000058280000aa2800000a29000074290000ce2a0000e42a0000002b0000222b0000962b00008c2c0000a02c0000c62c0000da2c0000ea2c00003e2e000026300000aa300000c63000008c310000bc310000ee310000ae320000c8320000303900003239000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000a6270000aa27000020280000282800005c280000ae2800000e29000078290000d22a0000e82a0000042b0000262b00009a2b0000902c0000a42c0000ca2c0000de2c0000ee2c0000422e00002a300000ae300000ca30000090310000c0310000f2310000b2320000cc320000b8380000ba380000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
