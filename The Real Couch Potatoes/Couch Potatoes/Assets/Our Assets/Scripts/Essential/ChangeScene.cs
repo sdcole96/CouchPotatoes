@@ -52,7 +52,7 @@ public class ChangeScene : MonoBehaviour {
 
     public void LoadSceneSG()
     {
-        SceneManager.LoadScene("ShootingGalleryOcean");
+        StartCoroutine(FadeThenStart("ShootingGalleryOcean"));
     }
 
 	public void LoadSceneBTI()
@@ -80,8 +80,8 @@ public class ChangeScene : MonoBehaviour {
     }
     IEnumerator FadeThenStart(string sceneName)
     {
+        this.GetComponent<fadeInFadeOut>().FadeIn();
         yield return new WaitForSeconds(2.0f);
-		this.GetComponent<fadeInFadeOut>().FadeIn();
         SceneManager.LoadScene(sceneName);
     }
 }
