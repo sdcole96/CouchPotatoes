@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224029439882401522}
   - component: {fileID: 222652631472669758}
   - component: {fileID: 114416648997421800}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: winnerTxt1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222489046465555544}
   - component: {fileID: 114945851708715646}
   - component: {fileID: 95443198849389626}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spriteImg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 223808032360044510}
   - component: {fileID: 114169178764334272}
   - component: {fileID: 114090812380833140}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 224899272578297298}
   - component: {fileID: 222321095404400524}
   - component: {fileID: 114930708556706352}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 222805446392267600}
   - component: {fileID: 114915348665286208}
   - component: {fileID: 95425754194023134}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spriteImg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 222876016741420684}
   - component: {fileID: 114733057527959906}
   - component: {fileID: 95233824504245208}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spriteImg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 222460971116868284}
   - component: {fileID: 114742275103598628}
   - component: {fileID: 95780477870771006}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: spriteImg4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 224706629963622442}
   - component: {fileID: 222894359587746478}
   - component: {fileID: 114268600453645720}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: winnerTxt2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4589435977512478}
   - component: {fileID: 114653337258749078}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 224733345054328814}
   - component: {fileID: 222622789056182030}
   - component: {fileID: 114721173745246398}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: winnerTxt4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 224512290894249192}
   - component: {fileID: 222842248935362436}
   - component: {fileID: 114324648299774658}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: winnerTxt3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,6 +442,7 @@ MonoBehaviour:
   - {fileID: 1947635492567084}
   - {fileID: 1659588774474778}
   gameController: {fileID: 0}
+  minigame: 1
   redAnim: {fileID: 9100000, guid: 2b1bd9a06efd7e745abe6d62baa2770a, type: 2}
   greenAnim: {fileID: 9100000, guid: ab97bbac5751cde4b85349762d370731, type: 2}
   blueAnim: {fileID: 9100000, guid: 5d52c8591339b4c4197699f742b0a7b6, type: 2}
@@ -880,5 +881,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 495.5, y: 229.17}
+  m_SizeDelta: {x: 495.5, y: 202.07}
   m_Pivot: {x: 0.5, y: 0.5}

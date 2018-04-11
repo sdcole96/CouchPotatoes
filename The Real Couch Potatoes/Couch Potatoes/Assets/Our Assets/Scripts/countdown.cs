@@ -40,7 +40,7 @@ public class countdown : MonoBehaviour {
             
 			foreach (Transform child in transform)
 			{
-                if (child.name != "whitescreen")
+                if (child.name == "MiddleText")
                 {
                     child.GetComponent<Text>().text = "     " + (i).ToString();
                 }
@@ -58,7 +58,7 @@ public class countdown : MonoBehaviour {
         
 		foreach (Transform child in transform)
 		{
-            if (child.name != "whitescreen")
+            if (child.name == "MiddleText")
             {
                 child.GetComponent<Text>().text = "     Go!";
             }

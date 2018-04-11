@@ -14,6 +14,7 @@ public class fallingIce : MonoBehaviour {
 	public bool gameOver = false;
 	public bool penguinDrop = true;
 	public GameObject middleText;
+    public GameObject gameOverText;
 	public float x;
 	public float z;
 
@@ -102,15 +103,16 @@ public class fallingIce : MonoBehaviour {
 			
 			if(t == 0)
 			{
+                //gameOverText.GetComponent<Text>().enabled = true;
+                gameOverText.GetComponent<Text> ().text = "Game Over";
 				if (players.Length == 0)
 				{
-					middleText.GetComponent<Text> ().text = "Tie";
+					
 					StartCoroutine (changeScene (3.0f));
 				} 
 				else 
 				{
 					GameObject winner = players [0];
-					middleText.GetComponent<Text> ().text = winner.gameObject.tag + "Wins!";
 					GameObject g = GameObject.Find ("CutsceneCam");
 
 					if (t == 0)
