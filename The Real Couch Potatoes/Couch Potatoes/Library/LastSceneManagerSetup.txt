@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< Updated upstream
 - path: Assets/Our Assets/Scenes/Potatanks.unity
+=======
+- path: Assets/Our Assets/Scenes/Deep-Fry.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1

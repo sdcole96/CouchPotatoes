@@ -18,7 +18,6 @@ public class start : MonoBehaviour {
 	IEnumerator Bot ()
 	{
 		yield return new WaitForSeconds(1f);
-		Debug.Log ("HEY");
 		this.transform.position = new Vector3 (this.transform.position.x + 1, this.transform.position.y, this.transform.position.z);
 	}
 

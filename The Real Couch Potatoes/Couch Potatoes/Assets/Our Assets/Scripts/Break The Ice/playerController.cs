@@ -19,6 +19,7 @@ public class playerController : MonoBehaviour {
 	public bool speedPowerOn = false;
 	public bool stunned = false;
 
+	public bool[] deepFryInventory = {false,false,false};
 
 	public int playerNum = -1;
     public PlayerIndex controllerNum;
@@ -84,6 +85,14 @@ public class playerController : MonoBehaviour {
 			}
 		}
 
+	}
+
+	public bool deepFry()
+	{
+		bool a = deepFryInventory [0];
+		bool b = deepFryInventory[1];
+		bool c = deepFryInventory[2];
+		return a && b && c;
 	}
 
 	IEnumerator getStunned()
