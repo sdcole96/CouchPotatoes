@@ -1,6 +1,0 @@
-Assets/SkySerie Freebie/FreebieHdri/CloudedSunGlow4k.hdr
-Assets/SkySerie Freebie/FreebieHdri/Cloudymorning4k.hdr
-Assets/SkySerie Freebie/FreebieHdri/CoriolisNight4k.hdr
-Assets/SkySerie Freebie/FreebieHdri/PlanetaryEarth4k.hdr
-Assets/SkySerie Freebie/FreebieHdri/SkyhighFluffycloudField4k.hdr
-Assets/SkySerie Freebie/FreebieHdri/UnderTheSea4k.hdr

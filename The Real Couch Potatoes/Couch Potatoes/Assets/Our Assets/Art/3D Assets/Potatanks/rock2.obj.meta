@@ -21,20 +21,23 @@ ModelImporter:
     2300002: default_MeshPart1
     2300004: default_MeshPart2
     2300006: default_MeshPart3
+    2300008: default
     3300000: default_MeshPart0
     3300002: default_MeshPart1
     3300004: default_MeshPart2
     3300006: default_MeshPart3
+    3300008: default
     4300000: default_MeshPart0
     4300002: default_MeshPart1
     4300004: default_MeshPart2
     4300006: default_MeshPart3
+    4300008: default
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: defaultMat
-    second: {fileID: 2100000, guid: 016360c1867ee4b61b5a3bcc77851078, type: 2}
+    second: {fileID: 2100000, guid: 89ed3fc6e235a42509b2e90b0ef31c2c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -77,6 +80,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
