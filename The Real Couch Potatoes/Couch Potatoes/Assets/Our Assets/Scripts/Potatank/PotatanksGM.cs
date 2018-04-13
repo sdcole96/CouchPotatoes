@@ -7,23 +7,25 @@ public class PotatanksGM : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject[] playerSpawns;
 	public TankController playerControllers;
+	public bool gameOver = false;   
 	public int playersLeft;
-
-    public bool gameOver;
+	public bool isDev = false;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-        gameOver = false;
 		playersLeft = GameMaster.activePlayers.Count;
-		for (int i = 0; i < 4; i++)
+		if (!isDev) 
 		{
-			playerSpawns [i].SetActive (false);
-		}
-		for (int i = 0; i < GameMaster.activePlayers.Count; i++)
-		{
-			playerSpawns [i].SetActive (true);
+			for (int i = 0; i < 4; i++)
+			{
+				playerSpawns [i].SetActive (false);
+			}
+			for (int i = 0; i < GameMaster.activePlayers.Count; i++)
+			{
+				playerSpawns [i].SetActive (true);
+			}
 		}
 	}
 	
@@ -32,8 +34,8 @@ public class PotatanksGM : MonoBehaviour {
 	{
 		if (playersLeft == 1) 
 		{
+			gameOver = true;
 			StartCoroutine (changeScene (5.0f));
-            gameOver = true;
 		}
 	}
 

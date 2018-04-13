@@ -34,10 +34,11 @@ public class TankController : MonoBehaviour {
 			//this.transform.Rotate (Vector3.up, 2 * rightStick - 2 * leftStick);
 			this.transform.Translate((-Vector3.forward*leftStick)*.3f);
 			this.transform.Rotate(new Vector3(0f,5f*rightStick,0f));
-			if (leftStick > 0) 
+			/*if (leftStick > 0) 
 			{
 				frontSmoke.Play ();
-				backSmoke.Stop ();	}
+				backSmoke.Stop ();	
+			}
 			else if (leftStick < 0) 
 			{
 				frontSmoke.Stop ();
@@ -47,14 +48,16 @@ public class TankController : MonoBehaviour {
 			{
 				frontSmoke.Stop ();
 				backSmoke.Stop ();
+			}*/
+
+			if (canFire && (GamePad.GetRightTrigger (pi) > 0))
+			{
+				StartCoroutine (FireRate(1f));
+				Instantiate(bullet, firingPoint.transform.position, firingPoint.transform.rotation);
 			}
 		}
 			
-		if (canFire && (GamePad.GetButton(CButton.RB, pi) || GamePad.GetButton(PSButton.R1, pi)))
-        {
-			StartCoroutine (FireRate(0.5f));
-            Instantiate(bullet, firingPoint.transform.position, firingPoint.transform.rotation);
-        }
+
 
 		if (life <= 0 && !dead) 
 		{

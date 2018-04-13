@@ -16,8 +16,13 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        this.transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        
     }
+
+	void FixedUpdate()
+	{
+		this.transform.Translate(Vector3.forward * Time.deltaTime * speed);
+	}
 
     public IEnumerator DestroyBullet()
     {
@@ -27,15 +32,14 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
+		GameObject exp = Instantiate (explosion, this.gameObject.transform);
+		exp.transform.parent = null;
 		if (col.tag == "Tank")
 		{
 			TankController tc = col.gameObject.GetComponentInParent<TankController> ();
-			GameObject exp = Instantiate (explosion, this.gameObject.transform);
-			exp.transform.parent = null;
 			tc.life--;
 			tc.Hit ();
 			Destroy (this.gameObject);
-			Debug.Log ("Destory");
 		}
 		else
 		{
