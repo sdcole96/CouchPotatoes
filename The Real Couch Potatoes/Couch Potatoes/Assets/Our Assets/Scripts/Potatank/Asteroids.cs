@@ -5,6 +5,7 @@ using UnityEngine;
 public class Asteroids : MonoBehaviour {
 
 	public float x, y, z;
+	public bool moving = true;
 
 	// Use this for initialization
 	void Start () 
@@ -22,7 +23,10 @@ public class Asteroids : MonoBehaviour {
 
 	void FixedUpdate()
 	{
+		if (moving) 
+		{
+			this.transform.Translate(Vector3.left * .5f, Space.World);
+		}
 		this.transform.Rotate(new Vector3(x, y, z));
-		this.transform.Translate(Vector3.left * .5f, Space.World);
 	}
 }

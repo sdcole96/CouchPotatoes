@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4483921600996336}
   - component: {fileID: 114611743086881534}
+  - component: {fileID: 65569925871933344}
   m_Layer: 0
   m_Name: Asteroid 4
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1031400792925278}
   m_Mesh: {fileID: 4300000, guid: 3a939be6fbbaf4d3aa0436f2a5207716, type: 3}
+--- !u!65 &65569925871933344
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369906139947052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114611743086881534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,3 +137,4 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
+  moving: 1
