@@ -17,6 +17,7 @@ Shader "World of Zero/Hologram"
 		ZWrite Off
 		Blend SrcAlpha One
 		Cull Off
+		
 
 		Pass
 		{
@@ -65,10 +66,11 @@ Shader "World of Zero/Hologram"
 				fixed4 col = tex2D(_MainTex, i.uv);
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
-				_Color += fixed4(.1 * _Time.x ,.1,.1,1);
-				col = _Color * max(0, cos(i.objVertex.y * _ScanningFrequency + _Time.x * _ScanningSpeed) + _Bias);
-				//col *= 1 - max(0, cos(i.objVertex.x * _ScanningFrequency + _Time.x * _ScanningSpeed) + 0.9);
-				//col *= 1 - max(0, cos(i.objVertex.z * _ScanningFrequency + _Time.x * _ScanningSpeed) + 0.9);
+
+				col = _Color * max(.1, cos(i.objVertex.y * _ScanningFrequency + _Time.x * _ScanningSpeed) + _Bias);
+				col *= 1 - max(0, cos(i.objVertex.y * _ScanningFrequency + _Time.x * _ScanningSpeed) + 0.9);
+				col *= 1 - max(0, cos(i.objVertex.z * _ScanningFrequency + _Time.x * _ScanningSpeed) + 0.9);
+				col *= 1 - max(0, cos(i.objVertex.x * _ScanningFrequency + _Time.x * _ScanningSpeed) + 0.9);
 				return col;
 			}
 			ENDCG
