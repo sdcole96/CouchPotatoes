@@ -80,6 +80,12 @@ public class ChangeScene : MonoBehaviour {
 		//GetComponent<fadeInFadeOut>().FadeIn();
         float i = 0;
         GameObject g = GameObject.Find("camA1");
+        GameObject[] lights = GameObject.FindGameObjectsWithTag("Light");
+        foreach(GameObject obj in lights)
+        {
+            Debug.Log(obj.name);
+            obj.GetComponent<Light>().enabled = false;
+        }
         yield return new WaitForSeconds(3f);
         while(i<1)
         {
@@ -88,6 +94,7 @@ public class ChangeScene : MonoBehaviour {
             camB.transform.rotation = Quaternion.Lerp(camB.transform.rotation,camA.transform.rotation,i);
             i += .001f;
         }
+
         //LoadSceneMM();
 
     }

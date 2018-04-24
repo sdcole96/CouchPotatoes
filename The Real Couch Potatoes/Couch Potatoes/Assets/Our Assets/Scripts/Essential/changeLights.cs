@@ -6,7 +6,7 @@ public class changeLights : MonoBehaviour {
     private Light lightSource;
     private float duration = 0.1f;
     public float delay;
-    private bool running = false;
+    public bool running = false;
 
 
 	// Use this for initialization

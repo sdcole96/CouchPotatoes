@@ -1969,7 +1969,7 @@ GameObject:
   - component: {fileID: 1066237768}
   m_Layer: 0
   m_Name: orangeLight
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2035,6 +2035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 15
+  running: 0
 --- !u!1 &1071809275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,7 +2353,7 @@ GameObject:
   - component: {fileID: 1106069804}
   m_Layer: 0
   m_Name: redLight
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2418,6 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.1
+  running: 0
 --- !u!1 &1109691146 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: e82e5c4d5791741c79488512e68d5d30, type: 3}
@@ -2535,7 +2537,7 @@ GameObject:
   - component: {fileID: 1148873028}
   m_Layer: 0
   m_Name: pinkLight
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2601,6 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 12
+  running: 0
 --- !u!1 &1190953989 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 4d92b13f97b52354ab926b011d960c66, type: 3}
@@ -3010,7 +3013,7 @@ GameObject:
   - component: {fileID: 1341775424}
   m_Layer: 0
   m_Name: greenLight
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3076,6 +3079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 6
+  running: 0
 --- !u!1 &1414895197
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3298,7 @@ GameObject:
   - component: {fileID: 1518741221}
   m_Layer: 0
   m_Name: blueLight
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3360,6 +3364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
+  running: 0
 --- !u!1 &1520691807
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,7 +3818,7 @@ GameObject:
   - component: {fileID: 1625941032}
   m_Layer: 0
   m_Name: yellowLight
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3879,6 +3884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 9
+  running: 0
 --- !u!1001 &1635136915
 Prefab:
   m_ObjectHideFlags: 0
@@ -4630,6 +4636,7 @@ GameObject:
   - component: {fileID: 1861353174}
   - component: {fileID: 1861353175}
   - component: {fileID: 1861353176}
+  - component: {fileID: 1861353177}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4807,6 +4814,18 @@ MonoBehaviour:
   pointC: {fileID: 1261016368}
   floor: {fileID: 672612846}
   work: 0
+--- !u!135 &1861353177
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1861353167}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1862668103
 GameObject:
   m_ObjectHideFlags: 0
