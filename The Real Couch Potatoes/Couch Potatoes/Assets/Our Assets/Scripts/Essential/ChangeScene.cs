@@ -10,9 +10,6 @@ public class ChangeScene : MonoBehaviour {
     public XboxController gamepad = new XboxController();
 	public Button currentButton;
 	public Button[] buttons;
-    public Camera camA;
-    public Camera camB;
-
 
     public bool isTransitioning = false; // to indicated whether or not we will be transitioning to a new scene
 	public bool isMainMenu = false;
@@ -77,25 +74,8 @@ public class ChangeScene : MonoBehaviour {
     {
 		this.GetComponent<TVfade> ().work = true;
         yield return new WaitForSeconds(2.5f);
-		//GetComponent<fadeInFadeOut>().FadeIn();
-        float i = 0;
-        GameObject g = GameObject.Find("camA1");
-        GameObject[] lights = GameObject.FindGameObjectsWithTag("Light");
-        foreach(GameObject obj in lights)
-        {
-            Debug.Log(obj.name);
-            obj.GetComponent<Light>().enabled = false;
-        }
-        yield return new WaitForSeconds(3f);
-        while(i<1)
-        {
-            yield return new WaitForSeconds(.01f);
-            camB.transform.position = Vector3.Lerp(camB.transform.position,g.transform.position,i);
-            camB.transform.rotation = Quaternion.Lerp(camB.transform.rotation,camA.transform.rotation,i);
-            i += .001f;
-        }
-
-        //LoadSceneMM();
+		GetComponent<fadeInFadeOut>().FadeIn();
+        LoadSceneMM();
 
     }
     IEnumerator FadeThenStart(string sceneName)
