@@ -23,6 +23,7 @@ public class displayWinner : MonoBehaviour {
     public Sprite yellowSprite;
 
     private fallingIce iceController;
+    private CarnivalShootGM carnivalController;
     private PotatanksGM potatanksController;
 
     public bool isSetup;
@@ -40,7 +41,7 @@ public class displayWinner : MonoBehaviour {
         }
         else if(minigame == 2) // Shooting Gallery
         {
-
+            carnivalController = gameController.GetComponent<CarnivalShootGM>();
         }
         else if (minigame == 3) // Potatanks
         {
@@ -75,7 +76,7 @@ public class displayWinner : MonoBehaviour {
         }
         else if(minigame == 2)
         {
-            //
+            gameIsOver = carnivalController.gameOver;
         }
         else if (minigame == 3)
         {
@@ -90,7 +91,8 @@ public class displayWinner : MonoBehaviour {
             if(minigame == 4) // disable mainCanvas
             {
                 mainCanvas.SetActive(false);
-                Debug.Log("EHAOIRHIOAWHIOAWIOEHIOAWE");
+                GameObject.FindGameObjectWithTag("ColorLight").GetComponent<Light>().color = new Color((float)0.22222222222, (float)0.10222222222, 1, 1);
+                
             }
                
 
@@ -107,7 +109,8 @@ public class displayWinner : MonoBehaviour {
             }
             else if (minigame == 2)
             {
-
+                winningPlayerNum = carnivalController.winnerIndex;
+                winningColor = GameMaster.activePlayers[winningPlayerNum].GetPColor();
             }
             else if (minigame == 3)
             {

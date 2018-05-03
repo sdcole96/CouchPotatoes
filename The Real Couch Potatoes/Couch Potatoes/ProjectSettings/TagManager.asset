@@ -20,6 +20,7 @@ TagManager:
   - P5HUD
   - Falling
   - Tank
+  - ColorLight
   layers:
   - Default
   - TransparentFX
