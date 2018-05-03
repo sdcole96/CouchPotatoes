@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class playerController : MonoBehaviour {
 
 	private GameObject myHUD;
-	public float raycast = .898f;
+	private float raycast = .75f;
 	public float speed;
 	public int jumpForce = 300;
 	public float gravity;
@@ -49,7 +49,7 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		airbourne = Physics.Raycast(transform.position, - Vector3.up, raycast);
+        airbourne = Physics.Raycast(transform.position, -Vector3.up, raycast);
         Vector2 movement = GamePad.GetLeftStick(controllerNum);
 		if (!stunned) {
 			if (!speedPowerOn)
@@ -63,9 +63,8 @@ public class playerController : MonoBehaviour {
 		}
 
 		if((GamePad.GetButton(CButton.A, controllerNum) || GamePad.GetButton(PSButton.Cross, controllerNum)) && isGrounded())
-        { 
-			jump ();
-			airbourne = true;
+        {
+            jump();
 		} 
 
 	
@@ -144,7 +143,8 @@ public class playerController : MonoBehaviour {
 
 	private void jump()
 	{
-		if (isGrounded ()) {
+		if (isGrounded ())
+        {
 			rb.AddForce (new Vector3 (0, jumpForce, 0));
 		}
 	}

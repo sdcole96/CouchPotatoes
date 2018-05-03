@@ -21,6 +21,7 @@ TagManager:
   - Falling
   - Tank
   - ColorLight
+  - Penguin
   layers:
   - Default
   - TransparentFX

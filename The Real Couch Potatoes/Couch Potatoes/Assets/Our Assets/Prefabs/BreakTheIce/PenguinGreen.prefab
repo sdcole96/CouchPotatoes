@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 95760995414449602}
   m_Layer: 0
   m_Name: PenguinGreen
-  m_TagString: Untagged
+  m_TagString: Penguin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -27,7 +27,7 @@ public class punchCollider : MonoBehaviour {
 	void OnTriggerEnter(Collider col) 
 	{
 		
-			if (col.gameObject.tag == "Player" && col.gameObject.name != this.transform.root.name) {
+			if ((col.gameObject.tag == "Player" || col.gameObject.tag == "Penguin") && col.gameObject.name != this.transform.root.name) {
 				if (leftAnim.GetCurrentAnimatorStateInfo (0).IsName ("LeftPunch") || rightAnim.GetCurrentAnimatorStateInfo (0).IsName ("RightPunch")) {
 					if (isPunching != true) {
 						
