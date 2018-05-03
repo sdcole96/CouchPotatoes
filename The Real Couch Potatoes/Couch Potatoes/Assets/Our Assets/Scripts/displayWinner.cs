@@ -27,6 +27,9 @@ public class displayWinner : MonoBehaviour {
 
     public bool isSetup;
 
+    int winPlayerNumGameOver; // Used for game over screen on main menu
+    public GameObject mainCanvas;
+
     // Use this for initialization
     void Start () {
         isSetup = false;
@@ -43,8 +46,24 @@ public class displayWinner : MonoBehaviour {
         {
             potatanksController = gameController.GetComponent<PotatanksGM>();
         }
-        
-        
+        else if (minigame == 4) // Game Over 
+        {
+            for (int i = 0; i < GameMaster.activePlayers.Count; i++) 
+            {
+                int winnerScore = GameMaster.activePlayers[i].GetPScore(); // This does not handle ties yet :-/
+                if(winnerScore >= 3)
+                {
+                    winPlayerNumGameOver = i;
+                    gameIsOver = true;
+                    break;
+                }
+                
+            }
+                
+        }
+
+
+
 
     }
 	
@@ -67,6 +86,14 @@ public class displayWinner : MonoBehaviour {
 		if(gameIsOver && !isSetup)
         {
             isSetup = true;
+
+            if(minigame == 4) // disable mainCanvas
+            {
+                mainCanvas.SetActive(false);
+                Debug.Log("EHAOIRHIOAWHIOAWIOEHIOAWE");
+            }
+               
+
             gameObject.transform.GetChild(0).gameObject.SetActive(true); // enable canvas
 
             int winningPlayerNum = -1; // Temp/Trash value to avoid compiler errors
@@ -86,7 +113,11 @@ public class displayWinner : MonoBehaviour {
             {
                 //winningPlayerNum = potatanksController.p
             }
-            
+            else if (minigame == 4)
+            {
+                winningPlayerNum = winPlayerNumGameOver;
+                winningColor = GameMaster.activePlayers[winningPlayerNum].GetPColor();
+            }
 
             for (int i = 0; i < GameMaster.activePlayers.Count; i++)
             {
