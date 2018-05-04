@@ -25,6 +25,7 @@ public class displayWinner : MonoBehaviour {
     private fallingIce iceController;
     private CarnivalShootGM carnivalController;
     private PotatanksGM potatanksController;
+    private kitchenGame kitchenController;
 
     public bool isSetup;
 
@@ -35,11 +36,11 @@ public class displayWinner : MonoBehaviour {
     void Start () {
         isSetup = false;
         gameIsOver = false;
-        if(minigame == 1) // Break the Ice
+        if (minigame == 1) // Break the Ice
         {
             iceController = gameController.GetComponent<fallingIce>();
         }
-        else if(minigame == 2) // Shooting Gallery
+        else if (minigame == 2) // Shooting Gallery
         {
             carnivalController = gameController.GetComponent<CarnivalShootGM>();
         }
@@ -47,20 +48,25 @@ public class displayWinner : MonoBehaviour {
         {
             potatanksController = gameController.GetComponent<PotatanksGM>();
         }
+        else if (minigame == 5) // Deep Fry
+        {
+            kitchenController = gameController.GetComponent<kitchenGame>();
+        }
+
         else if (minigame == 4) // Game Over 
         {
-            for (int i = 0; i < GameMaster.activePlayers.Count; i++) 
+            for (int i = 0; i < GameMaster.activePlayers.Count; i++)
             {
                 int winnerScore = GameMaster.activePlayers[i].GetPScore(); // This does not handle ties yet :-/
-                if(winnerScore >= 3)
+                if (winnerScore >= 3)
                 {
                     winPlayerNumGameOver = i;
                     gameIsOver = true;
                     break;
                 }
-                
+
             }
-                
+
         }
 
 
@@ -70,17 +76,21 @@ public class displayWinner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(minigame == 1)
+        if (minigame == 1)
         {
             gameIsOver = iceController.gameOver;
         }
-        else if(minigame == 2)
+        else if (minigame == 2)
         {
             gameIsOver = carnivalController.gameOver;
         }
         else if (minigame == 3)
         {
             gameIsOver = potatanksController.gameOver;
+        }
+        else if (minigame == 4) // Deep Fry
+        {
+            gameIsOver = kitchenController.gameOver;
         }
 
 
@@ -115,6 +125,11 @@ public class displayWinner : MonoBehaviour {
             else if (minigame == 3)
             {
                 //winningPlayerNum = potatanksController.p
+            }
+            else if (minigame == 5) //  Deep Fry
+            {
+                winningPlayerNum = kitchenController.players[0].GetComponent<playerController>().playerNum - 1;
+                winningColor = GameMaster.activePlayers[winningPlayerNum].GetPColor();
             }
             else if (minigame == 4)
             {
