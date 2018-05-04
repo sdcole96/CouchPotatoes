@@ -88,7 +88,7 @@ public class displayWinner : MonoBehaviour {
         {
             gameIsOver = potatanksController.gameOver;
         }
-        else if (minigame == 4) // Deep Fry
+        else if (minigame == 5) // Deep Fry
         {
             gameIsOver = kitchenController.gameOver;
         }

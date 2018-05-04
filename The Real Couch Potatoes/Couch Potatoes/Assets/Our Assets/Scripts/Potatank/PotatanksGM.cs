@@ -25,6 +25,7 @@ public class PotatanksGM : MonoBehaviour {
 			for (int i = 0; i < GameMaster.activePlayers.Count; i++)
 			{
 				playerSpawns [i].SetActive (true);
+				playerSpawns[i].gameObject.GetComponent<TankController>().pi = GameMaster.activePlayers[i].GetPIndex();
 			}
 		}
 	}
