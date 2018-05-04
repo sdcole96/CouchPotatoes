@@ -69,6 +69,10 @@ public class ChangeScene : MonoBehaviour {
 	{
         StartCoroutine(FadeThenStart("MainMenu"));
 	}
+    public void LoadSceneDF()
+    {
+        StartCoroutine(FadeThenStart("Deep-Fry"));
+    }
 
     IEnumerator LoadSceneAfterTransition()
     {
