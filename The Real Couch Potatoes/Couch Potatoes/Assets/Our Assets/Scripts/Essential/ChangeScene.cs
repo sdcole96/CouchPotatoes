@@ -73,6 +73,10 @@ public class ChangeScene : MonoBehaviour {
     {
         StartCoroutine(FadeThenStart("Deep-Fry"));
     }
+    public void LoadSceneMainScreen(fadeInFadeOut fifo)
+    {
+        StartCoroutine(ReturnToMenuAfterWin(fifo));
+    }
 
     IEnumerator LoadSceneAfterTransition()
     {
@@ -88,4 +92,11 @@ public class ChangeScene : MonoBehaviour {
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene(sceneName);
     }
+    IEnumerator ReturnToMenuAfterWin(fadeInFadeOut fifo)
+    {
+        fifo.FadeIn();
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("PlayerJoin");
+    }
+
 }

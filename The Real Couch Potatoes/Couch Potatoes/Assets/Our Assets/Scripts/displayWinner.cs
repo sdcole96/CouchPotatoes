@@ -136,6 +136,7 @@ public class displayWinner : MonoBehaviour {
             {
                 winningPlayerNum = winPlayerNumGameOver;
                 winningColor = GameMaster.activePlayers[winningPlayerNum].GetPColor();
+
             }
 
             for (int i = 0; i < GameMaster.activePlayers.Count; i++)
@@ -154,6 +155,11 @@ public class displayWinner : MonoBehaviour {
             }
 
             StartCoroutine(WaitThenDisplayWinner(winningPlayerNum, winningColor));
+            if (minigame == 4) // If on win screen, reset the GameMaster before going back to the main menu
+            {
+                StartCoroutine(ResetAndGoBackToMenu());
+            }
+           
         }
 	}
 
@@ -170,6 +176,17 @@ public class displayWinner : MonoBehaviour {
             spriteBoxes[winnersNumber].GetComponent<Animator>().runtimeAnimatorController = yellowAnim as RuntimeAnimatorController; // Pop in requested animation
         winnerBoxes[winnersNumber].GetComponent<Text>().enabled = true; // Enable the winners tag over the winner
         // Here we increment the score
-        GameMaster.activePlayers[winnersNumber].IncrementPScore();
+        if (minigame != 4) // Don't increment on Main Screen
+            GameMaster.activePlayers[winnersNumber].IncrementPScore();
+        
+    }
+
+    IEnumerator ResetAndGoBackToMenu()
+    {
+        fadeInFadeOut fifo =  this.GetComponentInChildren<fadeInFadeOut>();
+        GameMaster.Reset(); // Reset variables
+        yield return new WaitForSeconds(7.0f);
+        GameObject.Find("Main Camera").GetComponent<ChangeScene>().LoadSceneMainScreen(fifo);
+        Debug.Log("After Load");
     }
 }

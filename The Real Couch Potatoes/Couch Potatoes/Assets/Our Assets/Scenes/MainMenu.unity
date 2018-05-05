@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c688298cdba1342bad39a01c86b6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bn: {fileID: 122949646}
 --- !u!1 &303453066
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,28 +825,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114653337258749078, guid: ec74aa1fd8c2b674681207e449e239f3,
+        type: 2}
+      propertyPath: mainCanvas
+      value: 
+      objectReference: {fileID: 1125843808}
     - target: {fileID: 1601529196355828, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
       propertyPath: m_Name
       value: GameOverCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1104987953967618, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1601529196355828, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114653337258749078, guid: ec74aa1fd8c2b674681207e449e239f3,
         type: 2}
       propertyPath: minigame
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114653337258749078, guid: ec74aa1fd8c2b674681207e449e239f3,
-        type: 2}
-      propertyPath: mainCanvas
-      value: 
-      objectReference: {fileID: 1125843808}
     - target: {fileID: 114930708556706352, guid: ec74aa1fd8c2b674681207e449e239f3,
         type: 2}
       propertyPath: m_Color.a

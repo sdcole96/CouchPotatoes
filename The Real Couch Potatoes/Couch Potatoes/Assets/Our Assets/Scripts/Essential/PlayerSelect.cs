@@ -13,7 +13,7 @@ public class PlayerSelect : MonoBehaviour
     public Text[] pressATextBoxes;
 	public Image[] spriteImages;
     private Color[] colorArray;
-    public ArrayList remainingSprites = new ArrayList();
+    public ArrayList remainingSprites;
 	public GameObject colorSelector;
 
     public bool playerJoined1 = false;
@@ -30,6 +30,7 @@ public class PlayerSelect : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        remainingSprites = new ArrayList();
         // Set your colors here;
         colorArray = new Color[4];
         colorArray[0] = Color.red;

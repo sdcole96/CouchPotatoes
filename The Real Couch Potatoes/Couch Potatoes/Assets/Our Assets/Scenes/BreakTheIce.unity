@@ -3824,10 +3824,6 @@ Prefab:
       propertyPath: minigame
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1104987953967618, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec74aa1fd8c2b674681207e449e239f3, type: 2}
   m_IsPrefabParent: 0

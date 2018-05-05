@@ -32,4 +32,9 @@ public class GameMaster : MonoBehaviour
 		int newScore = activePlayers [playerNum].GetPScore () + points;
 		activePlayers[playerNum].SetPScore(newScore);
     }
+
+    public static void Reset()
+    {
+        activePlayers = new List<PlayerClass>();
+    }
 }
