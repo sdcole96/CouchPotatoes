@@ -9,13 +9,17 @@ public class TankController : MonoBehaviour {
 	public bool stunned = false;
 	public bool canFire = true;
 	public bool dead = false;
+	public bool rightFire = true;
 	public int life = 3;
     public GameObject bullet;
-    public GameObject firingPoint;
+    public GameObject[] firingPoints;
 	public GameObject explosion;
-	public ParticleSystem frontSmoke, backSmoke;
 	public PlayerIndex pi;
 	public PotatanksGM gm;
+	public GameObject[] hearts;
+	public int playerNum;
+
+	public float trigger = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -34,26 +38,20 @@ public class TankController : MonoBehaviour {
 			//this.transform.Rotate (Vector3.up, 2 * rightStick - 2 * leftStick);
 			this.transform.Translate((-Vector3.forward*leftStick)*.3f);
 			this.transform.Rotate(new Vector3(0f,5f*rightStick,0f));
-			/*if (leftStick > 0) 
-			{
-				frontSmoke.Play ();
-				backSmoke.Stop ();	
-			}
-			else if (leftStick < 0) 
-			{
-				frontSmoke.Stop ();
-				backSmoke.Play ();
-			}
-			else
-			{
-				frontSmoke.Stop ();
-				backSmoke.Stop ();
-			}*/
-
-			if (canFire && (GamePad.GetRightTrigger (pi) > 0))
+			trigger = GamePad.GetRightTrigger (pi);
+			if (canFire && GamePad.GetButton(CButton.RB, pi))
 			{
 				StartCoroutine (FireRate(1f));
-				Instantiate(bullet, firingPoint.transform.position, firingPoint.transform.rotation);
+				if (rightFire) 
+				{
+					Instantiate (bullet, firingPoints [0].transform.position, firingPoints [0].transform.rotation);
+					rightFire = false;
+				}
+				else 
+				{
+					Instantiate (bullet, firingPoints [1].transform.position, firingPoints [1].transform.rotation);
+					rightFire = true;
+				}
 			}
 		}
 			
@@ -71,6 +69,18 @@ public class TankController : MonoBehaviour {
 	public void Hit()
 	{
 		StartCoroutine (Stun ());
+		if (life == 2) 
+		{
+			hearts [2].SetActive (false);	
+		}
+		else if (life == 1) 
+		{
+			hearts [1].SetActive (false);	
+		} 
+		else 
+		{
+			hearts [0].SetActive (false);	
+		}
 	}
 
 	public IEnumerator Stun()

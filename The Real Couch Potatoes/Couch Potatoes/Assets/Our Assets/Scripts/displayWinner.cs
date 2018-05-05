@@ -124,7 +124,8 @@ public class displayWinner : MonoBehaviour {
             }
             else if (minigame == 3)
             {
-                //winningPlayerNum = potatanksController.p
+				winningPlayerNum = potatanksController.winningIndex - 1;
+				winningColor = GameMaster.activePlayers[winningPlayerNum].GetPColor();
             }
             else if (minigame == 5) //  Deep Fry
             {

@@ -32,17 +32,14 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
-		GameObject exp = Instantiate (explosion, this.gameObject.transform);
-		exp.transform.parent = null;
+		
 		if (col.tag == "Tank")
 		{
+			GameObject exp = Instantiate (explosion, this.gameObject.transform);
+			exp.transform.parent = null;
 			TankController tc = col.gameObject.GetComponentInParent<TankController> ();
 			tc.life--;
 			tc.Hit ();
-			Destroy (this.gameObject);
-		}
-		else
-		{
 			Destroy (this.gameObject);
 		}
 	}
