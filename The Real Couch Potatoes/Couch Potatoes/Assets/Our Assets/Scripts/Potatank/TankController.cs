@@ -41,6 +41,7 @@ public class TankController : MonoBehaviour {
 			trigger = GamePad.GetRightTrigger (pi);
 			if (canFire && GamePad.GetButton(CButton.RB, pi))
 			{
+                //Debug.Log("This player num is " + playerNum);
 				StartCoroutine (FireRate(1f));
 				if (rightFire) 
 				{
@@ -64,6 +65,13 @@ public class TankController : MonoBehaviour {
 			dead = true;
 			StartCoroutine (TankDeath ());
 		}
+
+        /*
+        if (gm.gameOver)
+        {
+            gm.winningIndex = playerNum;
+        }
+        */
     }
 
 	public void Hit()
@@ -103,6 +111,7 @@ public class TankController : MonoBehaviour {
 		GameObject exp = Instantiate (explosion, this.gameObject.transform);
 		exp.transform.parent = null;
 		yield return new WaitForSeconds (0.5f);
+        gm.players.Remove(this.gameObject);
 		Destroy (this.gameObject);
 	}
 }

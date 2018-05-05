@@ -7703,11 +7703,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114653337258749078, guid: ec74aa1fd8c2b674681207e449e239f3,
         type: 2}
-      propertyPath: minigame
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114653337258749078, guid: ec74aa1fd8c2b674681207e449e239f3,
-        type: 2}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 1869815074}
@@ -16648,6 +16643,7 @@ MonoBehaviour:
   - {fileID: 1351346682}
   - {fileID: 604346631}
   - {fileID: 100751682}
+  players: []
   huds:
   - {fileID: 73647081}
   - {fileID: 622621905}
@@ -16659,6 +16655,7 @@ MonoBehaviour:
   isDev: 0
   title: {fileID: 1027430123}
   winningIndex: 0
+  alreadyCheckedWinner: 0
 --- !u!114 &1869815082
 MonoBehaviour:
   m_ObjectHideFlags: 0

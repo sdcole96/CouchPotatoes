@@ -8,6 +8,7 @@ public class PotatanksGM : MonoBehaviour {
 
 	public GameObject playerPrefab;
 	public GameObject[] playerSpawns;
+    public List<GameObject> players;
 	public GameObject[] huds;
 	public TankController playerControllers;
 	public bool gameOver = false;   
@@ -16,11 +17,14 @@ public class PotatanksGM : MonoBehaviour {
 	public Text title;
 	public int winningIndex;
 
+    public bool alreadyCheckedWinner;
+
 
 	// Use this for initialization
 	void Start () 
 	{
 		playersLeft = GameMaster.activePlayers.Count;
+        alreadyCheckedWinner = false;
 		StartCoroutine (turnOffTitle ());
 		if (!isDev) 
 		{
@@ -33,6 +37,7 @@ public class PotatanksGM : MonoBehaviour {
 			{
 				huds [i].SetActive (true);
 				playerSpawns [i].SetActive (true);
+                players.Add(playerSpawns[i]);
 				playerSpawns[i].gameObject.GetComponent<TankController>().pi = GameMaster.activePlayers[i].GetPIndex();
 			}
 		}
@@ -41,26 +46,16 @@ public class PotatanksGM : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (playersLeft == 1) 
+		if (!alreadyCheckedWinner && players.Count == 1 && playersLeft == 1 && !gameOver) 
 		{
-			gameOver = true;
-			StartCoroutine (changeScene (5.0f));
-			for (int i = 0; i < GameMaster.activePlayers.Count; i++) 
-			{
-				try
-				{
-					winningIndex = playerSpawns [i].GetComponent<TankController> ().playerNum;;
-					if (winningIndex >= 0) 
-					{
-						break;
-					}
-				}
-				catch(Exception e)
-				{
+            alreadyCheckedWinner = true;
+            winningIndex = players[0].GetComponent<TankController>().playerNum;
+            Debug.Log(winningIndex);
+            gameOver = true;
+            StartCoroutine (changeScene (5.0f));
 
-				}
-			}
-		
+            
+            
 		}
 	}
 
@@ -96,7 +91,15 @@ public class PotatanksGM : MonoBehaviour {
 
 	IEnumerator turnOffTitle()
 	{
+        foreach (GameObject ps in playerSpawns) {
+            ps.GetComponent<TankController>().enabled = false;
+        }
 		yield return new WaitForSeconds (5f);
-		title.enabled = false;
+        foreach (GameObject ps in playerSpawns)
+        {
+            ps.GetComponent<TankController>().enabled = true;
+        }
+        title.enabled = false;
+
 	}
 }
