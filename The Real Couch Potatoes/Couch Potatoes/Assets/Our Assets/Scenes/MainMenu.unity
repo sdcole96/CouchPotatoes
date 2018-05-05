@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImageObj: {fileID: 510143485}
-  newTextureToChangeTo: {fileID: 2800000, guid: 9397647f3b4583e4da1090d5f9e3c8b2,
+  newTextureToChangeTo: {fileID: 2800000, guid: 211eceed12cae8a4886774d09f2d125b,
     type: 3}
   colorChoice: {r: 0.61960787, g: 0.21960784, b: 0.5882353, a: 0}
   lightToChange: {fileID: 417607329}
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ImageObj: {fileID: 510143485}
-  newTextureToChangeTo: {fileID: 2800000, guid: 9397647f3b4583e4da1090d5f9e3c8b2,
+  newTextureToChangeTo: {fileID: 2800000, guid: 2e079b89c80b6a7479e2da69f4114a59,
     type: 3}
   colorChoice: {r: 0.5593606, g: 0.58823526, b: 0.06487888, a: 0}
   lightToChange: {fileID: 417607329}
@@ -1683,7 +1683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Potatanks
+  m_Text: Spudnik
 --- !u!222 &1049796843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.61960787, g: 0.21960782, b: 0.6085735, a: 1}
+    m_HighlightedColor: {r: 0.09019608, g: 0.36862746, b: 0.13725491, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2057,7 +2057,7 @@ MonoBehaviour:
   ImageObj: {fileID: 510143485}
   newTextureToChangeTo: {fileID: 2800000, guid: 17064cb92cd8f6e429f2656f1186490c,
     type: 3}
-  colorChoice: {r: 0.61764705, g: 0.21799307, b: 0.59008473, a: 0}
+  colorChoice: {r: 0.089208476, g: 0.36764705, b: 0.13721514, a: 0}
   lightToChange: {fileID: 417607329}
 --- !u!1 &1585363729
 GameObject:
